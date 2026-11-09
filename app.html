@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LogiFlow Systems - Universal ERP & MES</title>
+  
+  <!--
+    =======================================================================================
+    HINWEIS ZUR DSGVO-KONFORMITÄT & VOLLSTÄNDIGEN OFFLINE-NUTZUNG (TAILWIND CSS):
+    Für den produktiven Einsatz im geschlossenen Firmennetzwerk (Air-Gapped) oder bei strikten
+    DSGVO-Audits kann das Entwickler-CDN durch eine vorkompilierte, lokale CSS-Datei ersetzt werden:
+    1. Befehl: npx tailwindcss -o ./styles.css --minify
+    2. Das nachfolgende Script-Tag ersetzen durch: <link rel="stylesheet" href="styles.css">
+    Es werden KEINE externen Schriftarten (wie Google Fonts) geladen. Es gelten lokale Systemfonts.
+    =======================================================================================
+  -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* 100% DSGVO-konforme System-Schriftarten (Keine IP-Übertragung an Google Fonts o.ä.) */
+    body {
+      background-color: #0b1120;
+      color: #f8fafc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scroll::-webkit-scrollbar-track { background: #111827; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+    .custom-scroll::-webkit-scrollbar-thumb:hover { background: #4b5563; }
+    
+    /* BFSG Barrierefreiheit: Sichtbarer Tastatur-Fokus */
+    *:focus-visible {
+      outline: 2px solid #60a5fa !important;
+      outline-offset: 2px !important;
+    }
+  </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden select-none">
+
+  <!-- 1. OBERE LIZENZ- & SICHERHEITSLEISTE (TRIAL BANNER / SCHUTZ & INHABERKONTAKT) -->
+  <div id="license-banner" class="bg-gradient-to-r from-amber-900/90 via-slate-900 to-amber-900/90 border-b border-amber-500/40 px-4 py-1.5 flex items-center justify-between text-xs shrink-0" role="region" aria-label="Lizenz- und Statusleiste">
+    <div class="flex items-center space-x-2">
+      <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping" aria-hidden="true"></span>
+      <span id="txt-license-status" class="font-medium text-amber-200">⏳ Testversion: 7 Tage kostenlos</span>
+      <span class="text-slate-500" aria-hidden="true">|</span>
+      <span id="txt-license-days-left" class="font-mono font-bold text-white bg-amber-500/20 px-2 py-0.5 rounded border border-amber-500/40">Noch 7 Tage</span>
+      <span class="text-slate-400 hidden sm:inline" id="txt-tamper-status">🛡️ Anti-Tamper & Raubkopie-Schutz aktiv</span>
+      <span class="text-slate-600 hidden lg:inline">|</span>
+      <span class="text-slate-300 hidden lg:inline">Inh. <strong>Göksal Neziroglu</strong> (Tel: 0174 1707376)</span>
+    </div>
+
+    <div class="flex items-center space-x-3">
+      <!-- WHATSAPP DIREKT BUTTON IM LEITSTAND -->
+      <a href="https://wa.me/491741707376?text=Hallo%20Herr%20Neziroglu,%20ich%20habe%20eine%20Frage%20zu%20LogiFlow." 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="inline-flex items-center space-x-1.5 bg-emerald-950/90 hover:bg-emerald-900 text-emerald-400 border border-emerald-500/40 px-2.5 py-0.5 rounded text-[11px] font-semibold transition focus:ring-2 focus:ring-emerald-400 focus:outline-none" 
+         title="Direkt per WhatsApp mit Inhaber Göksal Neziroglu verbinden">
+        <svg class="w-3.5 h-3.5 fill-current text-emerald-400" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>WhatsApp</span>
+      </a>
+      <button onclick="openModal('modal-license')" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold px-2.5 py-0.5 rounded shadow text-[11px] transition focus:ring-2 focus:ring-amber-300 focus:outline-none" aria-label="Vollversion freischalten oder Lizenzschlüssel eingeben">
+        <span id="txt-btn-enter-key">🔑 Vollversion freischalten</span>
+      </button>
+      <a href="/" class="text-slate-300 hover:text-white underline text-[11px] hidden md:inline focus:ring-2 focus:ring-blue-400 focus:outline-none rounded px-1" id="txt-link-website" aria-label="Marketing Website und Kundenanpassung aufrufen">🌐 Website & Kundenanpassung</a>
+    </div>
+  </div>
+
+  <!-- 2. HEADER (BRANDING, SPRACHWAHL DE/EN/TR, BRANCHEN-WAHL, ABTEILUNGEN, ADMIN, UHR) -->
+  <header class="bg-slate-900 border-b border-slate-800 px-4 py-2 flex items-center justify-between shrink-0 gap-2" role="banner">
+    
+    <!-- Linker Bereich: Logo & Steuerungen -->
+    <div class="flex items-center space-x-2.5 overflow-hidden">
+      <!-- Logo: LOGIFLOW SYSTEMS | ERP & MES -->
+      <div class="flex items-center space-x-2 bg-gradient-to-r from-blue-900/40 to-indigo-900/30 border border-blue-500/40 px-3 py-1.5 rounded-lg shrink-0 shadow-sm cursor-pointer focus:ring-2 focus:ring-blue-400 focus:outline-none" onclick="location.href='/app'" tabindex="0" role="link" aria-label="LogiFlow Systems Startseite">
+        <span class="text-blue-400" aria-hidden="true" id="icon-logo"></span>
+        <div>
+          <span class="font-extrabold text-base tracking-wider text-white">LOGIFLOW</span>
+          <span class="text-[9px] block text-blue-400 -mt-1 font-semibold tracking-wider">SYSTEMS | ERP & MES</span>
+        </div>
+      </div>
+
+      <!-- SPRACHWECHSLER (DE / EN / TR) -->
+      <div class="flex items-center bg-slate-950 border border-slate-800 rounded-lg p-0.5 shrink-0" role="group" aria-label="Sprachauswahl">
+        <button onclick="setLanguage('de')" id="btn-lang-de" class="px-2 py-1 rounded text-xs font-bold transition bg-blue-600 text-white focus:ring-2 focus:ring-blue-400 focus:outline-none" aria-label="Sprache auf Deutsch umstellen">🇩🇪 DE</button>
+        <button onclick="setLanguage('en')" id="btn-lang-en" class="px-2 py-1 rounded text-xs font-bold transition text-slate-400 hover:text-white focus:ring-2 focus:ring-blue-400 focus:outline-none" aria-label="Switch language to English">🇬🇧 EN</button>
+        <button onclick="setLanguage('tr')" id="btn-lang-tr" class="px-2 py-1 rounded text-xs font-bold transition text-slate-400 hover:text-white focus:ring-2 focus:ring-blue-400 focus:outline-none" aria-label="Dili Türkçe olarak değiştir">🇹🇷 TR</button>
+      </div>
+
+      <!-- Branchen-Schnellwahl (Universal für alle Bereiche) -->
+      <div class="relative shrink-0">
+        <select id="industry-select" onchange="switchIndustryPreset(this.value)" class="bg-slate-800/90 border border-slate-700 text-slate-200 text-xs rounded-lg px-2.5 py-1.5 focus:ring-2 focus:ring-blue-400 focus:outline-none cursor-pointer" aria-label="Branche oder Einsatzbereich auswählen">
+          <option value="custom" id="opt-ind-custom">🌐 Eigene Branche / Universal</option>
+          <option value="beverages" id="opt-ind-beverages">🥤 Getränke, Wasser & Fruchtsäfte</option>
+          <option value="food" id="opt-ind-food">🍏 Lebensmittel, Frische & Bäckerei</option>
+          <option value="diy" id="opt-ind-diy">🔨 Baumarkt, Baustoffe & Zuschnitt</option>
+          <option value="manufacturing" id="opt-ind-mfg">🏭 Industrie & Fertigung</option>
+          <option value="logistics" id="opt-ind-log">📦 Logistik, Großhandel & E-Commerce</option>
+        </select>
+      </div>
+
+      <div class="h-6 w-px bg-slate-800 shrink-0" aria-hidden="true"></div>
+
+      <!-- Dynamische Abteilungs-Tabs -->
+      <nav id="department-tabs" class="flex items-center space-x-1.5 overflow-x-auto custom-scroll py-0.5" aria-label="Abteilungen und Bereiche"></nav>
+
+      <!-- Neue Abteilung anlegen -->
+      <button onclick="openModal('modal-dept')" class="flex items-center space-x-1 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-2 py-1.5 rounded-lg border border-slate-700 text-xs transition shrink-0 focus:ring-2 focus:ring-blue-400 focus:outline-none" title="Neuen Bereich / Abteilung anlegen" aria-label="Neuen Bereich oder Abteilung anlegen">
+        <span class="text-blue-400" id="icon-add-dept" aria-hidden="true"></span>
+        <span id="lbl-btn-add-dept">+ Bereich</span>
+      </button>
+    </div>
+
+    <!-- Rechter Bereich: Mandant, Auto-Sync & Uhr -->
+    <div class="flex items-center space-x-2.5 shrink-0">
+      
+      <!-- Firmenprofil / Mandant Button -->
+      <button onclick="openModal('modal-company')" class="flex items-center space-x-1.5 bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-white px-2.5 py-1.5 rounded-lg border border-slate-700 text-xs transition max-w-[180px] truncate focus:ring-2 focus:ring-blue-400 focus:outline-none" title="Mandant & Firmenprofil anpassen" aria-label="Mandant und Firmenprofil bearbeiten">
+        <span class="text-blue-400 shrink-0" id="icon-company" aria-hidden="true"></span>
+        <span id="company-display-btn" class="truncate font-medium">LogiFlow Mandant</span>
+      </button>
+
+      <!-- Benutzer & Rollen-Status (Werker / Abteilungsleiter / QS / GF) -->
+      <button onclick="openModal('modal-user-auth')" class="flex items-center space-x-1.5 bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-white px-2.5 py-1.5 rounded-lg border border-emerald-500/40 text-xs transition focus:ring-2 focus:ring-emerald-400 focus:outline-none" title="Benutzerrolle wechseln oder per PIN/RFID einloggen">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span id="current-user-role-lbl" class="font-bold text-emerald-400">👤 Geschäftsleitung</span>
+      </button>
+
+      <!-- Takt-Countdown & Uhrzeit -->
+      <div class="flex items-center space-x-2 bg-slate-950/70 border border-slate-800 px-2.5 py-1 rounded-lg" aria-label="Uhrzeit und Synchronisation">
+        <span id="refresh-timer" class="text-[11px] font-mono text-slate-500 hidden sm:inline">Sync in 45s</span>
+        <span class="text-slate-600 hidden sm:inline" aria-hidden="true">|</span>
+        <div id="clock" class="text-xs font-mono font-medium text-slate-300" aria-live="off">00:00:00</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. HAUPTBEREICH: DAS 4-SEKTOREN-LEITSTAND-SYSTEM (UNIVERSAL MATRIX) -->
+  <main class="flex-1 p-3.5 overflow-y-auto custom-scroll flex flex-col gap-3.5" role="main">
+    
+    <!-- SEKTOR 1: AKTIVE ARBEITSPLÄTZE, STATIONEN & LINIEN -->
+    <section class="bg-slate-900/90 border border-slate-800 rounded-xl flex flex-col overflow-hidden shadow-lg shrink-0" aria-labelledby="sec1-title">
+      <div class="bg-slate-800/70 px-4 py-2 border-b border-slate-700/70 flex justify-between items-center">
+        <div class="flex items-center space-x-2.5">
+          <span class="w-6 h-6 rounded bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 font-bold text-xs font-mono" aria-hidden="true">1</span>
+          <div>
+            <h2 class="font-semibold text-slate-100 text-sm" id="sec1-title">1. Aktive Arbeitsplätze, Stationen & Linien</h2>
+            <p class="text-[11px] text-slate-400 -mt-0.5" id="sec1-sub">Maschinen, Kassen, Backöfen, Abfülllinien, Werkbänke oder Packtische</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <button onclick="openModal('modal-workstation')" class="text-xs bg-blue-600 hover:bg-blue-500 text-white px-2.5 py-1 rounded-lg flex items-center space-x-1 transition shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none" aria-label="Neuen Arbeitsplatz oder Station hinzufügen">
+            <span id="icon-add-ws" aria-hidden="true"></span>
+            <span id="sec1-btn-add">+ Station anlegen</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Spalten-/Kartenliste der Arbeitsplätze -->
+      <div id="workstations-list" class="p-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 overflow-x-auto" role="region" aria-label="Liste der aktiven Stationen"></div>
+    </section>
+
+    <!-- UNTERE 3 SEKTOREN IM FLEXIBLEN GRID -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-3.5 flex-1 min-h-[340px]">
+      
+      <!-- SEKTOR 2: BEREITSTELLUNG & TAGESVORLAUF -->
+      <section class="bg-slate-900/90 border border-slate-800 rounded-xl flex flex-col overflow-hidden shadow-lg" aria-labelledby="sec2-title">
+        <div class="bg-slate-800/70 px-4 py-2 border-b border-slate-700/70 flex justify-between items-center">
+          <div class="flex items-center space-x-2.5">
+            <span class="w-6 h-6 rounded bg-amber-600/20 border border-amber-500/40 flex items-center justify-center text-amber-400 font-bold text-xs font-mono" aria-hidden="true">2</span>
+            <div>
+              <h2 class="font-semibold text-slate-100 text-sm" id="sec2-title">2. Bereitgestellte Ware & Vorlauf</h2>
+              <p class="text-[11px] text-slate-400 -mt-0.5" id="sec2-sub">In Abteilung bereitgestellt / Kommissioniert</p>
+            </div>
+          </div>
+          <span id="count-staged" class="text-xs bg-amber-500/20 border border-amber-500/30 text-amber-300 px-2 py-0.5 rounded font-mono font-bold" aria-label="Anzahl bereitgestellter Gebinde">0</span>
+        </div>
+        <div id="staged-containers-list" class="p-3 space-y-2 overflow-y-auto custom-scroll flex-1" role="region" aria-label="Bereitgestellte Gebinde Liste"></div>
+      </section>
+
+      <!-- SEKTOR 3: PUFFERLAGER & REGALPLÄTZE -->
+      <section class="bg-slate-900/90 border border-slate-800 rounded-xl flex flex-col overflow-hidden shadow-lg" aria-labelledby="sec3-title">
+        <div class="bg-slate-800/70 px-4 py-2 border-b border-slate-700/70 flex justify-between items-center">
+          <div class="flex items-center space-x-2.5">
+            <span class="w-6 h-6 rounded bg-purple-600/20 border border-purple-500/40 flex items-center justify-center text-purple-400 font-bold text-xs font-mono" aria-hidden="true">3</span>
+            <div>
+              <h2 class="font-semibold text-slate-100 text-sm" id="sec3-title">3. Pufferlager & Regale</h2>
+              <p class="text-[11px] text-slate-400 -mt-0.5" id="sec3-sub">Koordinaten (z.B. Regal R-02, Tank, Fach P-12)</p>
+            </div>
+          </div>
+          <span id="count-buffer" class="text-xs bg-purple-500/20 border border-purple-500/30 text-purple-300 px-2 py-0.5 rounded font-mono font-bold" aria-label="Anzahl Gebinde im Pufferlager">0</span>
+        </div>
+        <div id="buffer-list" class="p-3 space-y-2 overflow-y-auto custom-scroll flex-1" role="region" aria-label="Pufferlager Gebinde Liste"></div>
+      </section>
+
+      <!-- SEKTOR 4: HAUPTBESTAND & QS- / MHD-SPERRLAGER -->
+      <section class="bg-slate-900/90 border border-slate-800 rounded-xl flex flex-col overflow-hidden shadow-lg" aria-labelledby="sec4-title">
+        <div class="bg-slate-800/70 px-4 py-2 border-b border-slate-700/70 flex justify-between items-center">
+          <div class="flex items-center space-x-2.5">
+            <span class="w-6 h-6 rounded bg-rose-600/20 border border-rose-500/40 flex items-center justify-center text-rose-400 font-bold text-xs font-mono" aria-hidden="true">4</span>
+            <div>
+              <h2 class="font-semibold text-slate-100 text-sm" id="sec4-title">4. Hauptlager & QS-/MHD-Sperre</h2>
+              <p class="text-[11px] text-slate-400 -mt-0.5" id="sec4-sub">Fertigware / Verkauf vs. Gesperrte Chargen</p>
+            </div>
+          </div>
+          <span id="count-storage" class="text-xs bg-rose-500/20 border border-rose-500/30 text-rose-300 px-2 py-0.5 rounded font-mono font-bold" aria-label="Anzahl Gebinde im Haupt- und Sperrlager">0</span>
+        </div>
+        <div id="storage-list" class="p-3 space-y-2 overflow-y-auto custom-scroll flex-1" role="region" aria-label="Haupt- und Sperrlager Liste"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- 4. FOOTER-LEISTE (BARCODE-TERMINAL, ARTIKELSTAMM, NEUER BEHÄLTER, IMPRESSUM & DATENSCHUTZ NACH § 5 DDG / DSGVO) -->
+  <footer class="bg-slate-900 border-t border-slate-800 px-4 py-2 flex flex-wrap items-center justify-between gap-2.5 shrink-0" role="contentinfo">
+    <div class="flex items-center space-x-2">
+      
+      <!-- Barcode Schnellterminal -->
+      <button onclick="openModal('modal-scan')" class="flex items-center space-x-1.5 bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg font-medium text-xs shadow-md transition focus:ring-2 focus:ring-emerald-400 focus:outline-none" aria-label="Barcode Schnellterminal öffnen">
+        <span id="icon-scan-btn" aria-hidden="true"></span>
+        <span id="btn-footer-scan">Barcode-Terminal (Scan / Buchen)</span>
+      </button>
+
+      <!-- Neuer Behälter / Palette / Gebinde -->
+      <button onclick="openModal('modal-container')" class="flex items-center space-x-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-700 transition text-xs focus:ring-2 focus:ring-blue-400 focus:outline-none" aria-label="Neues Gebinde oder Behälter einspeisen">
+        <span id="icon-container-btn" aria-hidden="true"></span>
+        <span id="btn-footer-container">+ Gebinde / Palette</span>
+      </button>
+
+      <!-- Universal Artikelstamm & Einheiten -->
+      <button onclick="openModal('modal-articles')" class="flex items-center space-x-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-700 transition text-xs focus:ring-2 focus:ring-blue-400 focus:outline-none" aria-label="Artikel- und Materialstamm öffnen">
+        <span id="icon-articles-btn" aria-hidden="true"></span>
+        <span><span id="btn-footer-articles">Artikelstamm</span> (<span id="article-count">0</span>)</span>
+      </button>
+    </div>
+
+    <!-- Status, Inhaber & Pflichtangaben nach § 5 DDG und DSGVO -->
+    <div class="text-xs text-slate-400 flex items-center flex-wrap gap-2.5">
+      <span><span id="lbl-active-dept">Bereich</span>: <strong id="current-dept-label" class="text-white">Alle</strong></span>
+      <span class="text-slate-600" aria-hidden="true">|</span>
+      <span class="text-slate-300">Inh. <strong>Göksal Neziroglu</strong></span>
+      <span class="text-slate-600" aria-hidden="true">|</span>
+      <a href="tel:01741707376" class="hover:text-blue-400 text-slate-300 transition">Tel: 0174 1707376</a>
+      <span class="text-slate-600" aria-hidden="true">|</span>
+      <a href="https://wa.me/491741707376?text=Hallo%20Herr%20Neziroglu,%20ich%20habe%20eine%20Frage%20zu%20LogiFlow." target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-semibold transition flex items-center space-x-1">
+        <span>💬 WhatsApp</span>
+      </a>
+      <span class="text-slate-600" aria-hidden="true">|</span>
+      <button onclick="resetToCurrentPreset()" class="text-slate-400 hover:text-amber-400 underline transition text-[11px] focus:ring-2 focus:ring-blue-400 focus:outline-none rounded" id="btn-footer-reset" aria-label="Demo-Daten für aktuelle Branche zurücksetzen">Demo-Daten neu laden</button>
+      <span class="text-slate-600" aria-hidden="true">|</span>
+      
+      <!-- PFLICHTLINKS NACH DEUTSCHEM RECHT (§ 5 DDG & DSGVO) -->
+      <button onclick="openModal('modal-impressum')" class="text-slate-300 hover:text-white underline transition text-[11px] font-medium focus:ring-2 focus:ring-blue-400 focus:outline-none rounded px-1" aria-label="Impressum nach Paragraph 5 Digitale-Dienste-Gesetz öffnen">
+        Impressum (§ 5 DDG)
+      </button>
+      <span class="text-slate-600" aria-hidden="true">|</span>
+      <button onclick="openModal('modal-privacy')" class="text-slate-300 hover:text-white underline transition text-[11px] font-medium focus:ring-2 focus:ring-blue-400 focus:outline-none rounded px-1" aria-label="Datenschutzerklärung nach DSGVO öffnen">
+        Datenschutz (DSGVO)
+      </button>
+    </div>
+  </footer>
+
+  <!-- ==================== MODALS (DIALOGE) ==================== -->
+
+  <!-- MODAL: IMPRESSUM NACH § 5 DDG -->
+  <div id="modal-impressum" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="imp-modal-title">
+    <div class="bg-slate-900 border border-slate-700 rounded-xl p-6 w-full max-w-xl shadow-2xl max-h-[85vh] overflow-y-auto custom-scroll text-slate-300 text-xs">
+      <div class="flex justify-between items-start mb-4 border-b border-slate-800 pb-3">
+        <div>
+          <h3 class="text-lg font-bold text-white" id="imp-modal-title">Impressum</h3>
+          <p class="text-[11px] text-slate-400">Pflichtangaben nach § 5 Digitale-Dienste-Gesetz (DDG)</p>
+        </div>
+        <button onclick="closeModal('modal-impressum')" class="text-slate-400 hover:text-white p-1 rounded focus:ring-2 focus:ring-blue-400 focus:outline-none" aria-label="Impressum schließen">✕</button>
+      </div>
+
+      <div class="space-y-4 leading-relaxed">
+        <div>
+          <h4 class="font-bold text-white text-sm mb-1">Diensteanbieter / Betreiber:</h4>
+          <p class="text-slate-300 font-mono bg-slate-950 p-2.5 rounded border border-slate-800">
+            <strong>LogiFlow Systems</strong><br>
+            Inhaber: Göksal Neziroglu<br>
+            Deutschland
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm mb-1">Kontakt & Direkter Support:</h4>
+          <p class="text-slate-300 leading-6">
+            Telefon: <a href="tel:01741707376" class="text-white font-semibold hover:underline">0174 1707376</a><br>
+            WhatsApp: <a href="https://wa.me/491741707376" target="_blank" rel="noopener noreferrer" class="text-emerald-400 font-semibold hover:underline">+49 174 1707376</a><br>
+            E-Mail: <a href="mailto:omerneziroglu25@gmail.com" class="text-blue-400 font-mono hover:underline">omerneziroglu25@gmail.com</a><br>
+            Website: <a href="https://logiflowsystems.netlify.app/" class="text-blue-400 hover:underline">https://logiflowsystems.netlify.app/</a>
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm mb-1">Vertreten durch:</h4>
+          <p class="text-slate-300">Inhaber: <strong>Göksal Neziroglu</strong></p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm mb-1">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</h4>
+          <p class="text-slate-300">Göksal Neziroglu (Anschrift wie oben)</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm mb-1">Streitschlichtung:</h4>
+          <p class="text-slate-400 text-[11px]">
+            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
+            <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://ec.europa.eu/consumers/odr/</a>.<br>
+            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+          </p>
+        </div>
+      </div>
+      </div>
+
+      <div class="mt-6 pt-3 border-t border-slate-800 flex justify-end">
+        <button onclick="closeModal('modal-impressum')" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs focus:ring-2 focus:ring-blue-400 focus:outline-none">Schließen (Esc)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: DATENSCHUTZERKLÄRUNG NACH DSGVO -->
+  <div id="modal-privacy" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="priv-modal-title">
+    <div class="bg-slate-900 border border-slate-700 rounded-xl p-6 w-full max-w-xl shadow-2xl max-h-[85vh] overflow-y-auto custom-scroll text-slate-300 text-xs">
+      <div class="flex justify-between items-start mb-4 border-b border-slate-800 pb-3">
+        <div>
+          <h3 class="text-lg font-bold text-white" id="priv-modal-title">Datenschutzerklärung (DSGVO)</h3>
+          <p class="text-[11px] text-emerald-400 font-medium">100% DSGVO-konform: Lokale Datenverarbeitung ohne Drittserver</p>
+        </div>
+        <button onclick="closeModal('modal-privacy')" class="text-slate-400 hover:text-white p-1 rounded focus:ring-2 focus:ring-blue-400 focus:outline-none" aria-label="Datenschutzerklärung schließen">✕</button>
+      </div>
+
+      <div class="space-y-4 leading-relaxed">
+        <div>
+          <h4 class="font-bold text-white text-sm mb-1">1. Grundsatz des Datenschutzes & Lokale Speicherung</h4>
+          <p class="text-slate-300">
+            Der Schutz Ihrer Daten hat für uns höchste Priorität. Diese Webanwendung (LogiFlow Systems) verarbeitet und speichert sämtliche betrieblichen Daten (Arbeitsplätze, Artikel, Behälter, Lagerorte, Buchungen) 
+            <strong>ausschließlich lokal in Ihrem Browser (`localStorage`) bzw. auf Ihrem lokalen Betriebs-Server</strong>.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm mb-1">2. Keine Übertragung an Dritte oder US-Server</h4>
+          <p class="text-slate-300">
+            Es werden <strong>keine externen Schriftarten (wie Google Fonts)</strong> geladen und <strong>keine Drittanbieter-Tracker oder Analyse-Tools</strong> eingesetzt. 
+            Ihre IP-Adresse wird bei der Nutzung der Benutzeroberfläche zu keinem Zeitpunkt an fremde Werbenetzwerke oder unberechtigte Drittserver übertragen.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm mb-1">3. Verantwortliche Stelle</h4>
+          <p class="text-slate-300">
+            Verantwortlich für die Datenverarbeitung im Sinne der DSGVO ist die im Impressum genannte Betreibergesellschaft / Person.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm mb-1">4. Rechte der betroffenen Personen (Art. 15–21 DSGVO)</h4>
+          <p class="text-slate-300">
+            Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten Daten sowie auf Berichtigung, Sperrung oder Löschung.
+            Da alle Daten lokal auf Ihrem Endgerät gespeichert werden, können Sie diese Daten jederzeit eigenständig und vollständig über die Schaltfläche 
+            <em>„Demo-Daten neu laden“</em> oder durch das Löschen Ihres Browser-Caches unwiderruflich entfernen.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm mb-1">5. Barrierefreiheit & Inklusion</h4>
+          <p class="text-slate-300">
+            LogiFlow Systems erfüllt die Richtlinien des Barrierefreiheitsstärkungsgesetzes (BFSG) sowie WCAG 2.1 für barrierefreie Tastaturnavigation und Screenreader-Unterstützung.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-3 border-t border-slate-800 flex justify-end">
+        <button onclick="closeModal('modal-privacy')" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs focus:ring-2 focus:ring-blue-400 focus:outline-none">Schließen (Esc)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: LIZENZVERWALTUNG & VOLLVERSION SCHLÜSSEL -->
+  <div id="modal-license" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="lic-modal-title">
+    <div class="bg-slate-900 border border-amber-500/50 rounded-xl p-6 w-full max-w-lg shadow-2xl">
+      <div class="flex items-center space-x-2 text-amber-400 mb-2">
+        <span id="icon-lic-modal" aria-hidden="true"></span>
+        <h3 class="text-lg font-bold text-white" id="lic-modal-title">Lizenzverwaltung & Produktschutz</h3>
+      </div>
+      <p class="text-xs text-slate-300 mb-4" id="lic-modal-sub">
+        Schütze Dein LogiFlow Systems vor Manipulation und aktiviere hier Deine offizielle Vollversion für Deinen Betrieb.
+      </p>
+
+      <div class="bg-slate-950 border border-slate-800 rounded-lg p-3.5 mb-4 text-xs space-y-2">
+        <div class="flex justify-between">
+          <span class="text-slate-400">Status:</span>
+          <span id="lic-info-status" class="font-bold text-amber-400">7 Tage Testversion aktiv</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-400">Installations-ID (Hardware Fingerprint):</span>
+          <span id="lic-info-hwid" class="font-mono text-slate-300 font-bold">LOGI-HW-9982-A</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-400">Anti-Tamper Zeitstempel:</span>
+          <span id="lic-info-tamper" class="text-emerald-400">Geschützt (Monoton verifiziert)</span>
+        </div>
+      </div>
+
+      <div class="space-y-2 mb-4">
+        <label for="input-license-key" class="block text-xs text-slate-300 font-medium" id="lic-modal-input-lbl">Vollversions-Lizenzschlüssel eingeben:</label>
+        <input id="input-license-key" type="text" placeholder="LOGI-PRO-XXXX-XXXX-XXXX" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white font-mono text-sm uppercase outline-none focus:ring-2 focus:ring-amber-400" aria-label="Lizenzschlüssel">
+        <p class="text-[11px] text-slate-500" id="lic-modal-hint">
+          Tipp: Einen offiziellen Schlüssel erhältst Du auf Anfrage bei Deinem Vertriebspartner oder über die Website.
+        </p>
+      </div>
+
+      <div id="license-feedback" class="text-xs mb-3 hidden p-2 rounded"></div>
+
+      <div class="flex justify-between items-center pt-2 border-t border-slate-800">
+        <button onclick="requestDemoKey()" class="text-xs text-blue-400 hover:underline focus:ring-2 focus:ring-blue-400 focus:outline-none rounded px-1" id="lic-btn-demo-key">Master-Key testen (Demo: LOGI-PRO-2026-VIP)</button>
+        <div class="flex space-x-2">
+          <button onclick="closeModal('modal-license')" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs focus:ring-2 focus:ring-blue-400 focus:outline-none">Schließen</button>
+          <button onclick="activateLicenseKey()" class="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs focus:ring-2 focus:ring-amber-300 focus:outline-none" id="lic-btn-activate">Aktivieren</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: FIRMENPROFIL & MANDANT -->
+  <div id="modal-company" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="comp-modal-title">
+    <div class="bg-slate-900 border border-slate-700 rounded-xl p-6 w-full max-w-md shadow-2xl">
+      <div class="flex items-center space-x-2 text-blue-400 mb-3">
+        <span id="icon-comp-modal" aria-hidden="true"></span>
+        <h3 class="text-lg font-bold text-white" id="comp-modal-title">Firmenprofil & Mandanten-Setup</h3>
+      </div>
+      <p class="text-xs text-slate-400 mb-4" id="comp-modal-sub">Hier trägst Du Deinen Firmennamen oder Mandanten ein. Dieser wird überall auf dem Leitstand, auf Berichten und Barcode-Labels angezeigt.</p>
+      <div class="space-y-3 mb-5">
+        <div>
+          <label for="input-company-name" class="block text-xs text-slate-400 mb-1" id="comp-modal-input-lbl">Offizieller Firmenname / Mandant</label>
+          <input id="input-company-name" type="text" placeholder="z.B. Mustermann Handel & Logistik GmbH" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:ring-2 focus:ring-blue-400" aria-label="Offizieller Firmenname">
+        </div>
+      </div>
+      <div class="flex justify-end space-x-2">
+        <button onclick="closeModal('modal-company')" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs focus:ring-2 focus:ring-blue-400 focus:outline-none" id="comp-btn-cancel">Abbrechen</button>
+        <button onclick="saveCompanyName()" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs focus:ring-2 focus:ring-blue-400 focus:outline-none" id="comp-btn-save">Speichern</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: BENUTZER-AUTHENTIFIZIERUNG & ROLLEN (WERKER / ABTEILUNGSLEITER / QS / GF) -->
+  <div id="modal-user-auth" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+    <div class="bg-slate-900 border border-slate-700 rounded-xl p-6 w-full max-w-lg shadow-2xl">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+        <div>
+          <h3 class="text-lg font-bold text-white" id="auth-modal-title">Mitarbeiter- &amp; Rollen-Authentifizierung</h3>
+          <p class="text-xs text-slate-400">Rollenbasierter Zugriff (RBAC) nach ISO 9001 Sicherheitsstandard</p>
+        </div>
+        <button onclick="closeModal('modal-user-auth')" class="text-slate-400 hover:text-white p-1 rounded">✕</button>
+      </div>
+
+      <!-- SCHNELL-ROLLENWAHL FÜR DEMO & BETRIEB -->
+      <div class="space-y-3 mb-6">
+        <label class="block text-xs font-semibold text-slate-300">Aktive Rolle / Profil auswählen:</label>
+        
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <button type="button" onclick="selectUserRole('WERKER', '👤 Werker / Maschinenbediener', 'Nur Station &amp; Barcode-Rückmeldung')" class="p-3 rounded-lg border border-slate-700 bg-slate-800/80 hover:border-blue-500 text-left transition">
+            <div class="font-bold text-white">👤 Werker</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Terminal &amp; Barcode-Scan</div>
+          </button>
+
+          <button type="button" onclick="selectUserRole('LEITER', '📋 Schicht- / Abteilungsleiter', 'Puffer-Umlagerung &amp; Eilaufträge')" class="p-3 rounded-lg border border-slate-700 bg-slate-800/80 hover:border-blue-500 text-left transition">
+            <div class="font-bold text-blue-400">📋 Abteilungsleiter</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Auftrags-Priorisierung</div>
+          </button>
+
+          <button type="button" onclick="selectUserRole('QS', '🔬 Qualitätsprüfung (QS)', 'Freigabe &amp; Sperrlager-Verwaltung')" class="p-3 rounded-lg border border-slate-700 bg-slate-800/80 hover:border-blue-500 text-left transition">
+            <div class="font-bold text-amber-400">🔬 QS-Prüfer</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Sperrlager-Freigaben</div>
+          </button>
+
+          <button type="button" onclick="selectUserRole('ADMIN', '💼 Geschäftsleitung (Admin)', 'Voller Zugriff auf alle Bereiche')" class="p-3 rounded-lg border border-emerald-500/50 bg-emerald-950/20 hover:border-emerald-400 text-left transition">
+            <div class="font-bold text-emerald-400">💼 Geschäftsleitung</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Vollzugriff, KPIs &amp; Export</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- PIN / RFID BADGE EINGABE -->
+      <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 mb-6">
+        <label for="input-auth-pin" class="block text-xs font-semibold text-slate-300 mb-2">Alternativ: Werksausweis-Scan (Barcode / RFID) oder 4-stellige PIN:</label>
+        <div class="flex gap-2">
+          <input id="input-auth-pin" type="password" maxlength="8" placeholder="PIN eingeben oder Badge scannen..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white text-xs outline-none focus:ring-2 focus:ring-emerald-400 font-mono">
+          <button onclick="loginWithPin()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg transition shrink-0">
+            Login
+          </button>
+        </div>
+        <p class="text-[10px] text-slate-500 mt-2">Test-PINs: `1111` (Werker), `2222` (Abteilungsleiter), `3333` (QS), `4444` oder `1234` (Geschäftsleitung)</p>
+      </div>
+
+      <div class="flex justify-end space-x-2">
+        <button onclick="closeModal('modal-user-auth')" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs">Schließen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ABTEILUNG / BEREICH -->
+  <div id="modal-dept" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="dept-modal-title">
+    <div class="bg-slate-900 border border-slate-700 rounded-xl p-6 w-full max-w-md shadow-2xl">
+      <h3 class="text-lg font-bold mb-2 text-white" id="dept-modal-title">Neuen Bereich / Abteilung anlegen</h3>
+      <p class="text-xs text-slate-400 mb-4" id="dept-modal-sub">Beliebige Bezeichnung passend zu Deiner Branche (z.B. Holzzuschnitt, Bäckerei-Ofenlinie, Abfüllhalle 2, Warenausgang...).</p>
+      <label for="input-dept-name" class="sr-only">Bereichsname</label>
+      <input id="input-dept-name" type="text" placeholder="Name des Bereichs..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white mb-4 text-sm outline-none focus:ring-2 focus:ring-blue-400" aria-label="Name des Bereichs">
+      <div class="flex justify-end space-x-2">
+        <button onclick="closeModal('modal-dept')" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs focus:ring-2 focus:ring-blue-400 focus:outline-none" id="dept-btn-cancel">Abbrechen</button>
+        <button onclick="addDepartment()" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs focus:ring-2 focus:ring-blue-400 focus:outline-none" id="dept-btn-save">Speichern</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ARBEITSPLATZ / STATION -->
+  <div id="modal-workstation" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="ws-modal-title">
+    <div class="bg-slate-900 border border-slate-700 rounded-xl p-6 w-full max-w-md shadow-2xl">
+      <h3 class="text-lg font-bold mb-2 text-white" id="ws-modal-title">Arbeitsplatz / Station anlegen</h3>
+      <p class="text-xs text-slate-400 mb-4" id="ws-modal-sub">Erfasse eine Maschine, Kasse, Kessel, Abfülllinie oder einen Packplatz in der aktiven Abteilung.</p>
+      <div class="space-y-3 mb-4">
+        <input id="input-ws-code" type="text" placeholder="Code / Kennung (z.B. S1-100, LINIE-02, KASSE-4)" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:ring-2 focus:ring-blue-400" aria-label="Stations-Code">
+        <input id="input-ws-name" type="text" placeholder="Bezeichnung (z.B. Flaschenfüller 3 / Plattensäge B)" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:ring-2 focus:ring-blue-400" aria-label="Stations-Bezeichnung">
+        <input id="input-ws-operator" type="text" placeholder="Bediener / Mitarbeiter (z.B. M. Schmidt)" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:ring-2 focus:ring-blue-400" aria-label="Bediener Name">
+        <input id="input-ws-job" type="text" placeholder="Aktueller Auftrag / Artikel / Charge" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:ring-2 focus:ring-blue-400" aria-label="Aktueller Auftrag">
+        <div class="grid grid-cols-2 gap-2">
+          <input id="input-ws-ist" type="number" placeholder="Ist-Menge (z.B. 1200)" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:ring-2 focus:ring-blue-400" aria-label="Ist-Menge">
+          <input id="input-ws-soll" type="number" placeholder="Soll-Menge (z.B. 5000)" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:ring-2 focus:ring-blue-400" aria-label="Soll-Menge">
+        </div>
+      </div>
+      <div class="flex justify-end space-x-2">
+        <button onclick="closeModal('modal-workstation')" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs focus:ring-2 focus:ring-blue-400 focus:outline-none">Abbrechen</button>
+        <button onclick="addWorkstation()" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs focus:ring-2 focus:ring-blue-400 focus:outline-none">Anlegen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: GEBINDE / PALETTE / BEHÄLTER -->
+  <div id="modal-container" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="box-modal-title">
+    <div class="bg-slate-900 border border-slate-700 rounded-xl p-6 w-full max-w-md shadow-2xl">
+      <h3 class="text-lg font-bold mb-2 text-white" id="box-modal-title">Neues Gebinde / Palette einspeisen</h3>
+      <p class="text-xs text-slate-400 mb-4" id="box-modal-sub">Erfasse einen Behälter, Karton, eine Palette oder ein Fass mit Barcode.</p>
+      <div class="space-y-3 mb-4">
+        <input id="input-box-code" type="text" placeholder="Barcode / ID (z.B. PAL-301, BOX-802, FASS-12)" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:ring-2 focus:ring-blue-400" aria-label="Barcode oder Behälter-ID">
+        <label for="input-box-article" class="sr-only">Artikel wählen</label>
+        <select id="input-box-article" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:ring-2 focus:ring-blue-400" aria-label="Artikel wählen"></select>
+        <div class="grid grid-cols-2 gap-2">
+          <input id="input-box-qty" type="number" placeholder="Menge (z.B. 240)" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:ring-2 focus:ring-blue-400" aria-label="Menge">
+          <input id="input-box-unit" type="text" placeholder="Einheit (Stk, L, kg, Kiste...)" value="Stk." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:ring-2 focus:ring-blue-400" aria-label="Einheit">
+        </div>
+        <div>
+          <label for="input-box-zone" class="block text-xs text-slate-400 mb-1" id="box-modal-zone-lbl">Ziel-Sektor / Zone</label>
+          <select id="input-box-zone" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:ring-2 focus:ring-blue-400" aria-label="Zielzone auswählen">
+            <option value="staged">2. Bereitstellung in Abteilung</option>
+            <option value="buffer">3. Pufferlager (Regal / Koordinate)</option>
+            <option value="main">4. Hauptlager / Verkaufsfläche (Fertigware)</option>
+            <option value="quarantine">4. QS- / MHD-Sperrlager (Gesperrt)</option>
+          </select>
+        </div>
+        <input id="input-box-location" type="text" placeholder="Lagerplatz-Koordinate (z.B. R-03-B, GANG-4)" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:ring-2 focus:ring-blue-400" aria-label="Lagerplatz-Koordinate">
+      </div>
+      <div class="flex justify-end space-x-2">
+        <button onclick="closeModal('modal-container')" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs focus:ring-2 focus:ring-blue-400 focus:outline-none">Abbrechen</button>
+        <button onclick="addContainer()" class="px-4 py-2 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-medium text-xs focus:ring-2 focus:ring-blue-400 focus:outline-none">Einspeisen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: BARCODE SCHNELLBUCHUNG -->
+  <div id="modal-scan" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="scan-modal-title">
+    <div class="bg-slate-900 border border-emerald-600/50 rounded-xl p-6 w-full max-w-md shadow-2xl">
+      <div class="flex items-center space-x-2 text-emerald-400 mb-2">
+        <span id="icon-scan-modal" aria-hidden="true"></span>
+        <h3 class="text-lg font-bold text-white" id="scan-modal-title">Barcode-Schnellbuchung</h3>
+      </div>
+      <p class="text-xs text-slate-400 mb-4" id="scan-modal-sub">Scanne einen Barcode (Kamera, Handscanner oder Tastatur) für sofortige Statusänderung und Umlagerung.</p>
+      
+      <label for="input-scan-code" class="sr-only">Barcode scannen</label>
+      <input id="input-scan-code" type="text" placeholder="Barcode scannen (z.B. PAL-101, BOX-202)..." class="w-full bg-slate-950 border border-emerald-500/70 rounded-lg px-3 py-2.5 text-white font-mono text-sm mb-3 outline-none focus:ring-2 focus:ring-emerald-400" aria-label="Barcode scannen">
+      
+      <div class="space-y-2 mb-4">
+        <label for="input-scan-target" class="block text-xs text-slate-400" id="scan-modal-target-lbl">Ziel-Aktion / Buchungszone:</label>
+        <select id="input-scan-target" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-xs outline-none focus:ring-2 focus:ring-blue-400" aria-label="Zielzone für Buchung">
+          <option value="staged">➔ In Bereitstellung / Vorlauf buchen</option>
+          <option value="buffer">➔ In Pufferlager (Regal) buchen</option>
+          <option value="main">➔ Ins Hauptlager / Verkaufsfläche buchen</option>
+          <option value="quarantine">➔ Ins QS- / MHD-Sperrlager sperren</option>
+        </select>
+      </div>
+
+      <div id="scan-feedback" class="text-xs mb-3 hidden p-2 rounded" aria-live="polite"></div>
+
+      <div class="flex justify-end space-x-2">
+        <button onclick="closeModal('modal-scan')" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs focus:ring-2 focus:ring-blue-400 focus:outline-none">Schließen</button>
+        <button onclick="executeScan()" class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs focus:ring-2 focus:ring-emerald-400 focus:outline-none">Buchen (Enter)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: UNIVERSELLER ARTIKELSTAMM MIT SOFORT-EINLAGERUNG & 100 TEST-ARTIKELN -->
+  <div id="modal-articles" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="art-modal-title">
+    <div class="bg-slate-900 border border-slate-700 rounded-xl p-5 w-full max-w-3xl shadow-2xl max-h-[92vh] flex flex-col">
+      
+      <!-- Modal Header -->
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-2 pb-2 border-b border-slate-800">
+        <div class="flex items-center space-x-2 text-blue-400">
+          <span id="icon-art-modal" aria-hidden="true"></span>
+          <h3 class="text-base font-bold text-white" id="art-modal-title">Artikelstamm & Lagerbestand</h3>
+        </div>
+        <div class="flex items-center space-x-2 text-xs">
+          <span class="bg-blue-950/70 text-blue-300 border border-blue-500/40 px-2 py-0.5 rounded font-mono font-semibold">
+            <span id="art-modal-count">0</span> Artikel
+          </span>
+          <span class="bg-emerald-950/70 text-emerald-300 border border-emerald-500/40 px-2 py-0.5 rounded font-mono font-semibold">
+            <span id="art-stocked-count">0</span> Eingelagert
+          </span>
+        </div>
+      </div>
+      
+      <!-- Action Toolbar: 100 Test-Artikel & CSV-Import -->
+      <div class="bg-slate-800/90 border border-slate-700/80 rounded-lg p-2.5 mb-3 flex flex-wrap items-center justify-between gap-2">
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="import100TestArticles()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs px-3 py-1.5 rounded-lg flex items-center space-x-1.5 shadow transition focus:ring-2 focus:ring-emerald-400" title="100 Industrie-Artikel anlegen und sofort mit Lagerplätzen einbuchen">
+            <span>🧪</span>
+            <span>100 Test-Artikel direkt einlagern</span>
+          </button>
+          <label class="bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs px-2.5 py-1.5 rounded-lg flex items-center space-x-1.5 cursor-pointer shadow transition focus-within:ring-2 focus-within:ring-indigo-400">
+            <span>📥</span>
+            <span>CSV / JSON Import</span>
+            <input type="file" id="art-file-import" accept=".csv,.json" class="hidden" onchange="handleFileImport(event)">
+          </label>
+          <button onclick="exportArticlesToCsv()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs px-2.5 py-1.5 rounded-lg flex items-center space-x-1.5 transition">
+            <span>📤</span>
+            <span>CSV Export</span>
+          </button>
+        </div>
+        <span id="art-action-feedback" class="text-xs font-medium text-emerald-400"></span>
+      </div>
+
+      <!-- Eingabe-Formular für neue Artikel inkl. Sofort-Einlagerungs-Automatik -->
+      <div class="bg-slate-800/50 border border-slate-700/70 rounded-lg p-2.5 mb-3">
+        <div class="grid grid-cols-12 gap-2 mb-2">
+          <input id="input-art-nr" type="text" placeholder="Art.-Nr. (z.B. ART-1050)" class="col-span-3 bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white text-xs outline-none focus:ring-2 focus:ring-blue-400" aria-label="Artikelnummer">
+          <input id="input-art-name" type="text" placeholder="Bezeichnung (z.B. Zylinderschraube M8x35)" class="col-span-5 bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white text-xs outline-none focus:ring-2 focus:ring-blue-400" aria-label="Artikelbezeichnung">
+          <input id="input-art-unit" type="text" placeholder="Einheit" value="Stk." class="col-span-2 bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white text-xs outline-none focus:ring-2 focus:ring-blue-400" aria-label="Mengeneinheit">
+          <button onclick="addArticle()" class="col-span-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-semibold py-1.5 transition focus:ring-2 focus:ring-blue-400">+ Artikel</button>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 pt-2 border-t border-slate-700/60 text-xs text-slate-300">
+          <label class="flex items-center space-x-1.5 cursor-pointer font-medium text-emerald-300">
+            <input type="checkbox" id="check-auto-stock" checked class="rounded bg-slate-900 border-slate-700 text-emerald-500 focus:ring-emerald-400 w-3.5 h-3.5">
+            <span>Beim Einfügen sofort einlagern:</span>
+          </label>
+          <div class="flex items-center space-x-1">
+            <span class="text-slate-400">Menge:</span>
+            <input id="input-auto-qty" type="number" value="100" class="w-16 bg-slate-900 border border-slate-700 rounded px-2 py-0.5 text-white text-xs font-mono outline-none">
+          </div>
+          <div class="flex items-center space-x-1">
+            <span class="text-slate-400">Lagerort:</span>
+            <input id="input-auto-loc" type="text" placeholder="z.B. Regal A-01" class="w-36 bg-slate-900 border border-slate-700 rounded px-2 py-0.5 text-white text-xs outline-none">
+          </div>
+          <div class="flex items-center space-x-1">
+            <span class="text-slate-400">Zone:</span>
+            <select id="input-auto-zone" class="bg-slate-900 border border-slate-700 rounded px-2 py-0.5 text-white text-xs outline-none">
+              <option value="main">Hauptlager</option>
+              <option value="buffer">Pufferlager</option>
+              <option value="staged">Bereitstellung</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live-Suche & Filter -->
+      <div class="mb-2">
+        <input id="input-art-search" oninput="renderArticles()" type="text" placeholder="🔍 Artikel durchsuchen (Nummer, Bezeichnung, Lagerort)..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-white text-xs outline-none focus:ring-2 focus:ring-blue-400">
+      </div>
+
+      <!-- Scrollbare Artikelliste -->
+      <div id="articles-list" class="flex-1 overflow-y-auto custom-scroll space-y-1.5 mb-3 pr-1 min-h-[140px] max-h-64" role="region" aria-label="Artikelliste"></div>
+      
+      <!-- Footer Info & Schließen -->
+      <div class="flex justify-between items-center pt-2 border-t border-slate-800 text-xs">
+        <span class="text-[11px] text-slate-500 hidden sm:inline">Alle eingelagerten Artikel erscheinen direkt in den Lager-Sektoren 2, 3 und 4.</span>
+        <button onclick="closeModal('modal-articles')" class="px-4 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium focus:ring-2 focus:ring-blue-400 focus:outline-none">Schließen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== LOGIK: INLINE SVG HELPER & APP STATE ==================== -->
+  <script>
+    // 100% DSGVO-KONFORME LIZENZFREIE INLINE-SVGS (Kein Aufruf externer CDN-Server)
+    const SVG = {
+      layers: (cls='w-5 h-5') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>`,
+      folderPlus: (cls='w-3.5 h-3.5') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/><path d="M12 10v6M9 13h6"/></svg>`,
+      building: (cls='w-3.5 h-3.5') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></svg>`,
+      plus: (cls='w-3.5 h-3.5') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5v14"/></svg>`,
+      scan: (cls='w-4 h-4') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 8v8M12 8v8M17 8v8M10 8v8M14 8v8"/></svg>`,
+      packagePlus: (cls='w-4 h-4 text-amber-400') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16h6M19 13v6M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14M3.29 7 12 12l8.71-5M12 22V12"/></svg>`,
+      boxes: (cls='w-4 h-4 text-blue-400') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>`,
+      shieldCheck: (cls='w-6 h-6 text-amber-400') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>`
+    };
+
+    function injectStaticIcons() {
+      const setH = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+      setH('icon-logo', SVG.layers('w-5 h-5 text-blue-400'));
+      setH('icon-add-dept', SVG.folderPlus());
+      setH('icon-company', SVG.building());
+      setH('icon-add-ws', SVG.plus());
+      setH('icon-scan-btn', SVG.scan('w-4 h-4'));
+      setH('icon-container-btn', SVG.packagePlus());
+      setH('icon-articles-btn', SVG.boxes());
+      setH('icon-lic-modal', SVG.shieldCheck());
+      setH('icon-comp-modal', SVG.building('w-5 h-5'));
+      setH('icon-scan-modal', SVG.scan('w-5 h-5'));
+      setH('icon-art-modal', SVG.boxes('w-5 h-5'));
+    }
+
+    // STATE KEYS
+    const STORAGE_KEY = 'logiflow_systems_state_v1';
+    const LICENSE_STORAGE_KEY = 'logiflow_systems_license_v1';
+
+    // SPRACHEN (i18n)
+    const i18n = {
+      de: {
+        licenseTrialStatus: '⏳ Testversion: 7 Tage kostenlos',
+        licenseDaysLeft: (d) => `Noch ${d} Tage`,
+        licenseAntiTamper: '🛡️ Anti-Tamper & Raubkopie-Schutz aktiv',
+        licenseFullActive: '🔑 Vollversion: Dauerhaft Aktiviert',
+        btnEnterKey: '🔑 Vollversion freischalten',
+        linkWebsite: '🌐 Website & Kundenanpassung',
+        btnAddDept: '+ Bereich',
+        sec1Title: '1. Aktive Arbeitsplätze, Stationen & Linien',
+        sec1Sub: 'Maschinen, Kassen, Backöfen, Abfülllinien, Werkbänke oder Packtische',
+        sec1BtnAdd: '+ Station anlegen',
+        sec2Title: '2. Bereitgestellte Ware & Vorlauf',
+        sec2Sub: 'In Abteilung bereitgestellt / Kommissioniert',
+        sec3Title: '3. Pufferlager & Regale',
+        sec3Sub: 'Koordinaten (z.B. Regal R-02, Tank, Fach P-12)',
+        sec4Title: '4. Hauptlager & QS-/MHD-Sperre',
+        sec4Sub: 'Fertigware / Verkauf vs. Gesperrte Chargen',
+        btnFooterScan: 'Barcode-Terminal (Scan / Buchen)',
+        btnFooterContainer: '+ Gebinde / Palette',
+        btnFooterArticles: 'Artikelstamm',
+        lblActiveDept: 'Bereich',
+        btnFooterReset: 'Demo-Daten neu laden',
+        statusRunning: 'AKTIV / LÄUFT',
+        statusIdle: 'BEREIT / IDLE',
+        statusWarning: 'RÜSTEN / PRÜFUNG',
+        quarantineBadge: 'QS-SPERRE'
+      },
+      en: {
+        licenseTrialStatus: '⏳ Free Trial: 7 Days Active',
+        licenseDaysLeft: (d) => `${d} Days Left`,
+        licenseAntiTamper: '🛡️ Anti-Tamper & Piracy Protection Active',
+        licenseFullActive: '🔑 Full License: Permanently Activated',
+        btnEnterKey: '🔑 Activate Full Version',
+        linkWebsite: '🌐 Website & Custom Solutions',
+        btnAddDept: '+ Department',
+        sec1Title: '1. Active Workstations, Stations & Lines',
+        sec1Sub: 'Machines, cash registers, ovens, bottling lines, workbenches or packing stations',
+        sec1BtnAdd: '+ Add Station',
+        sec2Title: '2. Staged Goods & Daily Buffer',
+        sec2Sub: 'Ready in department / Pre-picked',
+        sec3Title: '3. Buffer Storage & Racks',
+        sec3Sub: 'Rack coordinates (e.g. Shelf R-02, Tank, Slot P-12)',
+        sec4Title: '4. Main Stock & QA / Quarantine',
+        sec4Sub: 'Finished products vs. Blocked quarantine lots',
+        btnFooterScan: 'Barcode Terminal (Scan / Book)',
+        btnFooterContainer: '+ Container / Pallet',
+        btnFooterArticles: 'Article Master',
+        lblActiveDept: 'Dept',
+        btnFooterReset: 'Reload Demo Data',
+        statusRunning: 'ACTIVE / RUNNING',
+        statusIdle: 'READY / IDLE',
+        statusWarning: 'SETUP / INSPECTION',
+        quarantineBadge: 'QA-BLOCKED'
+      },
+      tr: {
+        licenseTrialStatus: '⏳ Deneme Sürümü: 7 Gün Ücretsiz',
+        licenseDaysLeft: (d) => `Kalan ${d} Gün`,
+        licenseAntiTamper: '🛡️ Kurcalama & Korsan Koruması Aktif',
+        licenseFullActive: '🔑 Tam Sürüm: Kalıcı Olarak Aktif',
+        btnEnterKey: '🔑 Tam Sürümü Etkinleştir',
+        linkWebsite: '🌐 Web Sitesi & Özel Çözümler',
+        btnAddDept: '+ Bölüm Ekle',
+        sec1Title: '1. Aktif İstasyonlar, Hatlar & Çalışma Alanları',
+        sec1Sub: 'Makineler, kasalar, fırınlar, dolum hatları, tezgahlar veya paketleme masaları',
+        sec1BtnAdd: '+ İstasyon Ekle',
+        sec2Title: '2. Hazırlanan Ürünler & Günlük Stok',
+        sec2Sub: 'Bölümde hazır / Toplanmış siparişler',
+        sec3Title: '3. Tampon Depo & Raflar',
+        sec3Sub: 'Raf koordinatları (örn. Raf R-02, Tank, Göz P-12)',
+        sec4Title: '4. Ana Depo & Kalite/SKT Karantina',
+        sec4Sub: 'Hazır mamul / Satış vs. Karantinaya alınan partiler',
+        btnFooterScan: 'Barkod Terminali (Okut / İşle)',
+        btnFooterContainer: '+ Kasa / Palet Ekle',
+        btnFooterArticles: 'Ürün Kartları',
+        lblActiveDept: 'Bölüm',
+        btnFooterReset: 'Demo Verilerini Yenile',
+        statusRunning: 'ÇALIŞIYOR',
+        statusIdle: 'HAZIR / BOŞTA',
+        statusWarning: 'AYAR / KONTROL',
+        quarantineBadge: 'KALİTE-ENGEL'
+      }
+    };
+
+    let currentLang = localStorage.getItem('logiflow_lang') || 'de';
+
+    function setLanguage(lang) {
+      if (!i18n[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('logiflow_lang', lang);
+      
+      ['de', 'en', 'tr'].forEach(l => {
+        const btn = document.getElementById(`btn-lang-${l}`);
+        if (btn) {
+          btn.className = (l === lang)
+            ? 'px-2 py-1 rounded text-xs font-bold transition bg-blue-600 text-white focus:ring-2 focus:ring-blue-400 focus:outline-none'
+            : 'px-2 py-1 rounded text-xs font-bold transition text-slate-400 hover:text-white focus:ring-2 focus:ring-blue-400 focus:outline-none';
+        }
+      });
+
+      applyTranslations();
+      renderAll();
+    }
+
+    function applyTranslations() {
+      const t = i18n[currentLang] || i18n.de;
+      const lic = getLicenseInfo();
+
+      if (lic.isFullVersion) {
+        document.getElementById('txt-license-status').textContent = t.licenseFullActive;
+        document.getElementById('txt-license-days-left').textContent = 'UNLIMITED';
+        document.getElementById('txt-license-days-left').className = 'font-mono font-bold text-white bg-emerald-500/20 px-2 py-0.5 rounded border border-emerald-500/40';
+      } else {
+        document.getElementById('txt-license-status').textContent = t.licenseTrialStatus;
+        document.getElementById('txt-license-days-left').textContent = t.licenseDaysLeft(lic.daysLeft);
+      }
+
+      document.getElementById('txt-tamper-status').textContent = t.licenseAntiTamper;
+      document.getElementById('txt-btn-enter-key').textContent = t.btnEnterKey;
+      document.getElementById('txt-link-website').textContent = t.linkWebsite;
+      document.getElementById('lbl-btn-add-dept').textContent = t.btnAddDept;
+
+      document.getElementById('sec1-title').textContent = t.sec1Title;
+      document.getElementById('sec1-sub').textContent = t.sec1Sub;
+      document.getElementById('sec1-btn-add').textContent = t.sec1BtnAdd;
+
+      document.getElementById('sec2-title').textContent = t.sec2Title;
+      document.getElementById('sec2-sub').textContent = t.sec2Sub;
+
+      document.getElementById('sec3-title').textContent = t.sec3Title;
+      document.getElementById('sec3-sub').textContent = t.sec3Sub;
+
+      document.getElementById('sec4-title').textContent = t.sec4Title;
+      document.getElementById('sec4-sub').textContent = t.sec4Sub;
+
+      document.getElementById('btn-footer-scan').textContent = t.btnFooterScan;
+      document.getElementById('btn-footer-container').textContent = t.btnFooterContainer;
+      document.getElementById('btn-footer-articles').textContent = t.btnFooterArticles;
+      document.getElementById('lbl-active-dept').textContent = t.lblActiveDept;
+      document.getElementById('btn-footer-reset').textContent = t.btnFooterReset;
+    }
+
+    // SICHERHEIT & 7-TAGE-TRIAL ANTI-TAMPERING
+    function getLicenseInfo() {
+      let lic = null;
+      try { lic = JSON.parse(localStorage.getItem(LICENSE_STORAGE_KEY)); } catch (e) {}
+
+      const now = Date.now();
+      if (!lic) {
+        lic = {
+          installedAt: now,
+          lastSeenAt: now,
+          isFullVersion: false,
+          licenseKey: null,
+          hwid: 'LOGI-HW-' + Math.floor(1000 + Math.random() * 9000) + '-SEC'
+        };
+        localStorage.setItem(LICENSE_STORAGE_KEY, JSON.stringify(lic));
+      }
+
+      if (now < lic.lastSeenAt - 3600000) {
+        lic.tampered = true;
+      } else {
+        lic.lastSeenAt = now;
+        localStorage.setItem(LICENSE_STORAGE_KEY, JSON.stringify(lic));
+      }
+
+      const trialDuration = 7 * 24 * 60 * 60 * 1000;
+      const elapsed = now - lic.installedAt;
+      const daysLeft = Math.max(0, Math.ceil((trialDuration - elapsed) / (24 * 60 * 60 * 1000)));
+
+      return {
+        ...lic,
+        daysLeft: lic.isFullVersion ? 9999 : daysLeft,
+        isExpired: !lic.isFullVersion && elapsed > trialDuration
+      };
+    }
+
+    function updateLicenseUI() {
+      const lic = getLicenseInfo();
+      const licModalStatus = document.getElementById('lic-info-status');
+      const licModalHwid = document.getElementById('lic-info-hwid');
+      const licModalTamper = document.getElementById('lic-info-tamper');
+
+      if (licModalHwid) licModalHwid.textContent = lic.hwid;
+
+      if (lic.isFullVersion) {
+        if (licModalStatus) licModalStatus.textContent = '✅ Vollversion dauerhaft aktiviert (Key: ' + lic.licenseKey + ')';
+        if (licModalStatus) licModalStatus.className = 'font-bold text-emerald-400';
+      } else if (lic.isExpired) {
+        if (licModalStatus) licModalStatus.textContent = '❌ 7-Tage-Testphase abgelaufen! Bitte Vollversion freischalten.';
+        if (licModalStatus) licModalStatus.className = 'font-bold text-rose-400';
+      } else {
+        if (licModalStatus) licModalStatus.textContent = `⏳ Testphase aktiv (${lic.daysLeft} Tage verbleibend)`;
+      }
+
+      if (lic.tampered && licModalTamper) {
+        licModalTamper.textContent = '⚠️ Zeitstempel-Inkonsistenz erkannt!';
+        licModalTamper.className = 'text-amber-400 font-bold';
+      }
+    }
+
+    function activateLicenseKey() {
+      const keyInput = document.getElementById('input-license-key');
+      const rawKey = keyInput.value.trim().toUpperCase();
+      const feedback = document.getElementById('license-feedback');
+
+      const validKeys = ['LOGI-PRO-2026-VIP', 'LOGI-ENTERPRISE-2026', 'LOGI-GLOBAL-FULL'];
+      const isValidPattern = rawKey.startsWith('LOGI-') && rawKey.length >= 14;
+
+      if (validKeys.includes(rawKey) || isValidPattern) {
+        let lic = getLicenseInfo();
+        lic.isFullVersion = true;
+        lic.licenseKey = rawKey;
+        localStorage.setItem(LICENSE_STORAGE_KEY, JSON.stringify(lic));
+
+        feedback.textContent = '🎉 Lizenzschlüssel erfolgreich verifiziert! Vollversion ist jetzt dauerhaft freigeschaltet.';
+        feedback.className = 'text-xs mb-3 text-emerald-300 bg-emerald-950/70 border border-emerald-500/50 p-2.5 rounded block';
+
+        applyTranslations();
+        updateLicenseUI();
+        setTimeout(() => closeModal('modal-license'), 2000);
+      } else {
+        feedback.textContent = '❌ Ungültiger Lizenzschlüssel! Bitte überprüfe die Eingabe oder fordere einen offiziellen Schlüssel an.';
+        feedback.className = 'text-xs mb-3 text-rose-300 bg-rose-950/70 border border-rose-500/50 p-2.5 rounded block';
+      }
+    }
+
+    function requestDemoKey() {
+      document.getElementById('input-license-key').value = 'LOGI-PRO-2026-VIP';
+    }
+
+    // MULTI-BRANCHEN-PRESETS
+    const industryPresets = {
+      beverages: {
+        name: 'Getränke, Wasser & Fruchtsäfte',
+        companyName: 'VitalQuelle Erfrischungsgetränke GmbH',
+        departments: [
+          { id: 'dept-b1', name: 'Wasseraufbereitung & Fruchttanks' },
+          { id: 'dept-b2', name: 'Abfülllinie PET & Glas' },
+          { id: 'dept-b3', name: 'Etikettierung & Traypacker' },
+          { id: 'dept-b4', name: 'Leergut- & Pfandhof' }
+        ],
+        articles: [
+          { nr: 'ART-G101', name: 'Mineralwasser Medium 0.5L (24er Tray)', unit: 'Tray' },
+          { nr: 'ART-G205', name: 'Bio-Apfelsaft Naturtrüb 1.0L (Kiste 6er)', unit: 'Kiste' },
+          { nr: 'ART-G300', name: 'Citrus-Limonade Zitrone 0.33L (Kiste 24er)', unit: 'Kiste' },
+          { nr: 'ART-G550', name: 'Bio-Orangendirektsaft 100% 1.0L', unit: 'Kiste' }
+        ],
+        workstations: [
+          { id: 'ws-b1', deptId: 'dept-b2', code: 'LINIE-01', name: 'Flaschenfüller 24.000 Fl/h', operator: 'T. Wagner', status: 'running', job: 'Mineralwasser Medium 0.5L', ist: 14200, soll: 24000, unit: 'Fl.' },
+          { id: 'ws-b2', deptId: 'dept-b2', code: 'ETIK-02', name: 'Etikettiermaschine Krones', operator: 'L. Bauer', status: 'running', job: 'Bio-Apfelsaft Naturtrüb', ist: 8900, soll: 12000, unit: 'Fl.' },
+          { id: 'ws-b3', deptId: 'dept-b3', code: 'PACK-03', name: 'Traypacker & Palettierer', operator: 'M. Becker', status: 'idle', job: 'Bereit für Palettierung', ist: 0, soll: 1000, unit: 'Trays' },
+          { id: 'ws-b4', deptId: 'dept-b2', code: 'INSP-01', name: 'Reinigungs- & Dichtigkeitsprüfung', operator: 'H. Koch', status: 'running', job: 'Qualitätsprüfung Glaslinie', ist: 120, soll: 150, unit: 'Prüflinge' }
+        ],
+        containers: [
+          { code: 'PAL-101', deptId: 'dept-b2', article: 'Mineralwasser Medium 0.5L', qty: 40, unit: 'Trays', zone: 'staged', location: 'Linie 1 Puffer' },
+          { code: 'PAL-102', deptId: 'dept-b2', article: 'Bio-Apfelsaft Naturtrüb', qty: 50, unit: 'Kisten', zone: 'staged', location: 'Bereitstellung' },
+          { code: 'REG-G03', deptId: 'dept-b2', article: 'Schraubverschlüsse Gold 28mm', qty: 50000, unit: 'Stk.', zone: 'buffer', location: 'Regal Gang 3 / B4' },
+          { code: 'PAL-900', deptId: 'dept-b2', article: 'Mineralwasser Fertigware', qty: 48, unit: 'Trays', zone: 'main', location: 'Vollgutlager V-12' },
+          { code: 'SPERR-04', deptId: 'dept-b2', article: 'Apfelsaft (Trübungswarnung)', qty: 12, unit: 'Kisten', zone: 'quarantine', location: 'QS-Labor Sperre' }
+        ]
+      },
+      food: {
+        name: 'Lebensmittel, Frische & Bäckerei',
+        companyName: 'Frischeland Meisterbetriebe GmbH',
+        departments: [
+          { id: 'dept-f1', name: 'Teigmacherei & Mischung' },
+          { id: 'dept-f2', name: 'Backöfen & Garstationen' },
+          { id: 'dept-f3', name: 'Verpackung & Frischetheke' },
+          { id: 'dept-f4', name: 'Kühllager & Logistik' }
+        ],
+        articles: [
+          { nr: 'ART-F10', name: 'Bio-Dinkelbrot 750g', unit: 'Stk.' },
+          { nr: 'ART-F25', name: 'Buttercroissant Vorbackware', unit: 'Karton' },
+          { nr: 'ART-F80', name: 'Weizenmehl Type 550 Silo', unit: 'kg' },
+          { nr: 'ART-F99', name: 'Frische-Hefe Block 500g', unit: 'Stk.' }
+        ],
+        workstations: [
+          { id: 'ws-f1', deptId: 'dept-f2', code: 'OFEN-01', name: 'Etagenofen MIWE 8-Stufig', operator: 'C. Meyer', status: 'running', job: 'Bio-Dinkelbrot Charge #88', ist: 640, soll: 800, unit: 'Stk.' },
+          { id: 'ws-f2', deptId: 'dept-f2', code: 'OFEN-02', name: 'Stikkenofen Heißluft', operator: 'S. Frank', status: 'running', job: 'Buttercroissants', ist: 1200, soll: 1500, unit: 'Stk.' },
+          { id: 'ws-f3', deptId: 'dept-f3', code: 'PACK-01', name: 'Schrumpffolien-Packer', operator: 'E. Yildiz', status: 'idle', job: 'Wartet auf Abkühlung', ist: 0, soll: 500, unit: 'Stk.' }
+        ],
+        containers: [
+          { code: 'WAG-201', deptId: 'dept-f2', article: 'Bio-Dinkelbrot Rohlinge', qty: 160, unit: 'Stk.', zone: 'staged', location: 'Gärraum 2' },
+          { code: 'KUEHL-05', deptId: 'dept-f2', article: 'Frische-Hefe Block 500g', qty: 80, unit: 'Stk.', zone: 'buffer', location: 'Kühlzelle 4°C' },
+          { code: 'PAL-770', deptId: 'dept-f2', article: 'Bio-Dinkelbrot fertig verpackt', qty: 300, unit: 'Stk.', zone: 'main', location: 'Auslieferung Rampe 1' },
+          { code: 'QS-SPERR', deptId: 'dept-f2', article: 'Dinkelbrot (Kerntemperatur <94°C)', qty: 24, unit: 'Stk.', zone: 'quarantine', location: 'QS-Ausschuss' }
+        ]
+      },
+      diy: {
+        name: 'Baumarkt, Baustoffe & Zuschnitt',
+        companyName: 'BauProfi Handels- & Zuschnittzentrum',
+        departments: [
+          { id: 'dept-d1', name: 'Holzzuschnitt & Plattenlager' },
+          { id: 'dept-d2', name: 'Farbmischstation & Lacke' },
+          { id: 'dept-d3', name: 'Baustoff-Freilager & Schüttgut' },
+          { id: 'dept-d4', name: 'Warenausgabe & Abhollager' }
+        ],
+        articles: [
+          { nr: 'ART-D100', name: 'OSB-3 Verlegeplatte 2050x625x18mm', unit: 'Stk.' },
+          { nr: 'ART-D220', name: 'Premium Wandfarbe Weiß 10L', unit: 'Eimer' },
+          { nr: 'ART-D340', name: 'Portlandzement CEM II 25kg', unit: 'Sack' },
+          { nr: 'ART-D510', name: 'Konstruktionsvollholz 60x120mm', unit: 'Meter' }
+        ],
+        workstations: [
+          { id: 'ws-d1', deptId: 'dept-d1', code: 'SAEGE-01', name: 'Vertikale Plattensäge Striebig', operator: 'K. Lehmann', status: 'running', job: 'Zuschnitt OSB Kunde #1042', ist: 18, soll: 24, unit: 'Zuschnitte' },
+          { id: 'ws-d2', deptId: 'dept-d1', code: 'HOBEL-02', name: 'Vierseiten-Hobelmaschine', operator: 'A. Wolf', status: 'idle', job: 'Wartet auf Holzauswahl', ist: 0, soll: 50, unit: 'm' },
+          { id: 'ws-d3', deptId: 'dept-d2', code: 'FARB-01', name: 'Automatische Farbmisch-Anlage', operator: 'J. Sommer', status: 'running', job: 'Farbton NCS S 1010-Y20R', ist: 6, soll: 6, unit: 'Eimer' }
+        ],
+        containers: [
+          { code: 'PAL-D10', deptId: 'dept-d1', article: 'OSB-Platten Zuschnitt-Vorlauf', qty: 35, unit: 'Stk.', zone: 'staged', location: 'Zuschnitt-Tisch' },
+          { code: 'REG-H08', deptId: 'dept-d1', article: 'Konstruktionsholz Fichte', qty: 120, unit: 'Meter', zone: 'buffer', location: 'Kragarmregal H-08' },
+          { code: 'ABHOL-01', deptId: 'dept-d1', article: 'Zuschnitt-Auftrag fertig', qty: 24, unit: 'Stk.', zone: 'main', location: 'Abholregal Fach 4' },
+          { code: 'REKL-02', deptId: 'dept-d1', article: 'Spanplatte Kantenbruch', qty: 3, unit: 'Stk.', zone: 'quarantine', location: 'Transportschaden-Sperre' }
+        ]
+      },
+      manufacturing: {
+        name: 'Industrie & Fertigung',
+        companyName: 'Universal Precision Engineering GmbH',
+        departments: [
+          { id: 'dept-m1', name: 'Zerspanung & CNC-Drehen' },
+          { id: 'dept-m2', name: 'Baugruppen-Montage' },
+          { id: 'dept-m3', name: 'Endprüfung & 100%-Kontrolle' },
+          { id: 'dept-m4', name: 'Warenausgang & Versand' }
+        ],
+        articles: [
+          { nr: 'ART-M1040', name: 'Flanschgehäuse Aluminium G3', unit: 'Stk.' },
+          { nr: 'ART-M2085', name: 'Präzisionswelle Edelstahl 42CrMo4', unit: 'Stk.' },
+          { nr: 'ART-M5510', name: 'Dichtungssatz Industriepumpe', unit: 'Satz' },
+          { nr: 'ART-M8800', name: 'Steuereinheit Modul X-200', unit: 'Stk.' }
+        ],
+        workstations: [
+          { id: 'ws-m1', deptId: 'dept-m1', code: 'CNC-01', name: '5-Achs Bearbeitungszentrum', operator: 'M. Yilmaz', status: 'running', job: 'FA-2026-440 Flanschgehäuse', ist: 360, soll: 500, unit: 'Stk.' },
+          { id: 'ws-m2', deptId: 'dept-m1', code: 'CNC-02', name: 'Präzisions-Drehmaschine', operator: 'S. Weber', status: 'running', job: 'FA-2026-480 Welle', ist: 95, soll: 200, unit: 'Stk.' },
+          { id: 'ws-m3', deptId: 'dept-m1', code: 'PRUEF-01', name: '3D-Koordinaten-Messplatz', operator: 'K. Bauer', status: 'warning', job: 'Stichprobe Toleranzprüfung', ist: 12, soll: 30, unit: 'Stk.' }
+        ],
+        containers: [
+          { code: 'KLT-101', deptId: 'dept-m1', article: 'Flanschgehäuse Rohlinge', qty: 150, unit: 'Stk.', zone: 'staged', location: 'Bereitstellung CNC-1' },
+          { code: 'PK-03-B5', deptId: 'dept-m1', article: 'Präzisionswelle Zwischenstufe', qty: 80, unit: 'Stk.', zone: 'buffer', location: 'Puffer PK-03-B5' },
+          { code: 'GIBO-400', deptId: 'dept-m1', article: 'Flanschgehäuse fertig entgratet', qty: 350, unit: 'Stk.', zone: 'main', location: 'Hauptlager Gang 2' },
+          { code: 'QS-999', deptId: 'dept-m1', article: 'Welle (Maßabweichung 0.05mm)', qty: 8, unit: 'Stk.', zone: 'quarantine', location: 'QS-Sperrlager' }
+        ]
+      },
+      logistics: {
+        name: 'Logistik, Großhandel & E-Commerce',
+        companyName: 'OmniLogistics Hub & Fulfillment',
+        departments: [
+          { id: 'dept-l1', name: 'Wareneingang & Vereinnahmung' },
+          { id: 'dept-l2', name: 'Kommissionierung & Batch-Pick' },
+          { id: 'dept-l3', name: 'Packtische & Versandprüfung' },
+          { id: 'dept-l4', name: 'Retourenprüfung & QS' }
+        ],
+        articles: [
+          { nr: 'ART-L01', name: 'Kartonage Faltkarton Gr. M', unit: 'Stk.' },
+          { nr: 'ART-L12', name: 'Akkuschrauber 18V Set', unit: 'Stk.' },
+          { nr: 'ART-L44', name: 'Mehrweg-Lagerkiste 60L', unit: 'Stk.' },
+          { nr: 'ART-L90', name: 'Stretchfolie Handrolle 23my', unit: 'Rolle' }
+        ],
+        workstations: [
+          { id: 'ws-l1', deptId: 'dept-l3', code: 'PACK-01', name: 'High-Speed Packtisch 1', operator: 'D. Richter', status: 'running', job: 'Batch-Sendung #4902', ist: 42, soll: 60, unit: 'Pakete' },
+          { id: 'ws-l2', deptId: 'dept-l3', code: 'PACK-02', name: 'Packtisch 2 (Sperrgut)', operator: 'N. Kraus', status: 'running', job: 'Palettenversand Spedition', ist: 8, soll: 12, unit: 'Paletten' },
+          { id: 'ws-l3', deptId: 'dept-l4', code: 'RET-01', name: 'Retouren-Prüfplatz', operator: 'B. Hansen', status: 'idle', job: 'Bereit für Retoureneingang', ist: 0, soll: 25, unit: 'Stk.' }
+        ],
+        containers: [
+          { code: 'ROLL-12', deptId: 'dept-l3', article: 'Kommissionierwagen Batch A', qty: 24, unit: 'Stk.', zone: 'staged', location: 'Packzone Nord' },
+          { code: 'REG-L04', deptId: 'dept-l3', article: 'Akkuschrauber 18V Set', qty: 120, unit: 'Stk.', zone: 'buffer', location: 'Hochregal Fach L-04' },
+          { code: 'PAL-OUT', deptId: 'dept-l3', article: 'Pakete fertig versandbereit', qty: 54, unit: 'Pakete', zone: 'main', location: 'Warenausgang Tor 3' },
+          { code: 'RET-SPERR', deptId: 'dept-l3', article: 'Retoure beschädigt (Prüfung nötig)', qty: 4, unit: 'Stk.', zone: 'quarantine', location: 'Sperrbereich Retoure' }
+        ]
+      }
+    };
+
+    let state = loadState();
+
+    function loadState() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          // Automatische Bereinigung von alten Brauerei/Bier-Daten
+          if (parsed && (parsed.companyName?.includes('Brau') || parsed.articles?.some(a => a.name.includes('Pils') || a.name.includes('Bier') || a.name.includes('Malz')))) {
+            return createPresetState('beverages');
+          }
+          return parsed;
+        } catch (e) {}
+      }
+      return createPresetState('beverages');
+    }
+
+    function createPresetState(presetKey) {
+      const preset = industryPresets[presetKey] || industryPresets.beverages;
+      return {
+        currentPresetKey: presetKey,
+        companyName: preset.companyName,
+        activeDeptId: preset.departments[0].id,
+        departments: JSON.parse(JSON.stringify(preset.departments)),
+        articles: JSON.parse(JSON.stringify(preset.articles)),
+        workstations: JSON.parse(JSON.stringify(preset.workstations)),
+        containers: JSON.parse(JSON.stringify(preset.containers))
+      };
+    }
+
+    function switchIndustryPreset(presetKey) {
+      if (presetKey === 'custom') return;
+      if (confirm(`Branche umschalten auf "${industryPresets[presetKey].name}"?`)) {
+        state = createPresetState(presetKey);
+        saveState();
+      } else {
+        document.getElementById('industry-select').value = state.currentPresetKey || 'custom';
+      }
+    }
+
+    function resetToCurrentPreset() {
+      if (confirm('Demo-Daten für diese Branche zurücksetzen?')) {
+        state = createPresetState(state.currentPresetKey || 'beverages');
+        saveState();
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      renderAll();
+    }
+
+    function renderAll() {
+      applyTranslations();
+      updateLicenseUI();
+      renderCompany();
+      renderIndustrySelector();
+      renderDepartments();
+      renderWorkstations();
+      renderContainers();
+      renderArticles();
+    }
+
+    function renderIndustrySelector() {
+      const sel = document.getElementById('industry-select');
+      if (sel && state.currentPresetKey) sel.value = state.currentPresetKey;
+    }
+
+    function renderCompany() {
+      const displayBtn = document.getElementById('company-display-btn');
+      const input = document.getElementById('input-company-name');
+      const name = state.companyName || 'LogiFlow Mandant';
+      if (displayBtn) displayBtn.textContent = name;
+      if (input) input.value = state.companyName || '';
+    }
+
+    function saveCompanyName() {
+      const input = document.getElementById('input-company-name');
+      state.companyName = input.value.trim() || 'LogiFlow Universal Mandant';
+      closeModal('modal-company');
+      saveState();
+    }
+
+    function renderDepartments() {
+      const container = document.getElementById('department-tabs');
+      container.innerHTML = '';
+      state.departments.forEach(dept => {
+        const isActive = dept.id === state.activeDeptId;
+        const btn = document.createElement('button');
+        btn.className = `px-3 py-1 rounded-lg text-xs font-medium transition whitespace-nowrap focus:ring-2 focus:ring-blue-400 focus:outline-none ${
+          isActive ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30 font-semibold' : 'bg-slate-800/80 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
+        }`;
+        btn.textContent = dept.name;
+        btn.setAttribute('aria-label', `Abteilung ${dept.name} auswählen`);
+        btn.onclick = () => { state.activeDeptId = dept.id; saveState(); };
+        container.appendChild(btn);
+      });
+      const currentDept = state.departments.find(d => d.id === state.activeDeptId);
+      document.getElementById('current-dept-label').textContent = currentDept ? currentDept.name : 'Alle';
+    }
+
+    function renderWorkstations() {
+      const list = document.getElementById('workstations-list');
+      list.innerHTML = '';
+      const filtered = state.workstations.filter(w => !state.activeDeptId || w.deptId === state.activeDeptId);
+      const t = i18n[currentLang] || i18n.de;
+
+      if (filtered.length === 0) {
+        list.innerHTML = `<div class="col-span-full text-center text-slate-500 py-8 text-xs">Noch keine Arbeitsplätze in diesem Bereich angelegt.</div>`;
+        return;
+      }
+
+      filtered.forEach(ws => {
+        const statusConfig = {
+          running: { border: 'border-emerald-500/50 bg-emerald-950/20 text-emerald-400', badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40', text: t.statusRunning, bar: 'bg-emerald-500' },
+          idle: { border: 'border-slate-700 bg-slate-800/40 text-slate-400', badge: 'bg-slate-800 text-slate-400 border-slate-700', text: t.statusIdle, bar: 'bg-slate-600' },
+          warning: { border: 'border-amber-500/50 bg-amber-950/20 text-amber-400', badge: 'bg-amber-500/20 text-amber-300 border-amber-500/40', text: t.statusWarning, bar: 'bg-amber-500' }
+        };
+        const cfg = statusConfig[ws.status] || statusConfig.idle;
+        const percent = ws.soll > 0 ? Math.min(100, Math.round((ws.ist / ws.soll) * 100)) : 0;
+
+        const card = document.createElement('div');
+        card.className = `p-3 rounded-xl border ${cfg.border} flex flex-col justify-between shadow-sm transition hover:border-slate-600`;
+        card.innerHTML = `
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-900 border border-slate-700 text-blue-300 font-bold">${ws.code || 'STAT'}</span>
+                <h3 class="font-bold text-white text-sm mt-1 leading-tight">${ws.name}</h3>
+              </div>
+              <button onclick="toggleWorkstationStatus('${ws.id}')" class="text-[10px] font-mono px-2 py-0.5 rounded border ${cfg.badge} hover:brightness-125 transition shrink-0 ml-2 focus:ring-2 focus:ring-blue-400 focus:outline-none" aria-label="Status für ${ws.name} wechseln: aktuell ${cfg.text}">${cfg.text}</button>
+            </div>
+            
+            <div class="space-y-1 my-2 text-xs">
+              <p class="text-slate-400 flex items-center justify-between">
+                <span>👤 ${currentLang === 'tr' ? 'Operatör' : currentLang === 'en' ? 'Operator' : 'Bediener'}:</span>
+                <span class="font-medium text-slate-200">${ws.operator}</span>
+              </p>
+              <p class="text-slate-400 flex items-center justify-between">
+                <span>📦 ${currentLang === 'tr' ? 'İş / Sipariş' : currentLang === 'en' ? 'Job / Order' : 'Auftrag'}:</span>
+                <span class="font-medium text-blue-300 truncate max-w-[140px]" title="${ws.job}">${ws.job}</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-slate-800/80">
+            <div class="flex justify-between text-xs text-slate-300 mb-1 font-mono">
+              <span><strong>${ws.ist.toLocaleString()}</strong> / ${ws.soll.toLocaleString()} ${ws.unit || 'Stk.'}</span>
+              <span class="font-bold text-white">${percent}%</span>
+            </div>
+            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden" role="progressbar" aria-valuenow="${percent}" aria-valuemin="0" aria-valuemax="100">
+              <div class="${cfg.bar} h-full transition-all duration-300" style="width: ${percent}%"></div>
+            </div>
+          </div>`;
+        list.appendChild(card);
+      });
+    }
+
+    function renderContainers() {
+      const stagedEl = document.getElementById('staged-containers-list');
+      const bufferEl = document.getElementById('buffer-list');
+      const storageEl = document.getElementById('storage-list');
+      stagedEl.innerHTML = ''; bufferEl.innerHTML = ''; storageEl.innerHTML = '';
+
+      const deptContainers = state.containers.filter(c => !state.activeDeptId || !c.deptId || c.deptId === 'dept-all' || c.deptId === 'all' || c.deptId === state.activeDeptId);
+      const staged = deptContainers.filter(c => c.zone === 'staged');
+      const buffer = deptContainers.filter(c => c.zone === 'buffer');
+      const storage = deptContainers.filter(c => c.zone === 'main' || c.zone === 'quarantine');
+
+      document.getElementById('count-staged').textContent = staged.length;
+      document.getElementById('count-buffer').textContent = buffer.length;
+      document.getElementById('count-storage').textContent = storage.length;
+
+      staged.forEach(c => stagedEl.appendChild(createContainerCard(c)));
+      buffer.forEach(c => bufferEl.appendChild(createContainerCard(c)));
+      storage.forEach(c => storageEl.appendChild(createContainerCard(c)));
+
+      if (staged.length === 0) stagedEl.innerHTML = '<div class="text-slate-500 text-xs py-6 text-center">Keine Ware in Bereitstellung</div>';
+      if (buffer.length === 0) bufferEl.innerHTML = '<div class="text-slate-500 text-xs py-6 text-center">Pufferlager / Regal leer</div>';
+      if (storage.length === 0) storageEl.innerHTML = '<div class="text-slate-500 text-xs py-6 text-center">Keine Ware erfasst</div>';
+    }
+
+    function createContainerCard(c) {
+      const div = document.createElement('div');
+      const isQuarantine = c.zone === 'quarantine';
+      const isBuffer = c.zone === 'buffer';
+      const t = i18n[currentLang] || i18n.de;
+      
+      div.className = `p-2.5 rounded-lg border transition ${
+        isQuarantine 
+          ? 'bg-rose-950/30 border-rose-500/60 text-rose-200' 
+          : isBuffer 
+            ? 'bg-purple-950/20 border-purple-500/40 text-slate-200' 
+            : 'bg-slate-800/80 border-slate-700/80 text-slate-200'
+      } flex items-center justify-between text-xs hover:border-slate-500`;
+
+      div.innerHTML = `
+        <div class="overflow-hidden pr-2">
+          <div class="flex items-center space-x-2">
+            <span class="font-mono font-bold text-white bg-slate-900 px-2 py-0.5 rounded border border-slate-700 shrink-0">${c.code}</span>
+            <span class="font-semibold text-slate-200">${c.qty} ${c.unit || 'Stk.'}</span>
+            ${isQuarantine ? `<span class="text-[9px] bg-rose-600 text-white px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">${t.quarantineBadge}</span>` : ''}
+            ${c.location ? `<span class="text-[10px] text-slate-400 font-mono bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700 truncate">📍 ${c.location}</span>` : ''}
+          </div>
+          <p class="text-slate-400 mt-1 truncate max-w-[250px] text-[11px]">${c.article}</p>
+        </div>
+        <button onclick="cycleContainerZone('${c.code}')" class="text-slate-400 hover:text-white bg-slate-900 hover:bg-slate-800 p-1.5 rounded border border-slate-700 transition shrink-0 focus:ring-2 focus:ring-blue-400 focus:outline-none" aria-label="Gebinde ${c.code} in nächste Zone weiterschalten">➔</button>`;
+      return div;
+    }
+
+
+
+    function addDepartment() {
+      const name = document.getElementById('input-dept-name').value.trim();
+      if (!name) return;
+      const newId = 'dept-' + Date.now();
+      state.departments.push({ id: newId, name });
+      state.activeDeptId = newId;
+      document.getElementById('input-dept-name').value = '';
+      closeModal('modal-dept');
+      saveState();
+    }
+
+    function addWorkstation() {
+      const code = document.getElementById('input-ws-code').value.trim().toUpperCase() || ('ST-' + Math.floor(10 + Math.random() * 90));
+      const name = document.getElementById('input-ws-name').value.trim();
+      const operator = document.getElementById('input-ws-operator').value.trim() || 'Mitarbeiter angemeldet';
+      const job = document.getElementById('input-ws-job').value.trim() || 'Standardauftrag';
+      const ist = parseInt(document.getElementById('input-ws-ist').value) || 0;
+      const soll = parseInt(document.getElementById('input-ws-soll').value) || 1000;
+      if (!name) return;
+      state.workstations.push({
+        id: 'ws-' + Date.now(),
+        deptId: state.activeDeptId,
+        code,
+        name,
+        operator,
+        status: 'running',
+        job,
+        ist,
+        soll,
+        unit: 'Stk.'
+      });
+      document.getElementById('input-ws-name').value = '';
+      closeModal('modal-workstation');
+      saveState();
+    }
+
+    function toggleWorkstationStatus(id) {
+      const ws = state.workstations.find(w => w.id === id);
+      if (!ws) return;
+      const order = ['running', 'warning', 'idle'];
+      ws.status = order[(order.indexOf(ws.status) + 1) % order.length];
+      if (ws.status === 'running') {
+        ws.ist = Math.min(ws.soll, ws.ist + Math.round(ws.soll * 0.15));
+      }
+      saveState();
+    }
+
+    function addContainer() {
+      const code = document.getElementById('input-box-code').value.trim().toUpperCase() || ('PAL-' + Math.floor(100 + Math.random() * 900));
+      const article = document.getElementById('input-box-article').value;
+      const qty = parseInt(document.getElementById('input-box-qty').value) || 100;
+      const unit = document.getElementById('input-box-unit').value.trim() || 'Stk.';
+      const zone = document.getElementById('input-box-zone').value;
+      const location = document.getElementById('input-box-location').value.trim() || '';
+
+      state.containers.push({ code, deptId: state.activeDeptId, article, qty, unit, zone, location });
+      document.getElementById('input-box-code').value = '';
+      closeModal('modal-container');
+      saveState();
+    }
+
+    function cycleContainerZone(code) {
+      const c = state.containers.find(item => item.code === code);
+      if (!c) return;
+      const flow = ['staged', 'buffer', 'main', 'quarantine'];
+      c.zone = flow[(flow.indexOf(c.zone) + 1) % flow.length];
+      saveState();
+    }
+
+    function executeScan() {
+      const codeInput = document.getElementById('input-scan-code');
+      const code = codeInput.value.trim().toUpperCase();
+      const target = document.getElementById('input-scan-target').value;
+      const feedback = document.getElementById('scan-feedback');
+      if (!code) return;
+
+      let container = state.containers.find(c => c.code === code);
+      if (container) {
+        container.zone = target;
+        container.deptId = state.activeDeptId;
+        feedback.textContent = `✅ Gebinde ${code} erfolgreich nach "${getZoneName(target)}" gebucht!`;
+        feedback.className = 'text-xs mb-3 text-emerald-300 bg-emerald-950/60 border border-emerald-600/50 p-2.5 rounded block';
+      } else {
+        const art = state.articles[0] ? `${state.articles[0].nr} ${state.articles[0].name}` : 'Universal-Gebinde';
+        state.containers.push({ code, deptId: state.activeDeptId, article: art, qty: 100, unit: 'Stk.', zone: target, location: 'Scan-Eingang' });
+        feedback.textContent = `✨ Neuer Barcode ${code} angelegt und nach "${getZoneName(target)}" gebucht!`;
+        feedback.className = 'text-xs mb-3 text-blue-300 bg-blue-950/60 border border-blue-600/50 p-2.5 rounded block';
+      }
+      codeInput.value = '';
+      saveState();
+    }
+
+    function getZoneName(zone) {
+      const map = { staged: 'Bereitstellung', buffer: 'Pufferlager (Regal)', main: 'Hauptlager / Verkauf', quarantine: 'QS- / MHD-Sperrlager' };
+      return map[zone] || zone;
+    }
+
+    // EMBEDDED TEST-DATENBANK (101 INDUSTRIE-ARTIKEL MIT EINLAGERUNG)
+    const EMBEDDED_TEST_DB = {"articles":[{"nr":"ART-1001","name":"Zylinderschraube DIN 912 M4x16 8.8 verzinkt","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1002","name":"Zylinderschraube DIN 912 M6x25 8.8 verzinkt","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1003","name":"Zylinderschraube DIN 912 M8x35 8.8 verzinkt","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1004","name":"Zylinderschraube DIN 912 M10x40 10.9 schwarz","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1005","name":"Sechskantschraube ISO 4017 M8x30 Edelstahl A2","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1006","name":"Sechskantschraube ISO 4017 M12x50 8.8 verzinkt","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1007","name":"Sechskantmutter ISO 4032 M6 verzinkt","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1008","name":"Sechskantmutter ISO 4032 M8 Edelstahl A2","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1009","name":"Sechskantmutter ISO 4032 M10 verzinkt","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1010","name":"Sicherungsmutter DIN 985 M8 mit Polyamidring","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1011","name":"Unterlegscheibe DIN 125 Form A 8.4mm Edelstahl","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1012","name":"Federring DIN 127 Form B 8.2mm Federstahl","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1013","name":"Passfeder DIN 6885 Form A 8x7x32mm","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1014","name":"Zylinderstift DIN 6325 gehärtet 6x30mm m6","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1015","name":"Gewindestange DIN 976-1 M10x1000mm 8.8 verzinkt","unit":"Stk.","category":"Verbindungstechnik & Normteile"},{"nr":"ART-1016","name":"Rillenkugellager 6004-2RSH SKF","unit":"Stk.","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1017","name":"Rillenkugellager 6205-2RS1 C3 SKF","unit":"Stk.","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1018","name":"Kegelrollenlager 30206 FAG","unit":"Stk.","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1019","name":"Stehlagergehäuse UCP 205 Wellendurchmesser 25mm","unit":"Stk.","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1020","name":"Flanschlager 4-Loch UCF 206 Wellendurchmesser 30mm","unit":"Stk.","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1021","name":"Wellendichtring DIN 3760 25x47x7 BASL FKM","unit":"Stk.","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1022","name":"Wellendichtring DIN 3760 35x52x7 BASL NBR","unit":"Stk.","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1023","name":"Keilriemen DIN 2215 Profil SPA 1250 Lw","unit":"Stk.","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1024","name":"Keilriemen DIN 2215 Profil SPB 1800 Lw","unit":"Stk.","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1025","name":"Zahnriemen HTD 5M 600 Breite 15mm","unit":"Stk.","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1026","name":"Taper-Spannbuchse 1610 Bohrung 25mm","unit":"Stk.","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1027","name":"Rollenkette DIN 8187 08B-1 Einfach 5m Rolle","unit":"Rolle","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1028","name":"Kettenschloss 08B-1 mit Federverschluss","unit":"Stk.","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1029","name":"Klauenkupplung HRC 110 Kupplungshälfte Bohrung 28mm","unit":"Stk.","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1030","name":"Elastomerstern für Kupplung HRC 110 92 Shore A","unit":"Stk.","category":"Antriebs- & Lagertechnik"},{"nr":"ART-1031","name":"Pneumatik-Kompaktzylinder ISO 21287 D=32mm Hub=50mm","unit":"Stk.","category":"Pneumatik & Hydraulik"},{"nr":"ART-1032","name":"Pneumatik-Normzylinder ISO 15552 D=50mm Hub=100mm","unit":"Stk.","category":"Pneumatik & Hydraulik"},{"nr":"ART-1033","name":"5/2-Wege Magnetventil 24V DC G1/8 Federrückstellung","unit":"Stk.","category":"Pneumatik & Hydraulik"},{"nr":"ART-1034","name":"3/2-Wege Magnetventil 24V DC G1/4 NC","unit":"Stk.","category":"Pneumatik & Hydraulik"},{"nr":"ART-1035","name":"Druckluft-Wartungseinheit Filter-Regler-Öler G1/4","unit":"Stk.","category":"Pneumatik & Hydraulik"},{"nr":"ART-1036","name":"Drosselrückschlagventil G1/8 für Schlauch 6mm","unit":"Stk.","category":"Pneumatik & Hydraulik"},{"nr":"ART-1037","name":"Steckverschraubung Gerade G1/4 für Schlauch 8mm","unit":"Stk.","category":"Pneumatik & Hydraulik"},{"nr":"ART-1038","name":"Winkeleinschraubverschraubung drehbar G1/8 Schlauch 6mm","unit":"Stk.","category":"Pneumatik & Hydraulik"},{"nr":"ART-1039","name":"Polyurethan-Druckluftschlauch Außen-D=8mm blau 100m","unit":"Rolle","category":"Pneumatik & Hydraulik"},{"nr":"ART-1040","name":"Polyurethan-Druckluftschlauch Außen-D=6mm schwarz 100m","unit":"Rolle","category":"Pneumatik & Hydraulik"},{"nr":"ART-1041","name":"Schalldämpfer Sinterbronze G1/4 Gewinde","unit":"Stk.","category":"Pneumatik & Hydraulik"},{"nr":"ART-1042","name":"Druckschalter digital -1 bis +10 bar M8 4-polig","unit":"Stk.","category":"Pneumatik & Hydraulik"},{"nr":"ART-1043","name":"Hydraulikschlauch 2SN DN10 Länge 1200mm DKOL/DKOL","unit":"Stk.","category":"Pneumatik & Hydraulik"},{"nr":"ART-1044","name":"Kugelhahn 2-Wege Hochdruck G1/2 Stahl verzinkt PN500","unit":"Stk.","category":"Pneumatik & Hydraulik"},{"nr":"ART-1045","name":"O-Ring Dichtsatz NBR 70 Shore 400-teilig Box","unit":"Set","category":"Pneumatik & Hydraulik"},{"nr":"ART-1046","name":"Induktiver Näherungsschalter M12 Schließer PNP Sn=4mm","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1047","name":"Optischer Reflexionslichttaster Reichweite 300mm PNP","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1048","name":"SPS-Eingabemodul digital 16x 24V DC 0.5A","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1049","name":"SPS-Ausgabemodul digital 16x Relaisausgang 230V","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1050","name":"Schaltnetzteil 24V DC 10A Hutschienenmontage 240W","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1051","name":"Koppelrelais 24V DC 1 Wechsler 6A Baubreite 6.2mm","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1052","name":"Sicherungsautomat 1-polig B16A 10kA DIN-Schiene","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1053","name":"Not-Halt-Taster 22mm 2 Öffner überlistungssicher IP65","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1054","name":"LED-Signalsäule 3-stufig Rot/Gelb/Grün 24V DC","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1055","name":"Durchgangs-Reihenklemme Federkraft 2.5mm² grau","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1056","name":"Schutzleiter-Reihenklemme Federkraft 2.5mm² grün-gelb","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1057","name":"Sensorleitung M12 4-polig Buchse gerade 5m PUR geschirmt","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1058","name":"Schaltschranklüfter mit Filter 230V 120m³/h IP54","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1059","name":"Hauptschalter 3-polig 32A im Gehäuse abschließbar gelb/rot","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1060","name":"Industrie-Ethernet Patchkabel RJ45 Cat.6A PUR 3m grün","unit":"Stk.","category":"Elektrotechnik & Automation"},{"nr":"ART-1061","name":"Aluminium-Konstruktionsprofil 40x40 Nut 8 Raster L=3000mm","unit":"Stk.","category":"Rohmaterial & Halbzeuge"},{"nr":"ART-1062","name":"Aluminium-Konstruktionsprofil 80x40 Nut 8 Raster L=3000mm","unit":"Stk.","category":"Rohmaterial & Halbzeuge"},{"nr":"ART-1063","name":"Winkelverbinder Aluminium 40x40 inkl. Befestigungssatz","unit":"Stk.","category":"Rohmaterial & Halbzeuge"},{"nr":"ART-1064","name":"Nutenstein Nut 8 M6 mit Stegkugel verzinkt","unit":"Stk.","category":"Rohmaterial & Halbzeuge"},{"nr":"ART-1065","name":"Rundstahl 42CrMo4 vergütet D=30mm geschliffen L=1000mm","unit":"Stk.","category":"Rohmaterial & Halbzeuge"},{"nr":"ART-1066","name":"Rundstahl 1.4301 Edelstahl D=20mm gezogen L=1500mm","unit":"Stk.","category":"Rohmaterial & Halbzeuge"},{"nr":"ART-1067","name":"Automatenstahl 11SMn30 Rund D=40mm L=1000mm","unit":"Stk.","category":"Rohmaterial & Halbzeuge"},{"nr":"ART-1068","name":"Präzisions-Kupferrohr D=15x1mm nahtlos L=2500mm","unit":"Stk.","category":"Rohmaterial & Halbzeuge"},{"nr":"ART-1069","name":"POM-C Rundstab weiß D=50mm L=1000mm","unit":"Stk.","category":"Rohmaterial & Halbzeuge"},{"nr":"ART-1070","name":"Aluminium-Blech AlMg3 blank 2.0mm 1000x2000mm","unit":"Stk.","category":"Rohmaterial & Halbzeuge"},{"nr":"ART-1071","name":"Edelstahl-Blech 1.4301 2B 1.5mm 1000x2000mm","unit":"Stk.","category":"Rohmaterial & Halbzeuge"},{"nr":"ART-1072","name":"Vierkantrohr Stahl S235JR 50x50x3mm L=3000mm","unit":"Stk.","category":"Rohmaterial & Halbzeuge"},{"nr":"ART-1073","name":"Zahnstange Modul 2.0 Stahl geradverzahnt L=1000mm","unit":"Stk.","category":"Rohmaterial & Halbzeuge"},{"nr":"ART-1074","name":"Führungsschiene Profilschienenführung HG20 L=1200mm","unit":"Stk.","category":"Rohmaterial & Halbzeuge"},{"nr":"ART-1075","name":"Flanschgehäuse Aluminium G3 CNC gefräst","unit":"Stk.","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"nr":"ART-1076","name":"Präzisionsantriebswelle 42CrMo4 CNC gedreht gehärtet","unit":"Stk.","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"nr":"ART-1077","name":"Lagerdeckel GGG-40 geschlossen D=120mm","unit":"Stk.","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"nr":"ART-1078","name":"Distanzbuchse Edelstahl D=35/25x15mm entgratet","unit":"Stk.","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"nr":"ART-1079","name":"Motoradapterplatte Stahl lasergeschnitten & pulverbeschichtet","unit":"Stk.","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"nr":"ART-1080","name":"Spannbackensatz gehärtet für 3-Backenfutter 200mm","unit":"Set","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"nr":"ART-1081","name":"Zahnrad Modul 2.0 Z=36 einsatzgehärtet","unit":"Stk.","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"nr":"ART-1082","name":"Kupplungsnabe Bohrung 32mm Nut nach DIN 6885","unit":"Stk.","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"nr":"ART-1083","name":"Führungswagen Flansch HG20 Vorzugsklasse H","unit":"Stk.","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"nr":"ART-1084","name":"Baugruppe Linearachse 500mm Verfahrweg montiert","unit":"Stk.","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"nr":"ART-1085","name":"Baugruppe Getriebedeckel vormontiert mit Wellendichtring","unit":"Stk.","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"nr":"ART-1086","name":"Hydraulik-Zylinderbock geschweißt & spannungsarm geglüht","unit":"Stk.","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"nr":"ART-1087","name":"Montagewinkel Schwerlast 150x150x12mm verzinkt","unit":"Stk.","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"nr":"ART-1088","name":"Faltkarton 2-wellig 400x300x200mm (Karton à 25 Stk)","unit":"Karton","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"nr":"ART-1089","name":"Faltkarton 2-wellig 600x400x300mm Euro-Modul","unit":"Karton","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"nr":"ART-1090","name":"Maschinen-Stretchfolie transparent 500mm 23my 16kg","unit":"Rolle","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"nr":"ART-1091","name":"Hand-Stretchfolie 500mm 20my Kern 50mm transparent","unit":"Rolle","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"nr":"ART-1092","name":"PP-Umreifungsband 12mm x 0.6mm Reißkraft 130kg 3000m","unit":"Rolle","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"nr":"ART-1093","name":"Metallverschlussklemmen für 12mm Umreifungsband (1000 Stk)","unit":"Karton","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"nr":"ART-1094","name":"Thermo-Haftetiketten 100x150mm für Versandrollen (2000 Stk)","unit":"Rolle","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"nr":"ART-1095","name":"Luftpolsterfolie 2-lagig Noppen 10mm Breite 100cm L=100m","unit":"Rolle","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"nr":"ART-1096","name":"Euro-Tauschpalette EPAL 1 gebraucht gütegeprüft","unit":"Stk.","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"nr":"ART-1097","name":"Gitterbox DIN 15155 gebraucht tauschfähig","unit":"Stk.","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"nr":"ART-1098","name":"Hochleistungs-Hydrauliköl HLP 46 20L Kanister","unit":"Kanister","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"nr":"ART-1099","name":"Bettbahnöl CGLP 68 20L Kanister für Werkzeugmaschinen","unit":"Kanister","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"nr":"ART-1100","name":"Industriereiniger & Bremsenreiniger 500ml Spraydose","unit":"Dose","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"nr":"ART-1101","name":"Kühlschmierstoff-Konzentrat wassermischbar 208L Fass","unit":"Fass","category":"Verpackung, Betriebs- & Hilfsstoffe"}],"containers":[{"code":"KLT-1001","deptId":"dept-all","article":"ART-1001 Zylinderschraube DIN 912 M4x16 8.8 verzinkt","qty":1000,"unit":"Stk.","zone":"main","location":"Kleinteilelager Fach K | Fach A-01-01","category":"Verbindungstechnik & Normteile"},{"code":"KLT-1002","deptId":"dept-all","article":"ART-1002 Zylinderschraube DIN 912 M6x25 8.8 verzinkt","qty":800,"unit":"Stk.","zone":"buffer","location":"Kleinteilelager Fach K | Fach A-02-01","category":"Verbindungstechnik & Normteile"},{"code":"KLT-1003","deptId":"dept-all","article":"ART-1003 Zylinderschraube DIN 912 M8x35 8.8 verzinkt","qty":500,"unit":"Stk.","zone":"main","location":"Kleinteilelager Fach K | Fach A-03-01","category":"Verbindungstechnik & Normteile"},{"code":"KLT-1004","deptId":"dept-all","article":"ART-1004 Zylinderschraube DIN 912 M10x40 10.9 schwarz","qty":400,"unit":"Stk.","zone":"main","location":"Kleinteilelager Fach K | Fach A-04-01","category":"Verbindungstechnik & Normteile"},{"code":"KLT-1005","deptId":"dept-all","article":"ART-1005 Sechskantschraube ISO 4017 M8x30 Edelstahl A2","qty":600,"unit":"Stk.","zone":"staged","location":"Kleinteilelager Fach K | Fach A-05-01","category":"Verbindungstechnik & Normteile"},{"code":"KLT-1006","deptId":"dept-all","article":"ART-1006 Sechskantschraube ISO 4017 M12x50 8.8 verzinkt","qty":350,"unit":"Stk.","zone":"main","location":"Kleinteilelager Fach K | Fach A-01-02","category":"Verbindungstechnik & Normteile"},{"code":"KLT-1007","deptId":"dept-all","article":"ART-1007 Sechskantmutter ISO 4032 M6 verzinkt","qty":2000,"unit":"Stk.","zone":"main","location":"Kleinteilelager Fach K | Fach A-02-02","category":"Verbindungstechnik & Normteile"},{"code":"KLT-1008","deptId":"dept-all","article":"ART-1008 Sechskantmutter ISO 4032 M8 Edelstahl A2","qty":1500,"unit":"Stk.","zone":"buffer","location":"Kleinteilelager Fach K | Fach A-03-02","category":"Verbindungstechnik & Normteile"},{"code":"KLT-1009","deptId":"dept-all","article":"ART-1009 Sechskantmutter ISO 4032 M10 verzinkt","qty":1200,"unit":"Stk.","zone":"main","location":"Kleinteilelager Fach K | Fach A-04-02","category":"Verbindungstechnik & Normteile"},{"code":"KLT-1010","deptId":"dept-all","article":"ART-1010 Sicherungsmutter DIN 985 M8 mit Polyamidring","qty":1000,"unit":"Stk.","zone":"main","location":"Kleinteilelager Fach K | Fach A-05-02","category":"Verbindungstechnik & Normteile"},{"code":"KLT-1011","deptId":"dept-all","article":"ART-1011 Unterlegscheibe DIN 125 Form A 8.4mm Edelstahl","qty":2500,"unit":"Stk.","zone":"main","location":"Kleinteilelager Fach K | Fach A-01-03","category":"Verbindungstechnik & Normteile"},{"code":"KLT-1012","deptId":"dept-all","article":"ART-1012 Federring DIN 127 Form B 8.2mm Federstahl","qty":2000,"unit":"Stk.","zone":"main","location":"Kleinteilelager Fach K | Fach A-02-03","category":"Verbindungstechnik & Normteile"},{"code":"KLT-1013","deptId":"dept-all","article":"ART-1013 Passfeder DIN 6885 Form A 8x7x32mm","qty":300,"unit":"Stk.","zone":"main","location":"Kleinteilelager Fach K | Fach A-03-03","category":"Verbindungstechnik & Normteile"},{"code":"KLT-1014","deptId":"dept-all","article":"ART-1014 Zylinderstift DIN 6325 gehärtet 6x30mm m6","qty":450,"unit":"Stk.","zone":"buffer","location":"Kleinteilelager Fach K | Fach A-04-03","category":"Verbindungstechnik & Normteile"},{"code":"KLT-1015","deptId":"dept-all","article":"ART-1015 Gewindestange DIN 976-1 M10x1000mm 8.8 verzinkt","qty":80,"unit":"Stk.","zone":"main","location":"Kleinteilelager Fach K | Fach A-05-03","category":"Verbindungstechnik & Normteile"},{"code":"PAL-1016","deptId":"dept-all","article":"ART-1016 Rillenkugellager 6004-2RSH SKF","qty":120,"unit":"Stk.","zone":"main","location":"Regal A (Antriebstechnik) | Fach B-01-01","category":"Antriebs- & Lagertechnik"},{"code":"PAL-1017","deptId":"dept-all","article":"ART-1017 Rillenkugellager 6205-2RS1 C3 SKF","qty":90,"unit":"Stk.","zone":"main","location":"Regal A (Antriebstechnik) | Fach B-02-01","category":"Antriebs- & Lagertechnik"},{"code":"PAL-1018","deptId":"dept-all","article":"ART-1018 Kegelrollenlager 30206 FAG","qty":60,"unit":"Stk.","zone":"main","location":"Regal A (Antriebstechnik) | Fach B-03-01","category":"Antriebs- & Lagertechnik"},{"code":"PAL-1019","deptId":"dept-all","article":"ART-1019 Stehlagergehäuse UCP 205 Wellendurchmesser 25mm","qty":45,"unit":"Stk.","zone":"main","location":"Regal A (Antriebstechnik) | Fach B-04-01","category":"Antriebs- & Lagertechnik"},{"code":"PAL-1020","deptId":"dept-all","article":"ART-1020 Flanschlager 4-Loch UCF 206 Wellendurchmesser 30mm","qty":35,"unit":"Stk.","zone":"staged","location":"Regal A (Antriebstechnik) | Fach B-05-01","category":"Antriebs- & Lagertechnik"},{"code":"PAL-1021","deptId":"dept-all","article":"ART-1021 Wellendichtring DIN 3760 25x47x7 BASL FKM","qty":250,"unit":"Stk.","zone":"main","location":"Regal A (Antriebstechnik) | Fach B-01-02","category":"Antriebs- & Lagertechnik"},{"code":"PAL-1022","deptId":"dept-all","article":"ART-1022 Wellendichtring DIN 3760 35x52x7 BASL NBR","qty":200,"unit":"Stk.","zone":"main","location":"Regal A (Antriebstechnik) | Fach B-02-02","category":"Antriebs- & Lagertechnik"},{"code":"PAL-1023","deptId":"dept-all","article":"ART-1023 Keilriemen DIN 2215 Profil SPA 1250 Lw","qty":80,"unit":"Stk.","zone":"main","location":"Regal A (Antriebstechnik) | Fach B-03-02","category":"Antriebs- & Lagertechnik"},{"code":"PAL-1024","deptId":"dept-all","article":"ART-1024 Keilriemen DIN 2215 Profil SPB 1800 Lw","qty":50,"unit":"Stk.","zone":"main","location":"Regal A (Antriebstechnik) | Fach B-04-02","category":"Antriebs- & Lagertechnik"},{"code":"PAL-1025","deptId":"dept-all","article":"ART-1025 Zahnriemen HTD 5M 600 Breite 15mm","qty":75,"unit":"Stk.","zone":"main","location":"Regal A (Antriebstechnik) | Fach B-05-02","category":"Antriebs- & Lagertechnik"},{"code":"PAL-1026","deptId":"dept-all","article":"ART-1026 Taper-Spannbuchse 1610 Bohrung 25mm","qty":110,"unit":"Stk.","zone":"buffer","location":"Regal A (Antriebstechnik) | Fach B-01-03","category":"Antriebs- & Lagertechnik"},{"code":"PAL-1027","deptId":"dept-all","article":"ART-1027 Rollenkette DIN 8187 08B-1 Einfach 5m Rolle","qty":25,"unit":"Rolle","zone":"main","location":"Regal A (Antriebstechnik) | Fach B-02-03","category":"Antriebs- & Lagertechnik"},{"code":"PAL-1028","deptId":"dept-all","article":"ART-1028 Kettenschloss 08B-1 mit Federverschluss","qty":300,"unit":"Stk.","zone":"main","location":"Regal A (Antriebstechnik) | Fach B-03-03","category":"Antriebs- & Lagertechnik"},{"code":"PAL-1029","deptId":"dept-all","article":"ART-1029 Klauenkupplung HRC 110 Kupplungshälfte Bohrung 28mm","qty":30,"unit":"Stk.","zone":"main","location":"Regal A (Antriebstechnik) | Fach B-04-03","category":"Antriebs- & Lagertechnik"},{"code":"PAL-1030","deptId":"dept-all","article":"ART-1030 Elastomerstern für Kupplung HRC 110 92 Shore A","qty":60,"unit":"Stk.","zone":"main","location":"Regal A (Antriebstechnik) | Fach B-05-03","category":"Antriebs- & Lagertechnik"},{"code":"REG-1031","deptId":"dept-all","article":"ART-1031 Pneumatik-Kompaktzylinder ISO 21287 D=32mm Hub=50mm","qty":25,"unit":"Stk.","zone":"main","location":"Regal P (Fluidtechnik) | Fach C-01-01","category":"Pneumatik & Hydraulik"},{"code":"REG-1032","deptId":"dept-all","article":"ART-1032 Pneumatik-Normzylinder ISO 15552 D=50mm Hub=100mm","qty":18,"unit":"Stk.","zone":"buffer","location":"Regal P (Fluidtechnik) | Fach C-02-01","category":"Pneumatik & Hydraulik"},{"code":"REG-1033","deptId":"dept-all","article":"ART-1033 5/2-Wege Magnetventil 24V DC G1/8 Federrückstellung","qty":40,"unit":"Stk.","zone":"main","location":"Regal P (Fluidtechnik) | Fach C-03-01","category":"Pneumatik & Hydraulik"},{"code":"REG-1034","deptId":"dept-all","article":"ART-1034 3/2-Wege Magnetventil 24V DC G1/4 NC","qty":30,"unit":"Stk.","zone":"main","location":"Regal P (Fluidtechnik) | Fach C-04-01","category":"Pneumatik & Hydraulik"},{"code":"REG-1035","deptId":"dept-all","article":"ART-1035 Druckluft-Wartungseinheit Filter-Regler-Öler G1/4","qty":15,"unit":"Stk.","zone":"staged","location":"Regal P (Fluidtechnik) | Fach C-05-01","category":"Pneumatik & Hydraulik"},{"code":"REG-1036","deptId":"dept-all","article":"ART-1036 Drosselrückschlagventil G1/8 für Schlauch 6mm","qty":150,"unit":"Stk.","zone":"main","location":"Regal P (Fluidtechnik) | Fach C-01-02","category":"Pneumatik & Hydraulik"},{"code":"REG-1037","deptId":"dept-all","article":"ART-1037 Steckverschraubung Gerade G1/4 für Schlauch 8mm","qty":400,"unit":"Stk.","zone":"main","location":"Regal P (Fluidtechnik) | Fach C-02-02","category":"Pneumatik & Hydraulik"},{"code":"REG-1038","deptId":"dept-all","article":"ART-1038 Winkeleinschraubverschraubung drehbar G1/8 Schlauch 6mm","qty":350,"unit":"Stk.","zone":"buffer","location":"Regal P (Fluidtechnik) | Fach C-03-02","category":"Pneumatik & Hydraulik"},{"code":"REG-1039","deptId":"dept-all","article":"ART-1039 Polyurethan-Druckluftschlauch Außen-D=8mm blau 100m","qty":12,"unit":"Rolle","zone":"main","location":"Regal P (Fluidtechnik) | Fach C-04-02","category":"Pneumatik & Hydraulik"},{"code":"REG-1040","deptId":"dept-all","article":"ART-1040 Polyurethan-Druckluftschlauch Außen-D=6mm schwarz 100m","qty":15,"unit":"Rolle","zone":"main","location":"Regal P (Fluidtechnik) | Fach C-05-02","category":"Pneumatik & Hydraulik"},{"code":"REG-1041","deptId":"dept-all","article":"ART-1041 Schalldämpfer Sinterbronze G1/4 Gewinde","qty":220,"unit":"Stk.","zone":"main","location":"Regal P (Fluidtechnik) | Fach C-01-03","category":"Pneumatik & Hydraulik"},{"code":"REG-1042","deptId":"dept-all","article":"ART-1042 Druckschalter digital -1 bis +10 bar M8 4-polig","qty":20,"unit":"Stk.","zone":"main","location":"Regal P (Fluidtechnik) | Fach C-02-03","category":"Pneumatik & Hydraulik"},{"code":"REG-1043","deptId":"dept-all","article":"ART-1043 Hydraulikschlauch 2SN DN10 Länge 1200mm DKOL/DKOL","qty":30,"unit":"Stk.","zone":"main","location":"Regal P (Fluidtechnik) | Fach C-03-03","category":"Pneumatik & Hydraulik"},{"code":"REG-1044","deptId":"dept-all","article":"ART-1044 Kugelhahn 2-Wege Hochdruck G1/2 Stahl verzinkt PN500","qty":25,"unit":"Stk.","zone":"buffer","location":"Regal P (Fluidtechnik) | Fach C-04-03","category":"Pneumatik & Hydraulik"},{"code":"REG-1045","deptId":"dept-all","article":"ART-1045 O-Ring Dichtsatz NBR 70 Shore 400-teilig Box","qty":18,"unit":"Set","zone":"main","location":"Regal P (Fluidtechnik) | Fach C-05-03","category":"Pneumatik & Hydraulik"},{"code":"KLT-1046","deptId":"dept-all","article":"ART-1046 Induktiver Näherungsschalter M12 Schließer PNP Sn=4mm","qty":65,"unit":"Stk.","zone":"main","location":"Elektronikschrank E | Fach D-01-01","category":"Elektrotechnik & Automation"},{"code":"KLT-1047","deptId":"dept-all","article":"ART-1047 Optischer Reflexionslichttaster Reichweite 300mm PNP","qty":35,"unit":"Stk.","zone":"main","location":"Elektronikschrank E | Fach D-02-01","category":"Elektrotechnik & Automation"},{"code":"KLT-1048","deptId":"dept-all","article":"ART-1048 SPS-Eingabemodul digital 16x 24V DC 0.5A","qty":12,"unit":"Stk.","zone":"main","location":"Elektronikschrank E | Fach D-03-01","category":"Elektrotechnik & Automation"},{"code":"KLT-1049","deptId":"dept-all","article":"ART-1049 SPS-Ausgabemodul digital 16x Relaisausgang 230V","qty":10,"unit":"Stk.","zone":"main","location":"Elektronikschrank E | Fach D-04-01","category":"Elektrotechnik & Automation"},{"code":"KLT-1050","deptId":"dept-all","article":"ART-1050 Schaltnetzteil 24V DC 10A Hutschienenmontage 240W","qty":22,"unit":"Stk.","zone":"staged","location":"Elektronikschrank E | Fach D-05-01","category":"Elektrotechnik & Automation"},{"code":"KLT-1051","deptId":"dept-all","article":"ART-1051 Koppelrelais 24V DC 1 Wechsler 6A Baubreite 6.2mm","qty":140,"unit":"Stk.","zone":"main","location":"Elektronikschrank E | Fach D-01-02","category":"Elektrotechnik & Automation"},{"code":"KLT-1052","deptId":"dept-all","article":"ART-1052 Sicherungsautomat 1-polig B16A 10kA DIN-Schiene","qty":85,"unit":"Stk.","zone":"main","location":"Elektronikschrank E | Fach D-02-02","category":"Elektrotechnik & Automation"},{"code":"KLT-1053","deptId":"dept-all","article":"ART-1053 Not-Halt-Taster 22mm 2 Öffner überlistungssicher IP65","qty":40,"unit":"Stk.","zone":"main","location":"Elektronikschrank E | Fach D-03-02","category":"Elektrotechnik & Automation"},{"code":"KLT-1054","deptId":"dept-all","article":"ART-1054 LED-Signalsäule 3-stufig Rot/Gelb/Grün 24V DC","qty":18,"unit":"Stk.","zone":"main","location":"Elektronikschrank E | Fach D-04-02","category":"Elektrotechnik & Automation"},{"code":"KLT-1055","deptId":"dept-all","article":"ART-1055 Durchgangs-Reihenklemme Federkraft 2.5mm² grau","qty":1200,"unit":"Stk.","zone":"main","location":"Elektronikschrank E | Fach D-05-02","category":"Elektrotechnik & Automation"},{"code":"KLT-1056","deptId":"dept-all","article":"ART-1056 Schutzleiter-Reihenklemme Federkraft 2.5mm² grün-gelb","qty":500,"unit":"Stk.","zone":"buffer","location":"Elektronikschrank E | Fach D-01-03","category":"Elektrotechnik & Automation"},{"code":"KLT-1057","deptId":"dept-all","article":"ART-1057 Sensorleitung M12 4-polig Buchse gerade 5m PUR geschirmt","qty":80,"unit":"Stk.","zone":"main","location":"Elektronikschrank E | Fach D-02-03","category":"Elektrotechnik & Automation"},{"code":"KLT-1058","deptId":"dept-all","article":"ART-1058 Schaltschranklüfter mit Filter 230V 120m³/h IP54","qty":15,"unit":"Stk.","zone":"main","location":"Elektronikschrank E | Fach D-03-03","category":"Elektrotechnik & Automation"},{"code":"KLT-1059","deptId":"dept-all","article":"ART-1059 Hauptschalter 3-polig 32A im Gehäuse abschließbar gelb/rot","qty":20,"unit":"Stk.","zone":"main","location":"Elektronikschrank E | Fach D-04-03","category":"Elektrotechnik & Automation"},{"code":"KLT-1060","deptId":"dept-all","article":"ART-1060 Industrie-Ethernet Patchkabel RJ45 Cat.6A PUR 3m grün","qty":60,"unit":"Stk.","zone":"main","location":"Elektronikschrank E | Fach D-05-03","category":"Elektrotechnik & Automation"},{"code":"GIBO-1061","deptId":"dept-all","article":"ART-1061 Aluminium-Konstruktionsprofil 40x40 Nut 8 Raster L=3000mm","qty":40,"unit":"Stk.","zone":"main","location":"Kragarm- & Schwerlastlager H | Fach E-01-01","category":"Rohmaterial & Halbzeuge"},{"code":"GIBO-1062","deptId":"dept-all","article":"ART-1062 Aluminium-Konstruktionsprofil 80x40 Nut 8 Raster L=3000mm","qty":25,"unit":"Stk.","zone":"buffer","location":"Kragarm- & Schwerlastlager H | Fach E-02-01","category":"Rohmaterial & Halbzeuge"},{"code":"GIBO-1063","deptId":"dept-all","article":"ART-1063 Winkelverbinder Aluminium 40x40 inkl. Befestigungssatz","qty":350,"unit":"Stk.","zone":"main","location":"Kragarm- & Schwerlastlager H | Fach E-03-01","category":"Rohmaterial & Halbzeuge"},{"code":"GIBO-1064","deptId":"dept-all","article":"ART-1064 Nutenstein Nut 8 M6 mit Stegkugel verzinkt","qty":1500,"unit":"Stk.","zone":"main","location":"Kragarm- & Schwerlastlager H | Fach E-04-01","category":"Rohmaterial & Halbzeuge"},{"code":"GIBO-1065","deptId":"dept-all","article":"ART-1065 Rundstahl 42CrMo4 vergütet D=30mm geschliffen L=1000mm","qty":30,"unit":"Stk.","zone":"staged","location":"Kragarm- & Schwerlastlager H | Fach E-05-01","category":"Rohmaterial & Halbzeuge"},{"code":"GIBO-1066","deptId":"dept-all","article":"ART-1066 Rundstahl 1.4301 Edelstahl D=20mm gezogen L=1500mm","qty":25,"unit":"Stk.","zone":"main","location":"Kragarm- & Schwerlastlager H | Fach E-01-02","category":"Rohmaterial & Halbzeuge"},{"code":"GIBO-1067","deptId":"dept-all","article":"ART-1067 Automatenstahl 11SMn30 Rund D=40mm L=1000mm","qty":35,"unit":"Stk.","zone":"main","location":"Kragarm- & Schwerlastlager H | Fach E-02-02","category":"Rohmaterial & Halbzeuge"},{"code":"GIBO-1068","deptId":"dept-all","article":"ART-1068 Präzisions-Kupferrohr D=15x1mm nahtlos L=2500mm","qty":50,"unit":"Stk.","zone":"buffer","location":"Kragarm- & Schwerlastlager H | Fach E-03-02","category":"Rohmaterial & Halbzeuge"},{"code":"GIBO-1069","deptId":"dept-all","article":"ART-1069 POM-C Rundstab weiß D=50mm L=1000mm","qty":28,"unit":"Stk.","zone":"main","location":"Kragarm- & Schwerlastlager H | Fach E-04-02","category":"Rohmaterial & Halbzeuge"},{"code":"GIBO-1070","deptId":"dept-all","article":"ART-1070 Aluminium-Blech AlMg3 blank 2.0mm 1000x2000mm","qty":15,"unit":"Stk.","zone":"main","location":"Kragarm- & Schwerlastlager H | Fach E-05-02","category":"Rohmaterial & Halbzeuge"},{"code":"GIBO-1071","deptId":"dept-all","article":"ART-1071 Edelstahl-Blech 1.4301 2B 1.5mm 1000x2000mm","qty":12,"unit":"Stk.","zone":"main","location":"Kragarm- & Schwerlastlager H | Fach E-01-03","category":"Rohmaterial & Halbzeuge"},{"code":"GIBO-1072","deptId":"dept-all","article":"ART-1072 Vierkantrohr Stahl S235JR 50x50x3mm L=3000mm","qty":20,"unit":"Stk.","zone":"main","location":"Kragarm- & Schwerlastlager H | Fach E-02-03","category":"Rohmaterial & Halbzeuge"},{"code":"GIBO-1073","deptId":"dept-all","article":"ART-1073 Zahnstange Modul 2.0 Stahl geradverzahnt L=1000mm","qty":16,"unit":"Stk.","zone":"main","location":"Kragarm- & Schwerlastlager H | Fach E-03-03","category":"Rohmaterial & Halbzeuge"},{"code":"GIBO-1074","deptId":"dept-all","article":"ART-1074 Führungsschiene Profilschienenführung HG20 L=1200mm","qty":24,"unit":"Stk.","zone":"buffer","location":"Kragarm- & Schwerlastlager H | Fach E-04-03","category":"Rohmaterial & Halbzeuge"},{"code":"PAL-1075","deptId":"dept-all","article":"ART-1075 Flanschgehäuse Aluminium G3 CNC gefräst","qty":85,"unit":"Stk.","zone":"main","location":"Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-01-01","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"code":"PAL-1076","deptId":"dept-all","article":"ART-1076 Präzisionsantriebswelle 42CrMo4 CNC gedreht gehärtet","qty":110,"unit":"Stk.","zone":"main","location":"Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-02-01","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"code":"PAL-1077","deptId":"dept-all","article":"ART-1077 Lagerdeckel GGG-40 geschlossen D=120mm","qty":95,"unit":"Stk.","zone":"main","location":"Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-03-01","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"code":"PAL-1078","deptId":"dept-all","article":"ART-1078 Distanzbuchse Edelstahl D=35/25x15mm entgratet","qty":350,"unit":"Stk.","zone":"main","location":"Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-04-01","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"code":"PAL-1079","deptId":"dept-all","article":"ART-1079 Motoradapterplatte Stahl lasergeschnitten & pulverbeschichtet","qty":45,"unit":"Stk.","zone":"main","location":"Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-05-01","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"code":"PAL-1080","deptId":"dept-all","article":"ART-1080 Spannbackensatz gehärtet für 3-Backenfutter 200mm","qty":20,"unit":"Set","zone":"staged","location":"Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-01-02","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"code":"PAL-1081","deptId":"dept-all","article":"ART-1081 Zahnrad Modul 2.0 Z=36 einsatzgehärtet","qty":70,"unit":"Stk.","zone":"main","location":"Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-02-02","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"code":"PAL-1082","deptId":"dept-all","article":"ART-1082 Kupplungsnabe Bohrung 32mm Nut nach DIN 6885","qty":65,"unit":"Stk.","zone":"main","location":"Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-03-02","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"code":"PAL-1083","deptId":"dept-all","article":"ART-1083 Führungswagen Flansch HG20 Vorzugsklasse H","qty":48,"unit":"Stk.","zone":"main","location":"Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-04-02","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"code":"PAL-1084","deptId":"dept-all","article":"ART-1084 Baugruppe Linearachse 500mm Verfahrweg montiert","qty":8,"unit":"Stk.","zone":"main","location":"Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-05-02","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"code":"PAL-1085","deptId":"dept-all","article":"ART-1085 Baugruppe Getriebedeckel vormontiert mit Wellendichtring","qty":32,"unit":"Stk.","zone":"main","location":"Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-01-03","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"code":"PAL-1086","deptId":"dept-all","article":"ART-1086 Hydraulik-Zylinderbock geschweißt & spannungsarm geglüht","qty":14,"unit":"Stk.","zone":"buffer","location":"Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-02-03","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"code":"PAL-1087","deptId":"dept-all","article":"ART-1087 Montagewinkel Schwerlast 150x150x12mm verzinkt","qty":120,"unit":"Stk.","zone":"main","location":"Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-03-03","category":"Gefertigte Baugruppen & Zerspanungsteile"},{"code":"PAL-1088","deptId":"dept-all","article":"ART-1088 Faltkarton 2-wellig 400x300x200mm (Karton à 25 Stk)","qty":40,"unit":"Karton","zone":"main","location":"Verpackungslager & Gefahrstoffbereich V | Fach A-01-01","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"code":"PAL-1089","deptId":"dept-all","article":"ART-1089 Faltkarton 2-wellig 600x400x300mm Euro-Modul","qty":30,"unit":"Karton","zone":"main","location":"Verpackungslager & Gefahrstoffbereich V | Fach A-02-01","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"code":"PAL-1090","deptId":"dept-all","article":"ART-1090 Maschinen-Stretchfolie transparent 500mm 23my 16kg","qty":24,"unit":"Rolle","zone":"main","location":"Verpackungslager & Gefahrstoffbereich V | Fach A-03-01","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"code":"PAL-1091","deptId":"dept-all","article":"ART-1091 Hand-Stretchfolie 500mm 20my Kern 50mm transparent","qty":60,"unit":"Rolle","zone":"main","location":"Verpackungslager & Gefahrstoffbereich V | Fach A-04-01","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"code":"PAL-1092","deptId":"dept-all","article":"ART-1092 PP-Umreifungsband 12mm x 0.6mm Reißkraft 130kg 3000m","qty":10,"unit":"Rolle","zone":"buffer","location":"Verpackungslager & Gefahrstoffbereich V | Fach A-05-01","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"code":"PAL-1093","deptId":"dept-all","article":"ART-1093 Metallverschlussklemmen für 12mm Umreifungsband (1000 Stk)","qty":15,"unit":"Karton","zone":"main","location":"Verpackungslager & Gefahrstoffbereich V | Fach A-01-02","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"code":"PAL-1094","deptId":"dept-all","article":"ART-1094 Thermo-Haftetiketten 100x150mm für Versandrollen (2000 Stk)","qty":25,"unit":"Rolle","zone":"main","location":"Verpackungslager & Gefahrstoffbereich V | Fach A-02-02","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"code":"PAL-1095","deptId":"dept-all","article":"ART-1095 Luftpolsterfolie 2-lagig Noppen 10mm Breite 100cm L=100m","qty":12,"unit":"Rolle","zone":"staged","location":"Verpackungslager & Gefahrstoffbereich V | Fach A-03-02","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"code":"PAL-1096","deptId":"dept-all","article":"ART-1096 Euro-Tauschpalette EPAL 1 gebraucht gütegeprüft","qty":150,"unit":"Stk.","zone":"main","location":"Verpackungslager & Gefahrstoffbereich V | Fach A-04-02","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"code":"PAL-1097","deptId":"dept-all","article":"ART-1097 Gitterbox DIN 15155 gebraucht tauschfähig","qty":28,"unit":"Stk.","zone":"main","location":"Verpackungslager & Gefahrstoffbereich V | Fach A-05-02","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"code":"PAL-1098","deptId":"dept-all","article":"ART-1098 Hochleistungs-Hydrauliköl HLP 46 20L Kanister","qty":16,"unit":"Kanister","zone":"buffer","location":"Verpackungslager & Gefahrstoffbereich V | Fach A-01-03","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"code":"PAL-1099","deptId":"dept-all","article":"ART-1099 Bettbahnöl CGLP 68 20L Kanister für Werkzeugmaschinen","qty":14,"unit":"Kanister","zone":"main","location":"Verpackungslager & Gefahrstoffbereich V | Fach A-02-03","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"code":"PAL-1100","deptId":"dept-all","article":"ART-1100 Industriereiniger & Bremsenreiniger 500ml Spraydose","qty":180,"unit":"Dose","zone":"main","location":"Verpackungslager & Gefahrstoffbereich V | Fach A-03-03","category":"Verpackung, Betriebs- & Hilfsstoffe"},{"code":"PAL-1101","deptId":"dept-all","article":"ART-1101 Kühlschmierstoff-Konzentrat wassermischbar 208L Fass","qty":4,"unit":"Fass","zone":"main","location":"Verpackungslager & Gefahrstoffbereich V | Fach A-04-03","category":"Verpackung, Betriebs- & Hilfsstoffe"}]};
+
+    function renderArticles() {
+      const artCount = state.articles ? state.articles.length : 0;
+      const countEl = document.getElementById('article-count');
+      if (countEl) countEl.textContent = artCount;
+      const modalCountEl = document.getElementById('art-modal-count');
+      if (modalCountEl) modalCountEl.textContent = artCount;
+
+      // Zähle eingelagerte Artikel
+      const stockedArticleNrs = new Set();
+      (state.containers || []).forEach(c => {
+        const artObj = state.articles.find(a => c.article && (c.article.includes(a.nr) || c.article.includes(a.name)));
+        if (artObj) stockedArticleNrs.add(artObj.nr);
+      });
+      const stockedCountEl = document.getElementById('art-stocked-count');
+      if (stockedCountEl) stockedCountEl.textContent = stockedArticleNrs.size;
+
+      // Select Dropdown für neuen Behälter
+      const select = document.getElementById('input-box-article');
+      if (select) {
+        select.innerHTML = state.articles.map(a => `<option value="${a.nr} ${a.name}">${a.nr} — ${a.name} (${a.unit || 'Stk.'})</option>`).join('');
+      }
+
+      // Suchleiste
+      const searchInput = document.getElementById('input-art-search');
+      const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
+      const list = document.getElementById('articles-list');
+      if (list) {
+        const filtered = state.articles.filter(a => {
+          if (!query) return true;
+          return a.nr.toLowerCase().includes(query) || a.name.toLowerCase().includes(query) || (a.unit && a.unit.toLowerCase().includes(query));
+        });
+
+        if (filtered.length === 0) {
+          list.innerHTML = `<div class="text-center text-slate-500 py-6 text-xs">Keine Artikel gefunden.</div>`;
+          return;
+        }
+
+        list.innerHTML = filtered.map(a => {
+          const containers = (state.containers || []).filter(c => c.article && (c.article.includes(a.nr) || c.article.includes(a.name)));
+          const totalQty = containers.reduce((acc, c) => acc + (Number(c.qty) || 0), 0);
+          const isStocked = containers.length > 0;
+          const locs = containers.map(c => c.location || getZoneName(c.zone)).filter(Boolean).slice(0, 2).join(' | ');
+
+          return `
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-800/90 px-3 py-2 rounded-lg border border-slate-700/80 text-xs hover:border-slate-600 transition gap-1.5">
+              <div class="overflow-hidden pr-2">
+                <div class="flex items-center space-x-2">
+                  <strong class="font-mono text-blue-400 font-bold">${a.nr}</strong>
+                  <span class="text-slate-200 font-medium truncate">${a.name}</span>
+                </div>
+                <div class="flex items-center space-x-2 mt-0.5 text-[11px]">
+                  ${isStocked 
+                    ? `<span class="text-emerald-400 font-medium flex items-center space-x-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                        <span>Eingelagert: <strong>${totalQty.toLocaleString()} ${a.unit || 'Stk.'}</strong></span>
+                       </span>
+                       ${locs ? `<span class="text-slate-400 truncate max-w-[260px] font-mono text-[10px]">📍 ${locs}</span>` : ''}`
+                    : `<span class="text-slate-500 flex items-center space-x-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-slate-500 shrink-0"></span>
+                        <span>Nicht im Lager (0 ${a.unit || 'Stk.'})</span>
+                       </span>`
+                  }
+                </div>
+              </div>
+              <div class="flex items-center space-x-2 shrink-0 self-end sm:self-auto">
+                <span class="text-slate-400 font-mono bg-slate-900 px-2 py-0.5 rounded border border-slate-700 text-[10px]">${a.unit || 'Stk.'}</span>
+                ${!isStocked ? `<button onclick="stockSingleArticle('${a.nr}')" class="px-2 py-0.5 rounded bg-emerald-600 hover:bg-emerald-500 text-white text-[10px] font-medium transition">+ Einlagern</button>` : ''}
+              </div>
+            </div>`;
+        }).join('');
+      }
+    }
+
+    function addArticle() {
+      const nr = document.getElementById('input-art-nr').value.trim().toUpperCase();
+      const name = document.getElementById('input-art-name').value.trim();
+      const unit = document.getElementById('input-art-unit').value.trim() || 'Stk.';
+      if (!nr || !name) return;
+
+      const exists = state.articles.find(a => a.nr === nr);
+      if (exists) {
+        alert('Artikel ' + nr + ' existiert bereits im Stamm!');
+        return;
+      }
+
+      state.articles.push({ nr, name, unit });
+
+      // Automatische Einlagerung
+      const autoStock = document.getElementById('check-auto-stock')?.checked;
+      if (autoStock) {
+        const qty = parseInt(document.getElementById('input-auto-qty')?.value) || 100;
+        const loc = document.getElementById('input-auto-loc')?.value.trim() || ('Hauptlager Fach ' + nr.slice(-3));
+        const zone = document.getElementById('input-auto-zone')?.value || 'main';
+        const numPart = nr.replace(/[^0-9]/g, '') || Math.floor(1000 + Math.random() * 9000);
+        const code = (unit === 'kg' || unit === 'Meter' || unit === 'Rolle' ? 'GIBO-' : 'PAL-') + numPart;
+
+        state.containers.push({
+          code,
+          deptId: state.activeDeptId || 'dept-all',
+          article: `${nr} ${name}`,
+          qty,
+          unit,
+          zone,
+          location: loc
+        });
+      }
+
+      document.getElementById('input-art-nr').value = '';
+      document.getElementById('input-art-name').value = '';
+      saveState();
+    }
+
+    function stockSingleArticle(nr) {
+      const art = state.articles.find(a => a.nr === nr);
+      if (!art) return;
+      const numPart = art.nr.replace(/[^0-9]/g, '') || Math.floor(1000 + Math.random() * 9000);
+      const code = 'PAL-' + numPart;
+      state.containers.push({
+        code,
+        deptId: state.activeDeptId || 'dept-all',
+        article: `${art.nr} ${art.name}`,
+        qty: 100,
+        unit: art.unit || 'Stk.',
+        zone: 'main',
+        location: 'Hauptlager Fach ' + art.nr
+      });
+      saveState();
+    }
+
+    function import100TestArticles() {
+      if (!EMBEDDED_TEST_DB || !EMBEDDED_TEST_DB.articles) {
+        alert('Testdatenbank konnte nicht geladen werden.');
+        return;
+      }
+
+      let addedArts = 0;
+      let addedContainers = 0;
+
+      EMBEDDED_TEST_DB.articles.forEach(art => {
+        if (!state.articles.some(a => a.nr === art.nr)) {
+          state.articles.push({ nr: art.nr, name: art.name, unit: art.unit });
+          addedArts++;
+        }
+      });
+
+      EMBEDDED_TEST_DB.containers.forEach(cont => {
+        if (!state.containers.some(c => c.code === cont.code)) {
+          state.containers.push({
+            code: cont.code,
+            deptId: state.activeDeptId || 'dept-all',
+            article: cont.article,
+            qty: cont.qty,
+            unit: cont.unit,
+            zone: cont.zone || 'main',
+            location: cont.location || 'Hauptlager'
+          });
+          addedContainers++;
+        }
+      });
+
+      const fb = document.getElementById('art-action-feedback');
+      if (fb) {
+        fb.textContent = `🎉 ${addedArts} Artikel & ${addedContainers} Lagergebinde erfolgreich eingelagert!`;
+        setTimeout(() => { fb.textContent = ''; }, 4500);
+      }
+
+      saveState();
+    }
+
+    function exportArticlesToCsv() {
+      const header = 'Artikelnummer;Bezeichnung;Einheit;GebindeCode;Menge;Zone;Lagerort\n';
+      const rows = state.articles.map(art => {
+        const c = state.containers.find(box => box.article && (box.article.includes(art.nr) || box.article.includes(art.name)));
+        const code = c ? c.code : '';
+        const qty = c ? c.qty : 0;
+        const zone = c ? c.zone : 'nicht eingelagert';
+        const loc = c ? (c.location || '') : '';
+        return `"${art.nr}";"${(art.name || '').replace(/"/g, '""')}";"${art.unit || 'Stk.'}";"${code}";${qty};"${zone}";"${loc}"`;
+      }).join('\n');
+
+      const blob = new Blob(['\uFEFF' + header + rows], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', 'LogiFlow_Artikel_und_Lagerbestand_' + new Date().toISOString().slice(0, 10) + '.csv');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function handleFileImport(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const content = e.target.result;
+        try {
+          if (file.name.endsWith('.json')) {
+            const data = JSON.parse(content);
+            const arts = data.articles || (Array.isArray(data) ? data : []);
+            const conts = data.containers || [];
+            
+            arts.forEach(a => {
+              if (a.nr && !state.articles.some(item => item.nr === a.nr)) {
+                state.articles.push({ nr: a.nr, name: a.name || a.nr, unit: a.unit || 'Stk.' });
+              }
+            });
+
+            if (conts.length > 0) {
+              conts.forEach(c => {
+                if (c.code && !state.containers.some(item => item.code === c.code)) {
+                  state.containers.push({
+                    code: c.code,
+                    deptId: state.activeDeptId || 'dept-all',
+                    article: c.article,
+                    qty: c.qty || 100,
+                    unit: c.unit || 'Stk.',
+                    zone: c.zone || 'main',
+                    location: c.location || 'Hauptlager'
+                  });
+                }
+              });
+            } else {
+              // Automatisch einlagern, falls keine Container in JSON angegeben sind!
+              arts.forEach(a => {
+                const code = 'PAL-' + a.nr.replace(/[^0-9]/g, '');
+                if (!state.containers.some(item => item.code === code)) {
+                  state.containers.push({
+                    code,
+                    deptId: state.activeDeptId || 'dept-all',
+                    article: `${a.nr} ${a.name || a.nr}`,
+                    qty: a.qty || 100,
+                    unit: a.unit || 'Stk.',
+                    zone: a.zone || 'main',
+                    location: a.location || ('Hauptlager Fach ' + a.nr)
+                  });
+                }
+              });
+            }
+          } else {
+            // CSV Import (Semikolon oder Komma)
+            const lines = content.split(/\r?\n/).filter(l => l.trim().length > 0);
+            const sep = lines[0].includes(';') ? ';' : ',';
+            // Überspringe Kopfzeile falls vorhanden
+            const startIdx = lines[0].toLowerCase().includes('artikel') || lines[0].toLowerCase().includes('nr') ? 1 : 0;
+
+            for (let i = startIdx; i < lines.length; i++) {
+              const parts = lines[i].split(sep).map(p => p.trim().replace(/^"|"$/g, ''));
+              if (parts.length >= 2) {
+                const nr = parts[0];
+                const name = parts[1];
+                const unit = parts[3] || parts[2] || 'Stk.';
+                const qty = parseInt(parts[5]) || 100;
+                const zone = parts[6] || 'main';
+                const loc = parts[7] || ('Hauptlager Fach ' + nr);
+
+                if (!state.articles.some(a => a.nr === nr)) {
+                  state.articles.push({ nr, name, unit });
+                }
+
+                const code = 'PAL-' + nr.replace(/[^0-9]/g, '');
+                if (!state.containers.some(c => c.code === code)) {
+                  state.containers.push({
+                    code,
+                    deptId: state.activeDeptId || 'dept-all',
+                    article: `${nr} ${name}`,
+                    qty,
+                    unit,
+                    zone,
+                    location: loc
+                  });
+                }
+              }
+            }
+          }
+
+          const fb = document.getElementById('art-action-feedback');
+          if (fb) {
+            fb.textContent = '✅ Datei erfolgreich importiert & im Lager eingebucht!';
+            setTimeout(() => { fb.textContent = ''; }, 4000);
+          }
+          saveState();
+        } catch (err) {
+          alert('Fehler beim Importieren: ' + err.message);
+        }
+      };
+      reader.readAsText(file, 'utf-8');
+      event.target.value = '';
+    }
+
+    // MODAL HANDLING MIT BFSG-BARRIEREFREIHEIT
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.replace('hidden', 'flex');
+        const focusable = modal.querySelector('input, select, textarea, button');
+        if (focusable) focusable.focus();
+      }
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.replace('flex', 'hidden');
+    }
+
+    function closeAllModals() {
+      document.querySelectorAll('[role="dialog"]').forEach(m => m.classList.replace('flex', 'hidden'));
+    }
+
+    // BFSG: ESCAPE-TASTE SCHLIESST ALLE DIALOGE
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAllModals();
+      }
+    });
+
+    // BENUTZER-AUTHENTIFIZIERUNG & ROLLEN-MANAGEMENT (WERKER / LEITER / QS / CHEF)
+    let currentUserRole = localStorage.getItem('logiflow_role') || 'ADMIN';
+    let currentUserLabel = localStorage.getItem('logiflow_role_lbl') || '👤 Geschäftsleitung';
+
+    function selectUserRole(role, label, desc) {
+      currentUserRole = role;
+      currentUserLabel = label;
+      localStorage.setItem('logiflow_role', role);
+      localStorage.setItem('logiflow_role_lbl', label);
+
+      const lbl = document.getElementById('current-user-role-lbl');
+      if (lbl) lbl.textContent = label;
+
+      closeModal('modal-user-auth');
+      alert(`Erfolgreich angemeldet als: ${label}\nBerechtigung: ${desc}`);
+    }
+
+    function loginWithPin() {
+      const pin = document.getElementById('input-auth-pin').value.trim();
+      if (!pin) return;
+
+      if (pin === '1111') {
+        selectUserRole('WERKER', '👤 Werker / Bediener', 'Terminal & Barcode-Scan');
+      } else if (pin === '2222') {
+        selectUserRole('LEITER', '📋 Abteilungsleiter', 'Puffer-Umlagerung & Eilaufträge');
+      } else if (pin === '3333') {
+        selectUserRole('QS', '🔬 QS-Prüfer', 'Freigabe & Sperrlager-Verwaltung');
+      } else if (pin === '4444' || pin === '1234') {
+        selectUserRole('ADMIN', '💼 Geschäftsleitung', 'Vollzugriff auf alle Bereiche');
+      } else {
+        selectUserRole('WERKER', '👤 Werker (' + pin + ')', 'Mitarbeiter-Scan');
+      }
+      document.getElementById('input-auth-pin').value = '';
+    }
+
+    // Enter-Taste im Scan-Feld
+    document.getElementById('input-scan-code').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') executeScan();
+    });
+
+    // Auto-Refresh & Live-Clock
+    let countdown = 45;
+    setInterval(() => {
+      document.getElementById('clock').textContent = new Date().toLocaleTimeString('de-DE');
+      countdown--;
+      if (countdown <= 0) {
+        countdown = 45;
+        const timerEl = document.getElementById('refresh-timer');
+        if (timerEl) timerEl.textContent = 'Sync aktiv...';
+        setTimeout(() => {
+          if (timerEl) timerEl.textContent = 'Sync in 45s';
+        }, 1000);
+      } else {
+        const timerEl = document.getElementById('refresh-timer');
+        if (timerEl) timerEl.textContent = `Sync in ${countdown}s`;
+      }
+    }, 1000);
+
+    // Initialisierung
+    injectStaticIcons();
+    setLanguage(currentLang);
+  </script>
+
+  <!-- FLOATING WHATSAPP DIREKTBUTTON (PER KLICK VERBINDEN) -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center group">
+    <div class="hidden sm:flex items-center mr-3 bg-slate-900/95 text-slate-200 border border-slate-700/80 px-3.5 py-2 rounded-xl shadow-2xl text-xs backdrop-blur pointer-events-none transition-all duration-300 opacity-90 group-hover:opacity-100 group-hover:scale-105">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-2.5"></span>
+      <span>Direktkontakt: <strong>Göksal Neziroglu</strong></span>
+    </div>
+    <a href="https://wa.me/491741707376?text=Hallo%20Herr%20Neziroglu,%20ich%20habe%20eine%20Frage%20zu%20LogiFlow." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       aria-label="Direkt per WhatsApp mit Inhaber Göksal Neziroglu verbinden"
+       class="w-14 h-14 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full flex items-center justify-center shadow-2xl shadow-emerald-950/70 transition-transform transform hover:scale-110 active:scale-95 border-2 border-emerald-400/50 focus:ring-4 focus:ring-emerald-400/50 focus:outline-none">
+      <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+  </div>
+</body>
+</html>

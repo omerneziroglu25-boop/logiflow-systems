@@ -1,0 +1,12 @@
+# Netlify Rewrite Rules
+/app          /app.html                    200
+/demo         /app.html                    200
+/kasse        /kasse_checkout.html         200
+/checkout     /kasse_checkout.html         200
+/kauf         /kasse_checkout.html         200
+/import       /daten_import_assistent.html 200
+/onboarding   /daten_import_assistent.html 200
+/vergleich    /konkurrenzanalyse.html      200
+/analyse      /konkurrenzanalyse.html      200
+/roadmap      /konkurrenzanalyse.html      200
+/website      /index.html                  301

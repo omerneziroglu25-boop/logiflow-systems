@@ -1,0 +1,1625 @@
+{
+  "info": "LogiFlow Systems - 100 Test-Artikel Stammdaten & Einlagerungen",
+  "createdAt": "2026-11-07T15:40:59.955Z",
+  "count": 101,
+  "articles": [
+    {
+      "nr": "ART-1001",
+      "name": "Zylinderschraube DIN 912 M4x16 8.8 verzinkt",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1002",
+      "name": "Zylinderschraube DIN 912 M6x25 8.8 verzinkt",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1003",
+      "name": "Zylinderschraube DIN 912 M8x35 8.8 verzinkt",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1004",
+      "name": "Zylinderschraube DIN 912 M10x40 10.9 schwarz",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1005",
+      "name": "Sechskantschraube ISO 4017 M8x30 Edelstahl A2",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1006",
+      "name": "Sechskantschraube ISO 4017 M12x50 8.8 verzinkt",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1007",
+      "name": "Sechskantmutter ISO 4032 M6 verzinkt",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1008",
+      "name": "Sechskantmutter ISO 4032 M8 Edelstahl A2",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1009",
+      "name": "Sechskantmutter ISO 4032 M10 verzinkt",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1010",
+      "name": "Sicherungsmutter DIN 985 M8 mit Polyamidring",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1011",
+      "name": "Unterlegscheibe DIN 125 Form A 8.4mm Edelstahl",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1012",
+      "name": "Federring DIN 127 Form B 8.2mm Federstahl",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1013",
+      "name": "Passfeder DIN 6885 Form A 8x7x32mm",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1014",
+      "name": "Zylinderstift DIN 6325 gehärtet 6x30mm m6",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1015",
+      "name": "Gewindestange DIN 976-1 M10x1000mm 8.8 verzinkt",
+      "unit": "Stk.",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "nr": "ART-1016",
+      "name": "Rillenkugellager 6004-2RSH SKF",
+      "unit": "Stk.",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1017",
+      "name": "Rillenkugellager 6205-2RS1 C3 SKF",
+      "unit": "Stk.",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1018",
+      "name": "Kegelrollenlager 30206 FAG",
+      "unit": "Stk.",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1019",
+      "name": "Stehlagergehäuse UCP 205 Wellendurchmesser 25mm",
+      "unit": "Stk.",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1020",
+      "name": "Flanschlager 4-Loch UCF 206 Wellendurchmesser 30mm",
+      "unit": "Stk.",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1021",
+      "name": "Wellendichtring DIN 3760 25x47x7 BASL FKM",
+      "unit": "Stk.",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1022",
+      "name": "Wellendichtring DIN 3760 35x52x7 BASL NBR",
+      "unit": "Stk.",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1023",
+      "name": "Keilriemen DIN 2215 Profil SPA 1250 Lw",
+      "unit": "Stk.",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1024",
+      "name": "Keilriemen DIN 2215 Profil SPB 1800 Lw",
+      "unit": "Stk.",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1025",
+      "name": "Zahnriemen HTD 5M 600 Breite 15mm",
+      "unit": "Stk.",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1026",
+      "name": "Taper-Spannbuchse 1610 Bohrung 25mm",
+      "unit": "Stk.",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1027",
+      "name": "Rollenkette DIN 8187 08B-1 Einfach 5m Rolle",
+      "unit": "Rolle",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1028",
+      "name": "Kettenschloss 08B-1 mit Federverschluss",
+      "unit": "Stk.",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1029",
+      "name": "Klauenkupplung HRC 110 Kupplungshälfte Bohrung 28mm",
+      "unit": "Stk.",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1030",
+      "name": "Elastomerstern für Kupplung HRC 110 92 Shore A",
+      "unit": "Stk.",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "nr": "ART-1031",
+      "name": "Pneumatik-Kompaktzylinder ISO 21287 D=32mm Hub=50mm",
+      "unit": "Stk.",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1032",
+      "name": "Pneumatik-Normzylinder ISO 15552 D=50mm Hub=100mm",
+      "unit": "Stk.",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1033",
+      "name": "5/2-Wege Magnetventil 24V DC G1/8 Federrückstellung",
+      "unit": "Stk.",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1034",
+      "name": "3/2-Wege Magnetventil 24V DC G1/4 NC",
+      "unit": "Stk.",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1035",
+      "name": "Druckluft-Wartungseinheit Filter-Regler-Öler G1/4",
+      "unit": "Stk.",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1036",
+      "name": "Drosselrückschlagventil G1/8 für Schlauch 6mm",
+      "unit": "Stk.",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1037",
+      "name": "Steckverschraubung Gerade G1/4 für Schlauch 8mm",
+      "unit": "Stk.",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1038",
+      "name": "Winkeleinschraubverschraubung drehbar G1/8 Schlauch 6mm",
+      "unit": "Stk.",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1039",
+      "name": "Polyurethan-Druckluftschlauch Außen-D=8mm blau 100m",
+      "unit": "Rolle",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1040",
+      "name": "Polyurethan-Druckluftschlauch Außen-D=6mm schwarz 100m",
+      "unit": "Rolle",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1041",
+      "name": "Schalldämpfer Sinterbronze G1/4 Gewinde",
+      "unit": "Stk.",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1042",
+      "name": "Druckschalter digital -1 bis +10 bar M8 4-polig",
+      "unit": "Stk.",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1043",
+      "name": "Hydraulikschlauch 2SN DN10 Länge 1200mm DKOL/DKOL",
+      "unit": "Stk.",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1044",
+      "name": "Kugelhahn 2-Wege Hochdruck G1/2 Stahl verzinkt PN500",
+      "unit": "Stk.",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1045",
+      "name": "O-Ring Dichtsatz NBR 70 Shore 400-teilig Box",
+      "unit": "Set",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "nr": "ART-1046",
+      "name": "Induktiver Näherungsschalter M12 Schließer PNP Sn=4mm",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1047",
+      "name": "Optischer Reflexionslichttaster Reichweite 300mm PNP",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1048",
+      "name": "SPS-Eingabemodul digital 16x 24V DC 0.5A",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1049",
+      "name": "SPS-Ausgabemodul digital 16x Relaisausgang 230V",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1050",
+      "name": "Schaltnetzteil 24V DC 10A Hutschienenmontage 240W",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1051",
+      "name": "Koppelrelais 24V DC 1 Wechsler 6A Baubreite 6.2mm",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1052",
+      "name": "Sicherungsautomat 1-polig B16A 10kA DIN-Schiene",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1053",
+      "name": "Not-Halt-Taster 22mm 2 Öffner überlistungssicher IP65",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1054",
+      "name": "LED-Signalsäule 3-stufig Rot/Gelb/Grün 24V DC",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1055",
+      "name": "Durchgangs-Reihenklemme Federkraft 2.5mm² grau",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1056",
+      "name": "Schutzleiter-Reihenklemme Federkraft 2.5mm² grün-gelb",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1057",
+      "name": "Sensorleitung M12 4-polig Buchse gerade 5m PUR geschirmt",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1058",
+      "name": "Schaltschranklüfter mit Filter 230V 120m³/h IP54",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1059",
+      "name": "Hauptschalter 3-polig 32A im Gehäuse abschließbar gelb/rot",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1060",
+      "name": "Industrie-Ethernet Patchkabel RJ45 Cat.6A PUR 3m grün",
+      "unit": "Stk.",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "nr": "ART-1061",
+      "name": "Aluminium-Konstruktionsprofil 40x40 Nut 8 Raster L=3000mm",
+      "unit": "Stk.",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "nr": "ART-1062",
+      "name": "Aluminium-Konstruktionsprofil 80x40 Nut 8 Raster L=3000mm",
+      "unit": "Stk.",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "nr": "ART-1063",
+      "name": "Winkelverbinder Aluminium 40x40 inkl. Befestigungssatz",
+      "unit": "Stk.",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "nr": "ART-1064",
+      "name": "Nutenstein Nut 8 M6 mit Stegkugel verzinkt",
+      "unit": "Stk.",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "nr": "ART-1065",
+      "name": "Rundstahl 42CrMo4 vergütet D=30mm geschliffen L=1000mm",
+      "unit": "Stk.",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "nr": "ART-1066",
+      "name": "Rundstahl 1.4301 Edelstahl D=20mm gezogen L=1500mm",
+      "unit": "Stk.",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "nr": "ART-1067",
+      "name": "Automatenstahl 11SMn30 Rund D=40mm L=1000mm",
+      "unit": "Stk.",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "nr": "ART-1068",
+      "name": "Präzisions-Kupferrohr D=15x1mm nahtlos L=2500mm",
+      "unit": "Stk.",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "nr": "ART-1069",
+      "name": "POM-C Rundstab weiß D=50mm L=1000mm",
+      "unit": "Stk.",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "nr": "ART-1070",
+      "name": "Aluminium-Blech AlMg3 blank 2.0mm 1000x2000mm",
+      "unit": "Stk.",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "nr": "ART-1071",
+      "name": "Edelstahl-Blech 1.4301 2B 1.5mm 1000x2000mm",
+      "unit": "Stk.",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "nr": "ART-1072",
+      "name": "Vierkantrohr Stahl S235JR 50x50x3mm L=3000mm",
+      "unit": "Stk.",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "nr": "ART-1073",
+      "name": "Zahnstange Modul 2.0 Stahl geradverzahnt L=1000mm",
+      "unit": "Stk.",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "nr": "ART-1074",
+      "name": "Führungsschiene Profilschienenführung HG20 L=1200mm",
+      "unit": "Stk.",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "nr": "ART-1075",
+      "name": "Flanschgehäuse Aluminium G3 CNC gefräst",
+      "unit": "Stk.",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "nr": "ART-1076",
+      "name": "Präzisionsantriebswelle 42CrMo4 CNC gedreht gehärtet",
+      "unit": "Stk.",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "nr": "ART-1077",
+      "name": "Lagerdeckel GGG-40 geschlossen D=120mm",
+      "unit": "Stk.",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "nr": "ART-1078",
+      "name": "Distanzbuchse Edelstahl D=35/25x15mm entgratet",
+      "unit": "Stk.",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "nr": "ART-1079",
+      "name": "Motoradapterplatte Stahl lasergeschnitten & pulverbeschichtet",
+      "unit": "Stk.",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "nr": "ART-1080",
+      "name": "Spannbackensatz gehärtet für 3-Backenfutter 200mm",
+      "unit": "Set",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "nr": "ART-1081",
+      "name": "Zahnrad Modul 2.0 Z=36 einsatzgehärtet",
+      "unit": "Stk.",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "nr": "ART-1082",
+      "name": "Kupplungsnabe Bohrung 32mm Nut nach DIN 6885",
+      "unit": "Stk.",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "nr": "ART-1083",
+      "name": "Führungswagen Flansch HG20 Vorzugsklasse H",
+      "unit": "Stk.",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "nr": "ART-1084",
+      "name": "Baugruppe Linearachse 500mm Verfahrweg montiert",
+      "unit": "Stk.",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "nr": "ART-1085",
+      "name": "Baugruppe Getriebedeckel vormontiert mit Wellendichtring",
+      "unit": "Stk.",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "nr": "ART-1086",
+      "name": "Hydraulik-Zylinderbock geschweißt & spannungsarm geglüht",
+      "unit": "Stk.",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "nr": "ART-1087",
+      "name": "Montagewinkel Schwerlast 150x150x12mm verzinkt",
+      "unit": "Stk.",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "nr": "ART-1088",
+      "name": "Faltkarton 2-wellig 400x300x200mm (Karton à 25 Stk)",
+      "unit": "Karton",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "nr": "ART-1089",
+      "name": "Faltkarton 2-wellig 600x400x300mm Euro-Modul",
+      "unit": "Karton",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "nr": "ART-1090",
+      "name": "Maschinen-Stretchfolie transparent 500mm 23my 16kg",
+      "unit": "Rolle",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "nr": "ART-1091",
+      "name": "Hand-Stretchfolie 500mm 20my Kern 50mm transparent",
+      "unit": "Rolle",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "nr": "ART-1092",
+      "name": "PP-Umreifungsband 12mm x 0.6mm Reißkraft 130kg 3000m",
+      "unit": "Rolle",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "nr": "ART-1093",
+      "name": "Metallverschlussklemmen für 12mm Umreifungsband (1000 Stk)",
+      "unit": "Karton",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "nr": "ART-1094",
+      "name": "Thermo-Haftetiketten 100x150mm für Versandrollen (2000 Stk)",
+      "unit": "Rolle",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "nr": "ART-1095",
+      "name": "Luftpolsterfolie 2-lagig Noppen 10mm Breite 100cm L=100m",
+      "unit": "Rolle",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "nr": "ART-1096",
+      "name": "Euro-Tauschpalette EPAL 1 gebraucht gütegeprüft",
+      "unit": "Stk.",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "nr": "ART-1097",
+      "name": "Gitterbox DIN 15155 gebraucht tauschfähig",
+      "unit": "Stk.",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "nr": "ART-1098",
+      "name": "Hochleistungs-Hydrauliköl HLP 46 20L Kanister",
+      "unit": "Kanister",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "nr": "ART-1099",
+      "name": "Bettbahnöl CGLP 68 20L Kanister für Werkzeugmaschinen",
+      "unit": "Kanister",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "nr": "ART-1100",
+      "name": "Industriereiniger & Bremsenreiniger 500ml Spraydose",
+      "unit": "Dose",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "nr": "ART-1101",
+      "name": "Kühlschmierstoff-Konzentrat wassermischbar 208L Fass",
+      "unit": "Fass",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    }
+  ],
+  "containers": [
+    {
+      "code": "KLT-1001",
+      "deptId": "dept-all",
+      "article": "ART-1001 Zylinderschraube DIN 912 M4x16 8.8 verzinkt",
+      "qty": 1000,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kleinteilelager Fach K | Fach A-01-01",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "KLT-1002",
+      "deptId": "dept-all",
+      "article": "ART-1002 Zylinderschraube DIN 912 M6x25 8.8 verzinkt",
+      "qty": 800,
+      "unit": "Stk.",
+      "zone": "buffer",
+      "location": "Kleinteilelager Fach K | Fach A-02-01",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "KLT-1003",
+      "deptId": "dept-all",
+      "article": "ART-1003 Zylinderschraube DIN 912 M8x35 8.8 verzinkt",
+      "qty": 500,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kleinteilelager Fach K | Fach A-03-01",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "KLT-1004",
+      "deptId": "dept-all",
+      "article": "ART-1004 Zylinderschraube DIN 912 M10x40 10.9 schwarz",
+      "qty": 400,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kleinteilelager Fach K | Fach A-04-01",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "KLT-1005",
+      "deptId": "dept-all",
+      "article": "ART-1005 Sechskantschraube ISO 4017 M8x30 Edelstahl A2",
+      "qty": 600,
+      "unit": "Stk.",
+      "zone": "staged",
+      "location": "Kleinteilelager Fach K | Fach A-05-01",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "KLT-1006",
+      "deptId": "dept-all",
+      "article": "ART-1006 Sechskantschraube ISO 4017 M12x50 8.8 verzinkt",
+      "qty": 350,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kleinteilelager Fach K | Fach A-01-02",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "KLT-1007",
+      "deptId": "dept-all",
+      "article": "ART-1007 Sechskantmutter ISO 4032 M6 verzinkt",
+      "qty": 2000,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kleinteilelager Fach K | Fach A-02-02",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "KLT-1008",
+      "deptId": "dept-all",
+      "article": "ART-1008 Sechskantmutter ISO 4032 M8 Edelstahl A2",
+      "qty": 1500,
+      "unit": "Stk.",
+      "zone": "buffer",
+      "location": "Kleinteilelager Fach K | Fach A-03-02",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "KLT-1009",
+      "deptId": "dept-all",
+      "article": "ART-1009 Sechskantmutter ISO 4032 M10 verzinkt",
+      "qty": 1200,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kleinteilelager Fach K | Fach A-04-02",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "KLT-1010",
+      "deptId": "dept-all",
+      "article": "ART-1010 Sicherungsmutter DIN 985 M8 mit Polyamidring",
+      "qty": 1000,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kleinteilelager Fach K | Fach A-05-02",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "KLT-1011",
+      "deptId": "dept-all",
+      "article": "ART-1011 Unterlegscheibe DIN 125 Form A 8.4mm Edelstahl",
+      "qty": 2500,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kleinteilelager Fach K | Fach A-01-03",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "KLT-1012",
+      "deptId": "dept-all",
+      "article": "ART-1012 Federring DIN 127 Form B 8.2mm Federstahl",
+      "qty": 2000,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kleinteilelager Fach K | Fach A-02-03",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "KLT-1013",
+      "deptId": "dept-all",
+      "article": "ART-1013 Passfeder DIN 6885 Form A 8x7x32mm",
+      "qty": 300,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kleinteilelager Fach K | Fach A-03-03",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "KLT-1014",
+      "deptId": "dept-all",
+      "article": "ART-1014 Zylinderstift DIN 6325 gehärtet 6x30mm m6",
+      "qty": 450,
+      "unit": "Stk.",
+      "zone": "buffer",
+      "location": "Kleinteilelager Fach K | Fach A-04-03",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "KLT-1015",
+      "deptId": "dept-all",
+      "article": "ART-1015 Gewindestange DIN 976-1 M10x1000mm 8.8 verzinkt",
+      "qty": 80,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kleinteilelager Fach K | Fach A-05-03",
+      "category": "Verbindungstechnik & Normteile"
+    },
+    {
+      "code": "PAL-1016",
+      "deptId": "dept-all",
+      "article": "ART-1016 Rillenkugellager 6004-2RSH SKF",
+      "qty": 120,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal A (Antriebstechnik) | Fach B-01-01",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "PAL-1017",
+      "deptId": "dept-all",
+      "article": "ART-1017 Rillenkugellager 6205-2RS1 C3 SKF",
+      "qty": 90,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal A (Antriebstechnik) | Fach B-02-01",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "PAL-1018",
+      "deptId": "dept-all",
+      "article": "ART-1018 Kegelrollenlager 30206 FAG",
+      "qty": 60,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal A (Antriebstechnik) | Fach B-03-01",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "PAL-1019",
+      "deptId": "dept-all",
+      "article": "ART-1019 Stehlagergehäuse UCP 205 Wellendurchmesser 25mm",
+      "qty": 45,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal A (Antriebstechnik) | Fach B-04-01",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "PAL-1020",
+      "deptId": "dept-all",
+      "article": "ART-1020 Flanschlager 4-Loch UCF 206 Wellendurchmesser 30mm",
+      "qty": 35,
+      "unit": "Stk.",
+      "zone": "staged",
+      "location": "Regal A (Antriebstechnik) | Fach B-05-01",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "PAL-1021",
+      "deptId": "dept-all",
+      "article": "ART-1021 Wellendichtring DIN 3760 25x47x7 BASL FKM",
+      "qty": 250,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal A (Antriebstechnik) | Fach B-01-02",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "PAL-1022",
+      "deptId": "dept-all",
+      "article": "ART-1022 Wellendichtring DIN 3760 35x52x7 BASL NBR",
+      "qty": 200,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal A (Antriebstechnik) | Fach B-02-02",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "PAL-1023",
+      "deptId": "dept-all",
+      "article": "ART-1023 Keilriemen DIN 2215 Profil SPA 1250 Lw",
+      "qty": 80,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal A (Antriebstechnik) | Fach B-03-02",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "PAL-1024",
+      "deptId": "dept-all",
+      "article": "ART-1024 Keilriemen DIN 2215 Profil SPB 1800 Lw",
+      "qty": 50,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal A (Antriebstechnik) | Fach B-04-02",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "PAL-1025",
+      "deptId": "dept-all",
+      "article": "ART-1025 Zahnriemen HTD 5M 600 Breite 15mm",
+      "qty": 75,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal A (Antriebstechnik) | Fach B-05-02",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "PAL-1026",
+      "deptId": "dept-all",
+      "article": "ART-1026 Taper-Spannbuchse 1610 Bohrung 25mm",
+      "qty": 110,
+      "unit": "Stk.",
+      "zone": "buffer",
+      "location": "Regal A (Antriebstechnik) | Fach B-01-03",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "PAL-1027",
+      "deptId": "dept-all",
+      "article": "ART-1027 Rollenkette DIN 8187 08B-1 Einfach 5m Rolle",
+      "qty": 25,
+      "unit": "Rolle",
+      "zone": "main",
+      "location": "Regal A (Antriebstechnik) | Fach B-02-03",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "PAL-1028",
+      "deptId": "dept-all",
+      "article": "ART-1028 Kettenschloss 08B-1 mit Federverschluss",
+      "qty": 300,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal A (Antriebstechnik) | Fach B-03-03",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "PAL-1029",
+      "deptId": "dept-all",
+      "article": "ART-1029 Klauenkupplung HRC 110 Kupplungshälfte Bohrung 28mm",
+      "qty": 30,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal A (Antriebstechnik) | Fach B-04-03",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "PAL-1030",
+      "deptId": "dept-all",
+      "article": "ART-1030 Elastomerstern für Kupplung HRC 110 92 Shore A",
+      "qty": 60,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal A (Antriebstechnik) | Fach B-05-03",
+      "category": "Antriebs- & Lagertechnik"
+    },
+    {
+      "code": "REG-1031",
+      "deptId": "dept-all",
+      "article": "ART-1031 Pneumatik-Kompaktzylinder ISO 21287 D=32mm Hub=50mm",
+      "qty": 25,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal P (Fluidtechnik) | Fach C-01-01",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "REG-1032",
+      "deptId": "dept-all",
+      "article": "ART-1032 Pneumatik-Normzylinder ISO 15552 D=50mm Hub=100mm",
+      "qty": 18,
+      "unit": "Stk.",
+      "zone": "buffer",
+      "location": "Regal P (Fluidtechnik) | Fach C-02-01",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "REG-1033",
+      "deptId": "dept-all",
+      "article": "ART-1033 5/2-Wege Magnetventil 24V DC G1/8 Federrückstellung",
+      "qty": 40,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal P (Fluidtechnik) | Fach C-03-01",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "REG-1034",
+      "deptId": "dept-all",
+      "article": "ART-1034 3/2-Wege Magnetventil 24V DC G1/4 NC",
+      "qty": 30,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal P (Fluidtechnik) | Fach C-04-01",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "REG-1035",
+      "deptId": "dept-all",
+      "article": "ART-1035 Druckluft-Wartungseinheit Filter-Regler-Öler G1/4",
+      "qty": 15,
+      "unit": "Stk.",
+      "zone": "staged",
+      "location": "Regal P (Fluidtechnik) | Fach C-05-01",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "REG-1036",
+      "deptId": "dept-all",
+      "article": "ART-1036 Drosselrückschlagventil G1/8 für Schlauch 6mm",
+      "qty": 150,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal P (Fluidtechnik) | Fach C-01-02",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "REG-1037",
+      "deptId": "dept-all",
+      "article": "ART-1037 Steckverschraubung Gerade G1/4 für Schlauch 8mm",
+      "qty": 400,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal P (Fluidtechnik) | Fach C-02-02",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "REG-1038",
+      "deptId": "dept-all",
+      "article": "ART-1038 Winkeleinschraubverschraubung drehbar G1/8 Schlauch 6mm",
+      "qty": 350,
+      "unit": "Stk.",
+      "zone": "buffer",
+      "location": "Regal P (Fluidtechnik) | Fach C-03-02",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "REG-1039",
+      "deptId": "dept-all",
+      "article": "ART-1039 Polyurethan-Druckluftschlauch Außen-D=8mm blau 100m",
+      "qty": 12,
+      "unit": "Rolle",
+      "zone": "main",
+      "location": "Regal P (Fluidtechnik) | Fach C-04-02",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "REG-1040",
+      "deptId": "dept-all",
+      "article": "ART-1040 Polyurethan-Druckluftschlauch Außen-D=6mm schwarz 100m",
+      "qty": 15,
+      "unit": "Rolle",
+      "zone": "main",
+      "location": "Regal P (Fluidtechnik) | Fach C-05-02",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "REG-1041",
+      "deptId": "dept-all",
+      "article": "ART-1041 Schalldämpfer Sinterbronze G1/4 Gewinde",
+      "qty": 220,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal P (Fluidtechnik) | Fach C-01-03",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "REG-1042",
+      "deptId": "dept-all",
+      "article": "ART-1042 Druckschalter digital -1 bis +10 bar M8 4-polig",
+      "qty": 20,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal P (Fluidtechnik) | Fach C-02-03",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "REG-1043",
+      "deptId": "dept-all",
+      "article": "ART-1043 Hydraulikschlauch 2SN DN10 Länge 1200mm DKOL/DKOL",
+      "qty": 30,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Regal P (Fluidtechnik) | Fach C-03-03",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "REG-1044",
+      "deptId": "dept-all",
+      "article": "ART-1044 Kugelhahn 2-Wege Hochdruck G1/2 Stahl verzinkt PN500",
+      "qty": 25,
+      "unit": "Stk.",
+      "zone": "buffer",
+      "location": "Regal P (Fluidtechnik) | Fach C-04-03",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "REG-1045",
+      "deptId": "dept-all",
+      "article": "ART-1045 O-Ring Dichtsatz NBR 70 Shore 400-teilig Box",
+      "qty": 18,
+      "unit": "Set",
+      "zone": "main",
+      "location": "Regal P (Fluidtechnik) | Fach C-05-03",
+      "category": "Pneumatik & Hydraulik"
+    },
+    {
+      "code": "KLT-1046",
+      "deptId": "dept-all",
+      "article": "ART-1046 Induktiver Näherungsschalter M12 Schließer PNP Sn=4mm",
+      "qty": 65,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Elektronikschrank E | Fach D-01-01",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "KLT-1047",
+      "deptId": "dept-all",
+      "article": "ART-1047 Optischer Reflexionslichttaster Reichweite 300mm PNP",
+      "qty": 35,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Elektronikschrank E | Fach D-02-01",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "KLT-1048",
+      "deptId": "dept-all",
+      "article": "ART-1048 SPS-Eingabemodul digital 16x 24V DC 0.5A",
+      "qty": 12,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Elektronikschrank E | Fach D-03-01",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "KLT-1049",
+      "deptId": "dept-all",
+      "article": "ART-1049 SPS-Ausgabemodul digital 16x Relaisausgang 230V",
+      "qty": 10,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Elektronikschrank E | Fach D-04-01",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "KLT-1050",
+      "deptId": "dept-all",
+      "article": "ART-1050 Schaltnetzteil 24V DC 10A Hutschienenmontage 240W",
+      "qty": 22,
+      "unit": "Stk.",
+      "zone": "staged",
+      "location": "Elektronikschrank E | Fach D-05-01",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "KLT-1051",
+      "deptId": "dept-all",
+      "article": "ART-1051 Koppelrelais 24V DC 1 Wechsler 6A Baubreite 6.2mm",
+      "qty": 140,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Elektronikschrank E | Fach D-01-02",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "KLT-1052",
+      "deptId": "dept-all",
+      "article": "ART-1052 Sicherungsautomat 1-polig B16A 10kA DIN-Schiene",
+      "qty": 85,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Elektronikschrank E | Fach D-02-02",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "KLT-1053",
+      "deptId": "dept-all",
+      "article": "ART-1053 Not-Halt-Taster 22mm 2 Öffner überlistungssicher IP65",
+      "qty": 40,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Elektronikschrank E | Fach D-03-02",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "KLT-1054",
+      "deptId": "dept-all",
+      "article": "ART-1054 LED-Signalsäule 3-stufig Rot/Gelb/Grün 24V DC",
+      "qty": 18,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Elektronikschrank E | Fach D-04-02",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "KLT-1055",
+      "deptId": "dept-all",
+      "article": "ART-1055 Durchgangs-Reihenklemme Federkraft 2.5mm² grau",
+      "qty": 1200,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Elektronikschrank E | Fach D-05-02",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "KLT-1056",
+      "deptId": "dept-all",
+      "article": "ART-1056 Schutzleiter-Reihenklemme Federkraft 2.5mm² grün-gelb",
+      "qty": 500,
+      "unit": "Stk.",
+      "zone": "buffer",
+      "location": "Elektronikschrank E | Fach D-01-03",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "KLT-1057",
+      "deptId": "dept-all",
+      "article": "ART-1057 Sensorleitung M12 4-polig Buchse gerade 5m PUR geschirmt",
+      "qty": 80,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Elektronikschrank E | Fach D-02-03",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "KLT-1058",
+      "deptId": "dept-all",
+      "article": "ART-1058 Schaltschranklüfter mit Filter 230V 120m³/h IP54",
+      "qty": 15,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Elektronikschrank E | Fach D-03-03",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "KLT-1059",
+      "deptId": "dept-all",
+      "article": "ART-1059 Hauptschalter 3-polig 32A im Gehäuse abschließbar gelb/rot",
+      "qty": 20,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Elektronikschrank E | Fach D-04-03",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "KLT-1060",
+      "deptId": "dept-all",
+      "article": "ART-1060 Industrie-Ethernet Patchkabel RJ45 Cat.6A PUR 3m grün",
+      "qty": 60,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Elektronikschrank E | Fach D-05-03",
+      "category": "Elektrotechnik & Automation"
+    },
+    {
+      "code": "GIBO-1061",
+      "deptId": "dept-all",
+      "article": "ART-1061 Aluminium-Konstruktionsprofil 40x40 Nut 8 Raster L=3000mm",
+      "qty": 40,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kragarm- & Schwerlastlager H | Fach E-01-01",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "code": "GIBO-1062",
+      "deptId": "dept-all",
+      "article": "ART-1062 Aluminium-Konstruktionsprofil 80x40 Nut 8 Raster L=3000mm",
+      "qty": 25,
+      "unit": "Stk.",
+      "zone": "buffer",
+      "location": "Kragarm- & Schwerlastlager H | Fach E-02-01",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "code": "GIBO-1063",
+      "deptId": "dept-all",
+      "article": "ART-1063 Winkelverbinder Aluminium 40x40 inkl. Befestigungssatz",
+      "qty": 350,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kragarm- & Schwerlastlager H | Fach E-03-01",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "code": "GIBO-1064",
+      "deptId": "dept-all",
+      "article": "ART-1064 Nutenstein Nut 8 M6 mit Stegkugel verzinkt",
+      "qty": 1500,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kragarm- & Schwerlastlager H | Fach E-04-01",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "code": "GIBO-1065",
+      "deptId": "dept-all",
+      "article": "ART-1065 Rundstahl 42CrMo4 vergütet D=30mm geschliffen L=1000mm",
+      "qty": 30,
+      "unit": "Stk.",
+      "zone": "staged",
+      "location": "Kragarm- & Schwerlastlager H | Fach E-05-01",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "code": "GIBO-1066",
+      "deptId": "dept-all",
+      "article": "ART-1066 Rundstahl 1.4301 Edelstahl D=20mm gezogen L=1500mm",
+      "qty": 25,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kragarm- & Schwerlastlager H | Fach E-01-02",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "code": "GIBO-1067",
+      "deptId": "dept-all",
+      "article": "ART-1067 Automatenstahl 11SMn30 Rund D=40mm L=1000mm",
+      "qty": 35,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kragarm- & Schwerlastlager H | Fach E-02-02",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "code": "GIBO-1068",
+      "deptId": "dept-all",
+      "article": "ART-1068 Präzisions-Kupferrohr D=15x1mm nahtlos L=2500mm",
+      "qty": 50,
+      "unit": "Stk.",
+      "zone": "buffer",
+      "location": "Kragarm- & Schwerlastlager H | Fach E-03-02",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "code": "GIBO-1069",
+      "deptId": "dept-all",
+      "article": "ART-1069 POM-C Rundstab weiß D=50mm L=1000mm",
+      "qty": 28,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kragarm- & Schwerlastlager H | Fach E-04-02",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "code": "GIBO-1070",
+      "deptId": "dept-all",
+      "article": "ART-1070 Aluminium-Blech AlMg3 blank 2.0mm 1000x2000mm",
+      "qty": 15,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kragarm- & Schwerlastlager H | Fach E-05-02",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "code": "GIBO-1071",
+      "deptId": "dept-all",
+      "article": "ART-1071 Edelstahl-Blech 1.4301 2B 1.5mm 1000x2000mm",
+      "qty": 12,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kragarm- & Schwerlastlager H | Fach E-01-03",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "code": "GIBO-1072",
+      "deptId": "dept-all",
+      "article": "ART-1072 Vierkantrohr Stahl S235JR 50x50x3mm L=3000mm",
+      "qty": 20,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kragarm- & Schwerlastlager H | Fach E-02-03",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "code": "GIBO-1073",
+      "deptId": "dept-all",
+      "article": "ART-1073 Zahnstange Modul 2.0 Stahl geradverzahnt L=1000mm",
+      "qty": 16,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Kragarm- & Schwerlastlager H | Fach E-03-03",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "code": "GIBO-1074",
+      "deptId": "dept-all",
+      "article": "ART-1074 Führungsschiene Profilschienenführung HG20 L=1200mm",
+      "qty": 24,
+      "unit": "Stk.",
+      "zone": "buffer",
+      "location": "Kragarm- & Schwerlastlager H | Fach E-04-03",
+      "category": "Rohmaterial & Halbzeuge"
+    },
+    {
+      "code": "PAL-1075",
+      "deptId": "dept-all",
+      "article": "ART-1075 Flanschgehäuse Aluminium G3 CNC gefräst",
+      "qty": 85,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-01-01",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "code": "PAL-1076",
+      "deptId": "dept-all",
+      "article": "ART-1076 Präzisionsantriebswelle 42CrMo4 CNC gedreht gehärtet",
+      "qty": 110,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-02-01",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "code": "PAL-1077",
+      "deptId": "dept-all",
+      "article": "ART-1077 Lagerdeckel GGG-40 geschlossen D=120mm",
+      "qty": 95,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-03-01",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "code": "PAL-1078",
+      "deptId": "dept-all",
+      "article": "ART-1078 Distanzbuchse Edelstahl D=35/25x15mm entgratet",
+      "qty": 350,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-04-01",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "code": "PAL-1079",
+      "deptId": "dept-all",
+      "article": "ART-1079 Motoradapterplatte Stahl lasergeschnitten & pulverbeschichtet",
+      "qty": 45,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-05-01",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "code": "PAL-1080",
+      "deptId": "dept-all",
+      "article": "ART-1080 Spannbackensatz gehärtet für 3-Backenfutter 200mm",
+      "qty": 20,
+      "unit": "Set",
+      "zone": "staged",
+      "location": "Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-01-02",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "code": "PAL-1081",
+      "deptId": "dept-all",
+      "article": "ART-1081 Zahnrad Modul 2.0 Z=36 einsatzgehärtet",
+      "qty": 70,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-02-02",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "code": "PAL-1082",
+      "deptId": "dept-all",
+      "article": "ART-1082 Kupplungsnabe Bohrung 32mm Nut nach DIN 6885",
+      "qty": 65,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-03-02",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "code": "PAL-1083",
+      "deptId": "dept-all",
+      "article": "ART-1083 Führungswagen Flansch HG20 Vorzugsklasse H",
+      "qty": 48,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-04-02",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "code": "PAL-1084",
+      "deptId": "dept-all",
+      "article": "ART-1084 Baugruppe Linearachse 500mm Verfahrweg montiert",
+      "qty": 8,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-05-02",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "code": "PAL-1085",
+      "deptId": "dept-all",
+      "article": "ART-1085 Baugruppe Getriebedeckel vormontiert mit Wellendichtring",
+      "qty": 32,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-01-03",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "code": "PAL-1086",
+      "deptId": "dept-all",
+      "article": "ART-1086 Hydraulik-Zylinderbock geschweißt & spannungsarm geglüht",
+      "qty": 14,
+      "unit": "Stk.",
+      "zone": "buffer",
+      "location": "Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-02-03",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "code": "PAL-1087",
+      "deptId": "dept-all",
+      "article": "ART-1087 Montagewinkel Schwerlast 150x150x12mm verzinkt",
+      "qty": 120,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Hauptlager Gang 3 (Halbzeuge/Baugruppen) | Fach F-03-03",
+      "category": "Gefertigte Baugruppen & Zerspanungsteile"
+    },
+    {
+      "code": "PAL-1088",
+      "deptId": "dept-all",
+      "article": "ART-1088 Faltkarton 2-wellig 400x300x200mm (Karton à 25 Stk)",
+      "qty": 40,
+      "unit": "Karton",
+      "zone": "main",
+      "location": "Verpackungslager & Gefahrstoffbereich V | Fach A-01-01",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "code": "PAL-1089",
+      "deptId": "dept-all",
+      "article": "ART-1089 Faltkarton 2-wellig 600x400x300mm Euro-Modul",
+      "qty": 30,
+      "unit": "Karton",
+      "zone": "main",
+      "location": "Verpackungslager & Gefahrstoffbereich V | Fach A-02-01",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "code": "PAL-1090",
+      "deptId": "dept-all",
+      "article": "ART-1090 Maschinen-Stretchfolie transparent 500mm 23my 16kg",
+      "qty": 24,
+      "unit": "Rolle",
+      "zone": "main",
+      "location": "Verpackungslager & Gefahrstoffbereich V | Fach A-03-01",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "code": "PAL-1091",
+      "deptId": "dept-all",
+      "article": "ART-1091 Hand-Stretchfolie 500mm 20my Kern 50mm transparent",
+      "qty": 60,
+      "unit": "Rolle",
+      "zone": "main",
+      "location": "Verpackungslager & Gefahrstoffbereich V | Fach A-04-01",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "code": "PAL-1092",
+      "deptId": "dept-all",
+      "article": "ART-1092 PP-Umreifungsband 12mm x 0.6mm Reißkraft 130kg 3000m",
+      "qty": 10,
+      "unit": "Rolle",
+      "zone": "buffer",
+      "location": "Verpackungslager & Gefahrstoffbereich V | Fach A-05-01",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "code": "PAL-1093",
+      "deptId": "dept-all",
+      "article": "ART-1093 Metallverschlussklemmen für 12mm Umreifungsband (1000 Stk)",
+      "qty": 15,
+      "unit": "Karton",
+      "zone": "main",
+      "location": "Verpackungslager & Gefahrstoffbereich V | Fach A-01-02",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "code": "PAL-1094",
+      "deptId": "dept-all",
+      "article": "ART-1094 Thermo-Haftetiketten 100x150mm für Versandrollen (2000 Stk)",
+      "qty": 25,
+      "unit": "Rolle",
+      "zone": "main",
+      "location": "Verpackungslager & Gefahrstoffbereich V | Fach A-02-02",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "code": "PAL-1095",
+      "deptId": "dept-all",
+      "article": "ART-1095 Luftpolsterfolie 2-lagig Noppen 10mm Breite 100cm L=100m",
+      "qty": 12,
+      "unit": "Rolle",
+      "zone": "staged",
+      "location": "Verpackungslager & Gefahrstoffbereich V | Fach A-03-02",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "code": "PAL-1096",
+      "deptId": "dept-all",
+      "article": "ART-1096 Euro-Tauschpalette EPAL 1 gebraucht gütegeprüft",
+      "qty": 150,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Verpackungslager & Gefahrstoffbereich V | Fach A-04-02",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "code": "PAL-1097",
+      "deptId": "dept-all",
+      "article": "ART-1097 Gitterbox DIN 15155 gebraucht tauschfähig",
+      "qty": 28,
+      "unit": "Stk.",
+      "zone": "main",
+      "location": "Verpackungslager & Gefahrstoffbereich V | Fach A-05-02",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "code": "PAL-1098",
+      "deptId": "dept-all",
+      "article": "ART-1098 Hochleistungs-Hydrauliköl HLP 46 20L Kanister",
+      "qty": 16,
+      "unit": "Kanister",
+      "zone": "buffer",
+      "location": "Verpackungslager & Gefahrstoffbereich V | Fach A-01-03",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "code": "PAL-1099",
+      "deptId": "dept-all",
+      "article": "ART-1099 Bettbahnöl CGLP 68 20L Kanister für Werkzeugmaschinen",
+      "qty": 14,
+      "unit": "Kanister",
+      "zone": "main",
+      "location": "Verpackungslager & Gefahrstoffbereich V | Fach A-02-03",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "code": "PAL-1100",
+      "deptId": "dept-all",
+      "article": "ART-1100 Industriereiniger & Bremsenreiniger 500ml Spraydose",
+      "qty": 180,
+      "unit": "Dose",
+      "zone": "main",
+      "location": "Verpackungslager & Gefahrstoffbereich V | Fach A-03-03",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    },
+    {
+      "code": "PAL-1101",
+      "deptId": "dept-all",
+      "article": "ART-1101 Kühlschmierstoff-Konzentrat wassermischbar 208L Fass",
+      "qty": 4,
+      "unit": "Fass",
+      "zone": "main",
+      "location": "Verpackungslager & Gefahrstoffbereich V | Fach A-04-03",
+      "category": "Verpackung, Betriebs- & Hilfsstoffe"
+    }
+  ]
+}

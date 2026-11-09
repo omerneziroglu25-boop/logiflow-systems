@@ -1,0 +1,7 @@
+# LogiFlow Systems - Netlify Directives
+User-agent: *
+Allow: /
+Allow: /app
+Allow: /demo
+
+Sitemap: https://logiflowsystems.netlify.app/sitemap.xml

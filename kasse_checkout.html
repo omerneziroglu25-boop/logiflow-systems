@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LogiFlow Systems | Lizenzkauf & Sofort-Download</title>
+  
+  <meta name="description" content="Kaufen Sie LogiFlow Systems als lizenzfreie Vollversion mit Sofort-Download und automatischem Lizenzschlüssel.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0b1120;
+      color: #f8fafc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      border-color: rgba(96, 165, 250, 0.3);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-blue-500 selection:text-white">
+
+  <!-- HEADER -->
+  <header class="glass-card border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="./index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center font-bold text-white text-xl">
+          LF
+        </div>
+        <div>
+          <span class="text-xl font-bold tracking-tight text-white">LogiFlow<span class="text-blue-400">Systems</span></span>
+          <span class="block text-xs text-slate-400 font-medium">Sicherer B2B-Lizenzkauf</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-4 text-xs">
+        <span class="flex items-center gap-1.5 text-emerald-400 font-semibold bg-emerald-950/60 border border-emerald-500/30 px-3 py-1.5 rounded-lg">
+          <span>🔒</span> 256-Bit SSL Verschlüsselt
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CHECKOUT -->
+  <main class="max-w-5xl mx-auto px-4 py-12 flex-1 w-full">
+    
+    <div class="text-center mb-12">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">
+        LogiFlow Vollversion kaufen &amp; <span class="gradient-text">sofort herunterladen</span>
+      </h1>
+      <p class="text-slate-400 max-w-2xl mx-auto text-sm">
+        Einmalige Lizenzgebühr für Ihr Werk. Keine monatlichen Abonnements, keine Benutzer-Sperren. Sofortige Bereitstellung des Installationspakets und Ihres Lizenzschlüssels.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- LINKE SPALTE: EDITION WÄHLEN & DATEN -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- EDITIONS-AUSWAHL -->
+        <div class="glass-card rounded-2xl p-6">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4">1. Lizenz-Paket auswählen</h3>
+          
+          <div class="space-y-3">
+            <label class="flex items-center justify-between p-4 rounded-xl border border-slate-700 bg-slate-900/50 cursor-pointer hover:border-blue-500 transition">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="license_tier" value="starter" class="text-blue-600 focus:ring-blue-400" onchange="updatePrice('1.490 €', 'LogiFlow Starter (bis 50 Mitarbeiter)')">
+                <div>
+                  <div class="font-bold text-white text-sm">LogiFlow Starter</div>
+                  <div class="text-xs text-slate-400">Bis 50 Mitarbeiter · 1 Werk · Inkl. 4-Sektoren Leitstand</div>
+                </div>
+              </div>
+              <span class="font-extrabold text-white text-base">1.490 €</span>
+            </label>
+
+            <label class="flex items-center justify-between p-4 rounded-xl border-2 border-blue-500 bg-blue-950/20 cursor-pointer transition relative">
+              <span class="absolute -top-2.5 right-4 bg-blue-500 text-white text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full">
+                Beliebteste Wahl
+              </span>
+              <div class="flex items-center gap-3">
+                <input type="radio" name="license_tier" value="enterprise" checked class="text-blue-600 focus:ring-blue-400" onchange="updatePrice('3.900 €', 'LogiFlow Enterprise (bis 500 Mitarbeiter)')">
+                <div>
+                  <div class="font-bold text-white text-sm">LogiFlow Enterprise Mittelstand</div>
+                  <div class="text-xs text-slate-400">Bis 500 Mitarbeiter · PostgreSQL · Docker · Puffer &amp; QS-Sperrlager</div>
+                </div>
+              </div>
+              <span class="font-extrabold text-blue-400 text-base">3.900 €</span>
+            </label>
+
+            <label class="flex items-center justify-between p-4 rounded-xl border border-slate-700 bg-slate-900/50 cursor-pointer hover:border-blue-500 transition">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="license_tier" value="unlimited" class="text-blue-600 focus:ring-blue-400" onchange="updatePrice('6.900 €', 'LogiFlow Unlimited (1.000+ Mitarbeiter)')">
+                <div>
+                  <div class="font-bold text-white text-sm">LogiFlow Unlimited</div>
+                  <div class="text-xs text-slate-400">Über 1.000 Mitarbeiter · Unbegrenzte Stationen · Vollständige API</div>
+                </div>
+              </div>
+              <span class="font-extrabold text-white text-base">6.900 €</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- RECHNUNGSDATEN -->
+        <div class="glass-card rounded-2xl p-6">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4">2. Rechnungs- &amp; Lizenzdaten</h3>
+          
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Firmenname (auf Lizenzschlüssel ausgestellt) *</label>
+              <input required id="buy-company" type="text" placeholder="z.B. Muster Fertigungstechnik GmbH" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3.5 py-2.5 text-white text-xs outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Ansprechpartner *</label>
+                <input required id="buy-name" type="text" placeholder="Vor- und Nachname" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3.5 py-2.5 text-white text-xs outline-none focus:ring-2 focus:ring-blue-400">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Geschäftliche E-Mail (Download-Empfang) *</label>
+                <input required id="buy-email" type="email" placeholder="einkauf@firma.de" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3.5 py-2.5 text-white text-xs outline-none focus:ring-2 focus:ring-blue-400">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Optional: Server Hardware-ID (falls schon bekannt)</label>
+              <input id="buy-hwid" type="text" placeholder="z.B. BD7A375E1B0BFA07 (kann auch nach dem Kauf gemeldet werden)" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3.5 py-2.5 text-white text-xs font-mono outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RECHTE SPALTE: ZAHLUNG & ABSCHLUSS -->
+      <div class="lg:col-span-5">
+        <div class="glass-card rounded-2xl p-6 sticky top-28 border border-slate-800">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4">3. Bestellübersicht</h3>
+          
+          <div class="border-b border-slate-800 pb-4 mb-4">
+            <div class="font-bold text-white text-sm" id="selectedTierLabel">LogiFlow Enterprise Mittelstand (bis 500 Mitarbeiter)</div>
+            <div class="text-xs text-emerald-400 font-semibold mt-1">✓ Einmalige Volllizenz (Dauerhaft gültig)</div>
+            <div class="text-xs text-slate-400 mt-0.5">✓ Installationspaket `LogiFlow_Enterprise.zip`</div>
+            <div class="text-xs text-slate-400 mt-0.5">✓ 1-Klick Docker Compose &amp; PostgreSQL Schema</div>
+          </div>
+
+          <div class="space-y-2 text-xs border-b border-slate-800 pb-4 mb-4 text-slate-300">
+            <div class="flex justify-between">
+              <span>Nettobetrag:</span>
+              <span id="priceNetto" class="font-bold text-white">3.900,00 €</span>
+            </div>
+            <div class="flex justify-between text-slate-400">
+              <span>zzgl. 19% MwSt.:</span>
+              <span id="priceMwSt">741,00 €</span>
+            </div>
+            <div class="flex justify-between text-base font-extrabold text-white pt-2 border-t border-slate-800">
+              <span>Gesamtbetrag:</span>
+              <span id="priceTotal" class="text-emerald-400">4.641,00 €</span>
+            </div>
+          </div>
+
+          <!-- BEZAHLMETHODEN -->
+          <div class="space-y-3 mb-6">
+            <button onclick="simulateCheckout('Kreditkarte / Stripe')" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-blue-600/25 transition text-xs flex items-center justify-center gap-2">
+              <span>💳</span> Jetzt sicher bezahlen &amp; Download starten
+            </button>
+            <button onclick="simulateCheckout('PayPal')" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3 px-4 rounded-xl shadow-lg transition text-xs flex items-center justify-center gap-2">
+              <span>🅿️</span> Mit PayPal bezahlen
+            </button>
+            <button onclick="simulateCheckout('Rechnungskauf B2B')" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold py-2.5 px-4 rounded-xl transition text-xs flex items-center justify-center gap-2">
+              <span>📄</span> Auf Firmenrechnung bestellen (14 Tage Ziel)
+            </button>
+          </div>
+
+          <div class="text-[11px] text-slate-500 text-center leading-relaxed">
+            Mit Abschluss der Bestellung erhalten Sie sofort Zugriff auf das Download-Paket sowie Ihre offizielle Rechnung mit ausgewiesener MwSt. nach deutschem Recht.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- SUCCESS MODAL (SOFORT-DOWNLOAD & LIZENZSCHLÜSSEL) -->
+  <div id="successModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4">
+    <div class="glass-card rounded-2xl p-8 max-w-lg w-full text-center border-2 border-emerald-500/40 relative">
+      <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-3xl mx-auto mb-4">
+        ✓
+      </div>
+      <h3 class="text-2xl font-bold text-white mb-2">Zahlung erfolgreich!</h3>
+      <p class="text-sm text-slate-300 mb-6">
+        Vielen Dank für Ihre Bestellung. Ihre LogiFlow-Lizenz wurde erfolgreich generiert und ist ab sofort aktiv.
+      </p>
+
+      <!-- LIZENZSCHLÜSSEL BOX -->
+      <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-left mb-6 font-mono text-xs">
+        <div class="text-slate-400 text-[10px] uppercase font-bold tracking-wider mb-1">Ihr generierter Lizenzschlüssel:</div>
+        <div class="text-emerald-400 font-bold text-base select-all" id="modalKey">LF-C8EB-1A9F-C8A7</div>
+        <div class="text-slate-500 text-[10px] mt-2">Ausgestellt auf: <span id="modalCompany" class="text-white">Ihre Firma</span></div>
+      </div>
+
+      <div class="space-y-3">
+        <a href="./app.html" class="block w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl transition text-xs shadow-lg shadow-emerald-600/30">
+          📥 LogiFlow Installationspaket herunterladen (.ZIP)
+        </a>
+        <button onclick="document.getElementById('successModal').classList.add('hidden')" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 py-2.5 rounded-xl text-xs font-semibold">
+          Schließen
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function updatePrice(netto, tierName) {
+      document.getElementById('selectedTierLabel').innerText = tierName;
+      const val = parseInt(netto.replace('.', '').replace(' €', ''));
+      const mwst = Math.round(val * 0.19);
+      const total = val + mwst;
+
+      document.getElementById('priceNetto').innerText = val.toLocaleString('de-DE') + ',00 €';
+      document.getElementById('priceMwSt').innerText = mwst.toLocaleString('de-DE') + ',00 €';
+      document.getElementById('priceTotal').innerText = total.toLocaleString('de-DE') + ',00 €';
+    }
+
+    function simulateCheckout(method) {
+      const company = document.getElementById('buy-company').value.trim();
+      const email = document.getElementById('buy-email').value.trim();
+
+      if (!company || !email) {
+        alert('Bitte geben Sie Ihren Firmennamen und eine E-Mail-Adresse für die Rechnungs- und Lizenzausstellung an.');
+        return;
+      }
+
+      document.getElementById('modalCompany').innerText = company;
+      document.getElementById('modalKey').innerText = 'LF-' + Math.random().toString(36).substring(2, 6).toUpperCase() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase();
+      
+      const modal = document.getElementById('successModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+  </script>
+</body>
+</html>

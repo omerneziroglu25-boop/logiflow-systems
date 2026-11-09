@@ -1,0 +1,52 @@
+# ==============================================================================
+# LOGIFLOW SYSTEMS - 1-KLICK UNTERNEHMENS-STACK (DOCKER COMPOSE)
+# Für 500 bis 1.000 Mitarbeiter: PostgreSQL High-Performance + LogiFlow Web-App
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  # 1. PRODUKTIONSDATENBANK (PostgreSQL 16)
+  logiflow-db:
+    image: postgres:16-alpine
+    container_name: logiflow_enterprise_db
+    restart: always
+    environment:
+      POSTGRES_DB: logiflow_db
+      POSTGRES_USER: logiflow_admin
+      POSTGRES_PASSWORD: enterprise_secure_password_2026
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - logiflow_db_data:/var/lib/postgresql/data
+      - ./schema_postgresql.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U logiflow_admin -d logiflow_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 2. LOGIFLOW APPLICATION & LEITSTAND SERVER
+  logiflow-app:
+    image: node:20-alpine
+    container_name: logiflow_enterprise_app
+    restart: always
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: postgres://logiflow_admin:enterprise_secure_password_2026@logiflow-db:5432/logiflow_db
+    ports:
+      - "80:3000"
+      - "3000:3000"
+    command: ["node", "server.js"]
+    depends_on:
+      logiflow-db:
+        condition: service_healthy
+
+volumes:
+  logiflow_db_data:
+    driver: local

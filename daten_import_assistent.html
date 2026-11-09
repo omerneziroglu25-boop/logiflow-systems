@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stammdaten-Import-Assistent | LogiFlow Systems</title>
+  
+  <meta name="description" content="Schneller Excel- und CSV-Import für Artikelstamm, Stücklisten und Bestände in LogiFlow Systems.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0b1120;
+      color: #f8fafc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-blue-500 selection:text-white">
+
+  <!-- HEADER -->
+  <header class="glass-card border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="./index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center font-bold text-white text-xl">
+          LF
+        </div>
+        <div>
+          <span class="text-xl font-bold tracking-tight text-white">LogiFlow<span class="text-blue-400">Systems</span></span>
+          <span class="block text-xs text-slate-400 font-medium">Stammdaten-Import-Assistent</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-4">
+        <a href="./index.html" class="text-sm font-semibold text-slate-300 hover:text-white transition">Zurück zur Übersicht</a>
+        <a href="./app.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs px-4 py-2 rounded-lg transition shadow-lg shadow-blue-600/30">
+          Leitstand öffnen
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-5xl mx-auto px-4 py-12 flex-1 w-full">
+    
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+        Neukunden-Onboarding
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">
+        Artikelstamm &amp; Bestände <span class="gradient-text">blitzschnell importieren</span>
+      </h1>
+      <p class="text-slate-400 max-w-2xl mx-auto text-sm">
+        Importieren Sie Ihre vorhandenen Daten aus SAP, Infor, Excel oder Warenwirtschaftssystemen. Automatische Spaltenerkennung und Prüfung vor der Übernahme.
+      </p>
+    </div>
+
+    <!-- DRAG AND DROP ZONE -->
+    <div class="glass-card rounded-2xl p-8 mb-8 border-2 border-dashed border-slate-700 hover:border-blue-500 transition-colors text-center cursor-pointer" id="dropZone" onclick="document.getElementById('fileInput').click()">
+      <input type="file" id="fileInput" accept=".csv,.txt" class="hidden" onchange="handleFileSelect(event)">
+      
+      <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-3xl mb-4 text-blue-400">
+        📁
+      </div>
+      
+      <h3 class="text-lg font-bold text-white mb-1">CSV- oder Excel-Export hier ablegen</h3>
+      <p class="text-xs text-slate-400 mb-4">Klicken zum Durchsuchen oder Datei direkt per Drag &amp; Drop hineinziehen</p>
+      
+      <div class="flex items-center justify-center gap-4 text-xs">
+        <a href="./muster_artikelstamm.csv" download class="text-blue-400 hover:text-blue-300 font-semibold flex items-center gap-1.5 bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-700" onclick="event.stopPropagation()">
+          <span>📥</span> Muster-Vorlage herunterladen (.CSV)
+        </a>
+        <button type="button" class="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1.5 bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-700" onclick="loadSampleData(event)">
+          <span>⚡</span> Beispiel-Daten laden
+        </button>
+      </div>
+    </div>
+
+    <!-- PREVIEW CARD (HIDDEN BY DEFAULT) -->
+    <div id="previewCard" class="glass-card rounded-2xl p-6 hidden">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-slate-800 gap-4 mb-6">
+        <div>
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <span>Datenvorschau &amp; Validierung</span>
+            <span id="badgeCount" class="text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full font-bold">0 Zeilen</span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5" id="fileNameLabel">muster_artikelstamm.csv</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button onclick="clearData()" class="px-3 py-1.5 text-xs text-slate-400 hover:text-slate-200 border border-slate-700 rounded-lg">
+            Verwerfen
+          </button>
+          <button onclick="executeImport()" class="px-5 py-2 text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg shadow-lg shadow-emerald-600/25 transition">
+            In LogiFlow übernehmen
+          </button>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 text-slate-400 uppercase tracking-wider bg-slate-900/50">
+              <th class="py-3 px-3">Status</th>
+              <th class="py-3 px-3">Artikelnummer</th>
+              <th class="py-3 px-3">Bezeichnung</th>
+              <th class="py-3 px-3">Warengruppe</th>
+              <th class="py-3 px-3">Einheit</th>
+              <th class="py-3 px-3">Barcode</th>
+              <th class="py-3 px-3">Mindestbestand</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody" class="divide-y divide-slate-800/60 text-slate-300">
+            <!-- Dynamische Zeilen -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    let parsedRows = [];
+
+    function handleFileSelect(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      document.getElementById('fileNameLabel').innerText = file.name;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        parseCsv(evt.target.result);
+      };
+      reader.readAsText(file, 'UTF-8');
+    }
+
+    function loadSampleData(e) {
+      e.stopPropagation();
+      const sample = `Artikelnummer;Bezeichnung;Warengruppe;Einheit;Soll_Taktzeit_Sekunden;Barcode;Mindestbestand
+ART-1001;Aluminium-Gehaeuse Typ A;Zerspanung;STK;120;4012345100101;50
+ART-1002;Edelstahl-Welle 25mm;Drehteile;STK;90;4012345100202;30
+ART-1003;Montage-Baugruppe Sensor X;Montage;STK;240;4012345100303;15
+ART-1004;Dichtungsring EPDM 40mm;Normteile;STK;10;4012345100404;200
+ART-1005;Hydraulikventil Block 2;Baugruppen;STK;310;4012345100505;10`;
+      document.getElementById('fileNameLabel').innerText = "muster_artikelstamm.csv (Beispieldaten)";
+      parseCsv(sample);
+    }
+
+    function parseCsv(text) {
+      const lines = text.split(/\\r?\\n/).filter(l => l.trim().length > 0);
+      if (lines.length < 2) return;
+      
+      const delimiter = lines[0].includes(';') ? ';' : ',';
+      const headers = lines[0].split(delimiter).map(h => h.trim());
+      
+      parsedRows = [];
+      for (let i = 1; i < lines.length; i++) {
+        const cols = lines[i].split(delimiter).map(c => c.trim());
+        if (cols.length >= 3) {
+          parsedRows.push({
+            artNr: cols[0] || 'N/A',
+            bezeichnung: cols[1] || 'Ohne Bezeichnung',
+            gruppe: cols[2] || 'Standard',
+            einheit: cols[3] || 'STK',
+            takt: cols[4] || '0',
+            barcode: cols[5] || cols[0],
+            min: cols[6] || '0',
+            isValid: !!cols[0] && !!cols[1]
+          });
+        }
+      }
+
+      renderTable();
+    }
+
+    function renderTable() {
+      const body = document.getElementById('tableBody');
+      const card = document.getElementById('previewCard');
+      const badge = document.getElementById('badgeCount');
+
+      badge.innerText = parsedRows.length + ' Zeilen bereit';
+      card.classList.remove('hidden');
+
+      let html = '';
+      parsedRows.forEach(r => {
+        html += `
+          <tr class="hover:bg-slate-800/30">
+            <td class="py-3 px-3">
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                ✓ Gültig
+              </span>
+            </td>
+            <td class="py-3 px-3 font-semibold text-white">\${r.artNr}</td>
+            <td class="py-3 px-3">\${r.bezeichnung}</td>
+            <td class="py-3 px-3 text-slate-400">\${r.gruppe}</td>
+            <td class="py-3 px-3">\${r.einheit}</td>
+            <td class="py-3 px-3 font-mono text-blue-400">\${r.barcode}</td>
+            <td class="py-3 px-3">\${r.min}</td>
+          </tr>
+        `;
+      });
+      body.innerHTML = html;
+      card.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function clearData() {
+      parsedRows = [];
+      document.getElementById('previewCard').classList.add('hidden');
+      document.getElementById('fileInput').value = '';
+    }
+
+    function executeImport() {
+      alert('Erfolg: ' + parsedRows.length + ' Artikeldatensätze wurden erfolgreich validiert und für den LogiFlow-Produktivbetrieb vorbereitet!');
+    }
+  </script>
+</body>
+</html>

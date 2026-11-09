@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogiFlow Systems | Schlankes Hallen-MES & Barcode-Lagersystem</title>
+    <meta name="description" content="Schlankes Hallen-MES & Barcode-Lagersystem für den Mittelstand. Ohne teure User-Lizenzen, 100% On-Premise & offline-fähig. Eigenständig oder als Touchscreen-Brücke für SAP, DATEV, Odoo & Xentral.">
+    <meta name="keywords" content="Hallen-MES, Shopfloor MES, Barcode Lagersystem, LVS Werkhalle, ERP Werkstatt-Brücke, SAP Hallenanschluss, DATEV Fertigung, Odoo Shopfloor, KLT Behälterpuffer, QS Sperrlager, Touchscreen Terminal Werker, Fertigungssteuerung Mittelstand">
+    <meta name="author" content="LogiFlow Systems">
+    <meta name="robots" content="index, follow">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        },
+                        dark: {
+                            800: '#1e293b',
+                            850: '#172033',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #0f172a; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+    </style>
+</head>
+<body class="bg-dark-950 text-slate-200 font-sans antialiased selection:bg-brand-500 selection:text-white flex flex-col min-h-screen">
+
+    <!-- NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-dark-950/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center font-extrabold text-white text-xl shadow-lg shadow-brand-600/30">
+                    LF
+                </div>
+                <div>
+                    <span class="font-extrabold text-lg tracking-wider text-white block leading-none">LOGIFLOW</span>
+                    <span class="text-[10px] text-brand-400 font-semibold tracking-widest uppercase">Shopfloor MES &amp; LVS</span>
+                </div>
+            </div>
+
+            <nav class="hidden xl:flex items-center gap-7 text-sm font-medium text-slate-300">
+                <a href="#livedemo" class="text-brand-400 font-bold hover:text-brand-300 transition flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                    <span>Live-Demo</span>
+                </a>
+                <a href="#vorteile" class="hover:text-brand-400 transition">Hallen-Fokus</a>
+                <a href="#erp-bruecke" class="hover:text-brand-400 transition">ERP-Brücke</a>
+                <a href="#einfuehrung" class="hover:text-brand-400 transition">4-Tage-Ablauf</a>
+                <a href="#branchen" class="hover:text-brand-400 transition">Branchen</a>
+                <a href="#vergleich" class="hover:text-brand-400 transition">Vergleich</a>
+                <a href="#sicherheit" class="hover:text-brand-400 transition">On-Premise</a>
+                <a href="#preise" class="hover:text-brand-400 transition">Preise</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/491741707376" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/40 text-emerald-300 text-xs font-semibold px-3.5 py-2 rounded-lg transition" title="Direktkontakt per WhatsApp">
+                    <span>💬 WhatsApp</span>
+                </a>
+                <a href="#kontakt" class="bg-brand-600 hover:bg-brand-500 text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-lg shadow-lg shadow-brand-600/25 transition">
+                    Teststellung anfragen
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-6">
+                <span>🟢 0 € User-Lizenzen</span> • <span>100 % Autark On-Premise</span> • <span>Touchscreen-Optimiert</span>
+            </div>
+            
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight">
+                Schlanker Hallen-Leitstand &amp; Barcode-Logistik <span class="text-brand-400">ohne ERP-Ballast.</span>
+            </h1>
+            
+            <p class="mt-6 text-base sm:text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                Klassische Groß-ERPs sind für die Werkhalle oft zu träge und durch teure Arbeitsplatzlizenzen unrentabel. 
+                <strong>LogiFlow Systems</strong> digitalisiert Ihr Pufferlager, QS-Sperren und Fertigungslinien exakt nach Ihren Hallenabläufen – 
+                entweder vollständig autark oder als nahtlose Touchscreen-Brücke für Ihr bestehendes Büro-ERP (SAP, DATEV, Odoo, Xentral).
+            </p>
+
+            <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#livedemo" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold shadow-xl shadow-brand-600/30 transition flex items-center justify-center gap-2 text-sm sm:text-base">
+                    <span>⚡ Interaktive Demo hier testen</span>
+                </a>
+                <a href="#kontakt" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 font-semibold border border-slate-700 transition text-sm sm:text-base">
+                    14-Tage-Teststellung anfordern
+                </a>
+            </div>
+
+            <!-- Vertrauens-Fakten -->
+            <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-xs sm:text-sm text-slate-300 pt-8 border-t border-slate-800/80">
+                <div class="flex items-center justify-center gap-1.5"><span class="text-brand-400 font-bold">✓</span> <span>Unbegrenzte Terminals (0 €)</span></div>
+                <div class="flex items-center justify-center gap-1.5"><span class="text-brand-400 font-bold">✓</span> <span>100 % Offline-Ausfallsicher</span></div>
+                <div class="flex items-center justify-center gap-1.5"><span class="text-brand-400 font-bold">✓</span> <span>CSV / Excel / SQL-Brücke</span></div>
+                <div class="flex items-center justify-center gap-1.5"><span class="text-brand-400 font-bold">✓</span> <span>In 4 Tagen startklar</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 6. INTERAKTIVE LEITSTAND-DEMO (DIREKT SICHTBAR OBEN)    -->
+    <!-- ======================================================== -->
+    <section id="livedemo" class="py-16 bg-dark-900 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        <span>Touchscreen-Matrix Simulation</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Interaktiver Hallen-Leitstand</h2>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-1">
+                        Klicken Sie auf eine Kachel, um den Status sofort umzuschalten. Änderungen werden persistent in Ihrem Browser (<code>localStorage</code>) gespeichert.
+                    </p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="resetDemoData()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3.5 py-2 rounded-lg border border-slate-700 transition flex items-center gap-1.5">
+                        <span>🔄</span> <span>Demo-Bestand zurücksetzen</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-dark-950 p-5 sm:p-7 rounded-2xl border-2 border-slate-700/80 shadow-2xl">
+                
+                <!-- TERMINAL-KOPFZEILE -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pb-4 mb-6 border-b border-slate-800 text-xs">
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-3 h-3 rounded-full bg-brand-500 shadow-md shadow-brand-500/50"></span>
+                        <span class="font-extrabold text-white tracking-wider">TERMINAL 01: HALLE A (Zerspanung &amp; Puffer)</span>
+                    </div>
+                    <div class="text-slate-400 font-mono text-[11px]">
+                        Werker: Michael S. (RFID #8492) · Schicht 1
+                    </div>
+                </div>
+
+                <!-- LIVE-ZÄHLER (KPIS) -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                    <div class="bg-slate-900 border border-emerald-500/30 p-3.5 rounded-xl text-center">
+                        <span class="text-xs text-slate-400 block font-medium">Freigegeben (OK)</span>
+                        <span id="countFrei" class="text-2xl font-black text-emerald-400">0</span>
+                    </div>
+                    <div class="bg-slate-900 border border-amber-500/30 p-3.5 rounded-xl text-center">
+                        <span class="text-xs text-slate-400 block font-medium">In Bearbeitung / QS</span>
+                        <span id="countPruef" class="text-2xl font-black text-amber-400">0</span>
+                    </div>
+                    <div class="bg-slate-900 border border-rose-500/30 p-3.5 rounded-xl text-center">
+                        <span class="text-xs text-slate-400 block font-medium">QS-Sperrlager (Gesperrt)</span>
+                        <span id="countSperr" class="text-2xl font-black text-rose-500">0</span>
+                    </div>
+                    <div class="bg-slate-900 border border-slate-700 p-3.5 rounded-xl text-center">
+                        <span class="text-xs text-slate-400 block font-medium">Gesamt-Bestand</span>
+                        <span id="countGesamt" class="text-2xl font-black text-white">0</span>
+                    </div>
+                </div>
+
+                <!-- SUCH- & BARCODE-SCAN-SIMULATIONSLEISTE -->
+                <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 mb-6 space-y-3">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <div class="relative flex-1">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">🔍</span>
+                            <input type="text" id="searchInput" oninput="filterMatrix()" placeholder="Charge, Artikel oder Lagerplatz durchsuchen..." class="w-full pl-9 pr-3 py-2 bg-dark-950 border border-slate-700 rounded-lg text-xs sm:text-sm text-white focus:outline-none focus:border-brand-500">
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="toggleAddForm()" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition flex items-center gap-1.5 whitespace-nowrap">
+                                <span>➕</span> <span id="toggleFormBtnText">Neuen Behälter anlegen</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- AUSKLAPPBARES FORMULAR: NEUEN BEHÄLTER BUCHEN -->
+                    <div id="addFormContainer" class="hidden pt-3 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                        <div class="flex gap-1.5">
+                            <input type="text" id="newCharge" placeholder="Charge (z.B. CH-409)" class="w-full bg-dark-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500 font-mono">
+                            <button type="button" onclick="generateRandomCharge()" title="Neue Zufalls-Charge" class="px-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-bold">🎲</button>
+                        </div>
+                        <input type="text" id="newArtikel" placeholder="Artikelbezeichnung / Bauteil *" class="bg-dark-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500">
+                        <input type="text" id="newOrt" placeholder="Lagerplatz / Linie (z.B. Puffer B2)" class="bg-dark-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500">
+                        <button onclick="addItem()" class="bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-lg px-4 py-2 text-xs transition">
+                            + Jetzt einbuchen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- KACHEL-MATRIX -->
+                <div id="matrixGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+                <div class="mt-5 pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-3 text-[11px] text-slate-400">
+                    <div>💡 <strong>Bedienhinweis:</strong> Ein Fingertipp auf eine Kachel schaltet den Status um: <span class="text-emerald-400">Freigegeben</span> → <span class="text-amber-400">In Prüfung</span> → <span class="text-rose-400">QS-Sperre</span>.</div>
+                    <div class="text-slate-500">USB- &amp; Funk-Barcodescanner werden direkt unterstützt.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 2. POSITIONIERUNG & ERP-BRÜCKE                           -->
+    <!-- ======================================================== -->
+    <section id="vorteile" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-400 font-bold text-xs uppercase tracking-wider block mb-2">Klare Aufgabenteilung</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Büro-ERP für Zahlen. LogiFlow für die Werkhalle.</h2>
+                <p class="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Buchhaltungssysteme sind für Schreibtische konzipiert. In Ihrer Produktion zählen jedoch Sekunden, 
+                    große Touch-Schaltflächen für die Bedienung mit Handschuhen und <strong>null Lizenzkosten</strong> für Schichtmitarbeiter.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-dark-900 p-8 rounded-2xl border border-slate-800">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/30 text-brand-400 flex items-center justify-center text-2xl mb-5">
+                        🖥️
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Maßgeschneiderte Hallen-Masken</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Ihre Stationen, Ihre KLT-Behältertypen, Ihr Firmenlogo. Ob Zerspanungs-Linie, Sudhaus-Tank oder Sägetisch: 
+                        Wir blenden alles aus, was Ihre Werker an der Maschine nur ablenkt.
+                    </p>
+                </div>
+
+                <div class="bg-dark-900 p-8 rounded-2xl border border-slate-800">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-2xl mb-5">
+                        🔫
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Vorhandene Hardware nutzen</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Direkte Anbindung Ihrer bestehenden Handscanner (USB/Bluetooth), Industrie-Touchscreens (z.B. Iiyama), Tablets und Zebra-Etikettendrucker – 
+                        ohne proprietäre Treiber oder versteckte Zusatzkosten.
+                    </p>
+                </div>
+
+                <div class="bg-dark-900 p-8 rounded-2xl border border-slate-800">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl mb-5">
+                        🔄
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Ergänzt Ihr bestehendes ERP</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Sie müssen Ihre Finanzbuchhaltung nicht austauschen. LogiFlow übernimmt Artikelstämme und Fertigungsaufträge per CSV, Excel oder SQL-Brücke und liefert saubere Bestandsrückmeldungen zurück.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ERP-BRÜCKE VISUALISIERUNG -->
+    <section id="erp-bruecke" class="py-14 bg-dark-900 border-y border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-dark-950 p-8 sm:p-10 rounded-2xl border border-slate-800 shadow-xl">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center text-center md:text-left">
+                    <div>
+                        <span class="text-xs uppercase font-bold text-slate-500 tracking-wider">Büro &amp; Verwaltung</span>
+                        <h4 class="text-lg font-bold text-white mt-1">Ihr Haupt-ERP</h4>
+                        <p class="text-xs text-slate-400 mt-2">SAP, DATEV, Odoo, Xentral oder Sage für Rechnungen, Einkauf und Bilanzen.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-brand-500/30 text-center">
+                        <span class="text-brand-400 font-extrabold text-xs block mb-1">AUTOMATISCHER DATENFLUSS</span>
+                        <div class="text-2xl text-brand-400 font-bold">⇄</div>
+                        <span class="text-[11px] text-slate-300 block mt-1">CSV / Excel / SQL-Schnittstelle</span>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase font-bold text-brand-400 tracking-wider">Werkhalle &amp; Lager</span>
+                        <h4 class="text-lg font-bold text-white mt-1">LogiFlow Systems</h4>
+                        <p class="text-xs text-slate-400 mt-2">Schnelle Touchscreen-Terminals, Barcode-Scanning, Behälterpuffer und QS-Sperrlager.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 4. NEUE SEKTION: IN 4 TAGEN STARTKLAR                    -->
+    <!-- ======================================================== -->
+    <section id="einfuehrung" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-400 font-bold text-xs uppercase tracking-wider block mb-2">Schnelle Einführung ohne Ausfallzeiten</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">In 4 Tagen startklar – So läuft die Einführung ab</h2>
+                <p class="mt-4 text-slate-300 text-sm sm:text-base">
+                    Vergessen Sie monatelange Beraterprojekte. Wir richten LogiFlow zielgerichtet und praxisnah für Ihren Betrieb ein.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                
+                <!-- SCHRITT 1 -->
+                <div class="bg-dark-900 p-8 rounded-2xl border border-slate-800 relative">
+                    <div class="w-10 h-10 rounded-xl bg-brand-600 text-white font-black flex items-center justify-center text-lg mb-4">
+                        1
+                    </div>
+                    <span class="text-xs font-bold text-brand-400 uppercase tracking-wider">Tag 1</span>
+                    <h3 class="text-lg font-bold text-white mt-1 mb-2">Analyse &amp; Datenimport</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        In einem 30-minütigen Gespräch analysieren wir Ihre Stationen und übernehmen Ihre bestehenden Artikel- und Lagerdaten unkompliziert per CSV oder Excel.
+                    </p>
+                </div>
+
+                <!-- SCHRITT 2 -->
+                <div class="bg-dark-900 p-8 rounded-2xl border border-slate-800 relative">
+                    <div class="w-10 h-10 rounded-xl bg-brand-600 text-white font-black flex items-center justify-center text-lg mb-4">
+                        2
+                    </div>
+                    <span class="text-xs font-bold text-brand-400 uppercase tracking-wider">Tag 2 – 3</span>
+                    <h3 class="text-lg font-bold text-white mt-1 mb-2">Anpassung &amp; Teststellung</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Wir passen die Touch-Oberfläche exakt an Ihre Hallenbegriffe an und stellen Ihnen eine betriebsfertige 7-Tage-Testversion zur internen Prüfung bereit.
+                    </p>
+                </div>
+
+                <!-- SCHRITT 3 -->
+                <div class="bg-dark-900 p-8 rounded-2xl border border-slate-800 relative">
+                    <div class="w-10 h-10 rounded-xl bg-brand-600 text-white font-black flex items-center justify-center text-lg mb-4">
+                        3
+                    </div>
+                    <span class="text-xs font-bold text-brand-400 uppercase tracking-wider">Tag 4</span>
+                    <h3 class="text-lg font-bold text-white mt-1 mb-2">On-Premise-Installation</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Lokale Inbetriebnahme auf Ihrem Hallen-PC oder Server im Hausnetz. Anbindung Ihrer Scanner und Drucker – Ihre Mitarbeiter legen sofort los.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BRANCHEN -->
+    <section id="branchen" class="py-20 bg-dark-900 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-brand-400 font-bold text-xs uppercase tracking-wider block mb-2">Erprobt im Mittelstand</span>
+                <h2 class="text-3xl font-extrabold text-white">Konfiguriert für Ihre Fertigungsumgebung</h2>
+                <p class="mt-3 text-slate-400 text-sm">Von Stückzahlen und KLT-Behältern über Hektoliter bis hin zu laufenden Metern und Chargen.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                <div class="bg-dark-950 p-6 rounded-xl border border-slate-800">
+                    <div class="text-3xl mb-3">🏭</div>
+                    <h4 class="font-bold text-white text-base">Industrie &amp; Zerspanung</h4>
+                    <p class="text-xs text-slate-400 mt-2">KLT-Behälter, Maschinenzuweisung, Erstmuster- und QS-Sperrlager.</p>
+                </div>
+                <div class="bg-dark-950 p-6 rounded-xl border border-slate-800">
+                    <div class="text-3xl mb-3">🍺</div>
+                    <h4 class="font-bold text-white text-base">Getränke &amp; Brauerei</h4>
+                    <p class="text-xs text-slate-400 mt-2">Tankbelegung, Sud-Tracking, Gebinde-Verwaltung &amp; Leergut-Puffer.</p>
+                </div>
+                <div class="bg-dark-950 p-6 rounded-xl border border-slate-800">
+                    <div class="text-3xl mb-3">🍏</div>
+                    <h4 class="font-bold text-white text-base">Lebensmittel</h4>
+                    <p class="text-xs text-slate-400 mt-2">Chargen-Rückverfolgung, MHD-Überwachung, Kühl- und Reifelager.</p>
+                </div>
+                <div class="bg-dark-950 p-6 rounded-xl border border-slate-800">
+                    <div class="text-3xl mb-3">🔨</div>
+                    <h4 class="font-bold text-white text-base">Holz &amp; Baustoffe</h4>
+                    <p class="text-xs text-slate-400 mt-2">Zuschnitt-Aufträge, Plattenlager, Kommissionierung &amp; Abholfächer.</p>
+                </div>
+                <div class="bg-dark-950 p-6 rounded-xl border border-slate-800">
+                    <div class="text-3xl mb-3">📦</div>
+                    <h4 class="font-bold text-white text-base">Lager &amp; Versand</h4>
+                    <p class="text-xs text-slate-400 mt-2">Pick-Zonen, Packtisch-Scanning, Retouren-Prüfung &amp; Versandpuffer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EHRLICHER WETTBEWERBSVERGLEICH -->
+    <section id="vergleich" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-brand-400 font-bold text-xs uppercase tracking-wider block mb-2">Ehrliche Fakten</span>
+                <h2 class="text-3xl font-extrabold text-white">Transparenter Marktvergleich</h2>
+                <p class="mt-3 text-slate-400 text-sm">Warum der Mittelstand auf LogiFlow als spezialisierte Hallenlösung setzt.</p>
+            </div>
+
+            <div class="overflow-x-auto rounded-2xl border border-slate-800">
+                <table class="w-full text-left border-collapse bg-dark-900 text-xs sm:text-sm min-w-[700px]">
+                    <thead>
+                        <tr class="border-b border-slate-800 bg-dark-950 text-slate-300">
+                            <th class="p-4 font-semibold w-1/4">Kriterium</th>
+                            <th class="p-4 font-semibold w-1/4 text-rose-400">Klassische Groß-ERPs / Industrie-MES</th>
+                            <th class="p-4 font-semibold w-1/4 text-amber-400">Standard Cloud-ERPs (SaaS)</th>
+                            <th class="p-4 font-bold text-brand-400 bg-brand-950/30 border-l border-brand-500/30 w-1/4">LogiFlow Systems</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800 text-slate-300">
+                        <tr>
+                            <td class="p-4 font-medium text-white">Lizenzkosten pro Mitarbeiter</td>
+                            <td class="p-4 text-slate-400">Sehr hoch (Tausende Euro + jährliche Wartungsgebühr)</td>
+                            <td class="p-4 text-slate-400">Teure Abo-Falle: Monatliche Gebühr pro Mitarbeiter (ca. 40–120 €/Monat)</td>
+                            <td class="p-4 font-semibold text-emerald-400 bg-brand-950/20 border-l border-brand-500/30">🟢 0 € pro User (Faires Festpreis-Modell)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium text-white">Fokus &amp; Einsatzgebiet</td>
+                            <td class="p-4 text-slate-400">Konzernbuchhaltung &amp; Controlling; an der Werkbank unbedienbar</td>
+                            <td class="p-4 text-slate-400">Entwickelt für Büro und Schreibtisch; ungeeignet für Handschuhe &amp; Halle</td>
+                            <td class="p-4 font-semibold text-white bg-brand-950/20 border-l border-brand-500/30">🟢 100 % Werkhalle, Leitstand &amp; QS-Sperre</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium text-white">Einführungsdauer</td>
+                            <td class="p-4 text-slate-400">6 bis 18 Monate Projektlaufzeit mit Betriebsstillständen</td>
+                            <td class="p-4 text-slate-400">2 bis 5 Monate Konfigurationsaufwand</td>
+                            <td class="p-4 font-semibold text-emerald-400 bg-brand-950/20 border-l border-brand-500/30">🟢 In 4 Tagen betriebsbereit</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium text-white">Server &amp; Datenhoheit</td>
+                            <td class="p-4 text-slate-400">Schwerfällige Serverlandschaft, benötigt eigene IT-Abteilung</td>
+                            <td class="p-4 text-slate-400">Zwingende Fremd-Cloud (Ausfall bei unterbrochenem Internet)</td>
+                            <td class="p-4 font-semibold text-white bg-brand-950/20 border-l border-brand-500/30">🟢 100 % On-Premise im lokalen Firmennetz</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium text-white">Individuelle Anpassung</td>
+                            <td class="p-4 text-slate-400">Sehr starr; jede Änderung erfordert teure externe Berater</td>
+                            <td class="p-4 text-slate-400">Starr; nur im Rahmen vordefinierter Web-Module</td>
+                            <td class="p-4 font-semibold text-emerald-400 bg-brand-950/20 border-l border-brand-500/30">🟢 Maßgeschneidert auf Ihre Hallenstationen</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 3. SICHERHEITSAUFSATZ: B2B-KUNDENNUTZEN STATT KOPIERSCHUTZ -->
+    <!-- ======================================================== -->
+    <section id="sicherheit" class="py-20 bg-dark-900 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-brand-400 font-bold text-xs uppercase tracking-wider">100 % Datenhoheit &amp; Stabilität</span>
+                    <h2 class="text-3xl font-extrabold text-white mt-2">Ausfallsicherer On-Premise-Betrieb ohne Cloud-Zwang</h2>
+                    <p class="mt-4 text-slate-300 text-sm leading-relaxed">
+                        Wenn die Internetleitung ausfällt, darf Ihre Produktion nicht stillstehen. LogiFlow Systems arbeitet direkt auf Ihrer lokalen Hardware im Firmennetzwerk. 
+                        Ihre sensiblen Produktionsdaten, Rezepturen und Stücklisten bleiben vollständig in Ihrem Haus.
+                    </p>
+                    <ul class="mt-6 space-y-3.5 text-sm text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-400 font-bold text-lg leading-none">✓</span>
+                            <span><strong>100 % Offline-Ausfallsicherheit:</strong> Volle Scan- und Buchungsgeschwindigkeit im Hallen-WLAN/LAN – auch bei getrennter Außenanbindung.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-400 font-bold text-lg leading-none">✓</span>
+                            <span><strong>Revisionssichere Chargen-Protokolle:</strong> Lückenlose Dokumentation aller Buchungen, QS-Sperren und Ausschussmengen.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-400 font-bold text-lg leading-none">✓</span>
+                            <span><strong>Vollständige Datenhoheit:</strong> Keine Speicherung auf US-Servern; 100 % DSGVO-konform nach deutschem Recht.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-dark-950 p-7 sm:p-8 rounded-2xl border border-slate-800 shadow-xl">
+                    <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+                        <span>⚙️</span> <span>Schlanke Systemanforderungen</span>
+                    </h3>
+                    <div class="space-y-3 text-xs sm:text-sm">
+                        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+                            <span class="text-slate-400 block text-xs">Lokaler Server / Host</span>
+                            <span class="text-white font-medium">Standard Windows- oder Linux-PC, bestehende VM oder kompakter Mini-PC</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+                            <span class="text-slate-400 block text-xs">Arbeitsplätze &amp; Terminals</span>
+                            <span class="text-white font-medium">Jedes Gerät mit modernem Browser (Touch-Monitore, Android-/iPad-Tablets, MDE-Handscanner)</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+                            <span class="text-slate-400 block text-xs">Schnittstellen &amp; Peripherie</span>
+                            <span class="text-white font-medium">CSV/Excel-Ordnerabgleich, SQL-Anbindung, Zebra-Etikettendrucker (ZPL/PDF)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 5. NEUE SEKTION: TRANSPARENTE PREIS- & LIZENZMODELLE     -->
+    <!-- ======================================================== -->
+    <section id="preise" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-400 font-bold text-xs uppercase tracking-wider block mb-2">Transparente Investition</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Transparente Preis- &amp; Lizenzmodelle</h2>
+                <p class="mt-4 text-slate-300 text-sm sm:text-base">
+                    Keine monatlichen Pro-Kopf-Kosten. Sie investieren in ein verlässliches Werkzeug für Ihre Hallenmannschaft.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- PAKET 1 -->
+                <div class="bg-dark-900 p-8 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs uppercase font-bold text-slate-400 tracking-wider">Unverbindlich prüfen</span>
+                        <h3 class="text-2xl font-black text-white mt-1">7-Tage-Praxistest</h3>
+                        <div class="mt-4 mb-6">
+                            <span class="text-4xl font-extrabold text-brand-400">0 €</span>
+                            <span class="text-xs text-slate-400 block mt-1">Vollwertige Teststellung ohne Risiko</span>
+                        </div>
+                        <ul class="text-xs sm:text-sm text-slate-300 space-y-3 border-t border-slate-800 pt-6">
+                            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Einrichtung mit Ihren realen Artikeldaten</span></li>
+                            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Test an 1–2 Hallen-Stationen oder Tablets</span></li>
+                            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Voller Funktionsumfang (Leitstand &amp; QS)</span></li>
+                            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Keine automatische Verlängerung</span></li>
+                        </ul>
+                    </div>
+                    <div class="mt-8">
+                        <a href="#kontakt" class="block w-full py-3.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-center text-xs sm:text-sm border border-slate-700 transition">
+                            Praxistest anfordern
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PAKET 2 -->
+                <div class="bg-dark-900 p-8 rounded-2xl border-2 border-brand-500/50 shadow-2xl shadow-brand-950 flex flex-col justify-between relative">
+                    <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-brand-600 text-white font-black text-[10px] uppercase px-3 py-1 rounded-full tracking-wider shadow">
+                        Beliebter Einstieg
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase font-bold text-brand-400 tracking-wider">Schnellstart</span>
+                        <h3 class="text-2xl font-black text-white mt-1">Hallen-Starter</h3>
+                        <div class="mt-4 mb-6">
+                            <span class="text-3xl font-extrabold text-white">Transparenter Festpreis</span>
+                            <span class="text-xs text-slate-400 block mt-1">Einmalige Lizenz · Keine monatlichen User-Gebühren</span>
+                        </div>
+                        <ul class="text-xs sm:text-sm text-slate-300 space-y-3 border-t border-slate-800 pt-6">
+                            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Für 1–3 Linien, Stationen oder Lagerbereiche</span></li>
+                            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> <span><strong>Unbegrenzte Werker- &amp; Terminal-Nutzer</strong></span></li>
+                            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Barcode-Schnellbuchung &amp; KLT-Puffer</span></li>
+                            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Autarke On-Premise-Installation</span></li>
+                        </ul>
+                    </div>
+                    <div class="mt-8">
+                        <a href="#kontakt" class="block w-full py-3.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-center text-xs sm:text-sm shadow-lg shadow-brand-600/30 transition">
+                            Starter-Angebot anfragen
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PAKET 3 -->
+                <div class="bg-dark-900 p-8 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs uppercase font-bold text-slate-400 tracking-wider">Industriestandard</span>
+                        <h3 class="text-2xl font-black text-white mt-1">Werk-Komplettlösung</h3>
+                        <div class="mt-4 mb-6">
+                            <span class="text-3xl font-extrabold text-white">Maßanfertigung</span>
+                            <span class="text-xs text-slate-400 block mt-1">Schlüsselfertig für gesamte Fertigungshallen</span>
+                        </div>
+                        <ul class="text-xs sm:text-sm text-slate-300 space-y-3 border-t border-slate-800 pt-6">
+                            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Komplette Hallenlogistik &amp; Pufferlager</span></li>
+                            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> <span>QS-Sperrlager mit optischem Werker-Stopp</span></li>
+                            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Individuelle ERP-Brücke (SAP, DATEV, Odoo, SQL)</span></li>
+                            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Vor-Ort-Inbetriebnahme &amp; Druckeranbindung</span></li>
+                        </ul>
+                    </div>
+                    <div class="mt-8">
+                        <a href="#kontakt" class="block w-full py-3.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-center text-xs sm:text-sm border border-slate-700 transition">
+                            Individuelle Lösung anfragen
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 7. KONTAKTFORMULAR (NETLIFY READY)                       -->
+    <!-- ======================================================== -->
+    <section id="kontakt" class="py-20 bg-dark-900 border-t border-slate-800">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-dark-950 p-8 sm:p-10 rounded-2xl border border-slate-800 shadow-2xl">
+                
+                <div class="text-center mb-8">
+                    <span class="text-brand-400 font-bold text-xs uppercase tracking-wider block mb-1">Direkte Kommunikation</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">7-Tage-Testversion oder Angebot anfragen</h2>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-2">
+                        Schildern Sie uns kurz Ihre Anforderungen. Wir melden uns innerhalb von 24 Stunden persönlich bei Ihnen.
+                    </p>
+                </div>
+
+                <form name="logiflow-anfrage" method="POST" data-netlify="true" class="space-y-4 text-left">
+                    <input type="hidden" name="form-name" value="logiflow-anfrage">
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Ihr Name *</label>
+                            <input type="text" name="name" required placeholder="z.B. Klaus Becker" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Unternehmen / Firma *</label>
+                            <input type="text" name="firma" required placeholder="z.B. Becker Zerspanung GmbH" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Geschäftliche E-Mail-Adresse *</label>
+                            <input type="email" name="email" required placeholder="becker@becker-zerspanung.de" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Telefonnummer für Rücksprache</label>
+                            <input type="tel" name="telefon" placeholder="+49 171 1234567" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Gewünschtes Modell</label>
+                            <select name="paket" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-500">
+                                <option value="Praxistest">7-Tage-Praxistest (0 €)</option>
+                                <option value="Hallen-Starter">Hallen-Starter (Festpreis)</option>
+                                <option value="Werk-Komplettlösung">Werk-Komplettlösung (Maßanfertigung)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Bestehendes Büro-ERP (falls vorhanden)</label>
+                            <select name="erp" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-500">
+                                <option value="Kein Haupt-ERP">Kein Büro-ERP (LogiFlow als Gesamtsystem)</option>
+                                <option value="SAP">SAP (ECC / S/4HANA)</option>
+                                <option value="DATEV">DATEV</option>
+                                <option value="Odoo">Odoo</option>
+                                <option value="Xentral">Xentral</option>
+                                <option value="Excel">Bisher Excel &amp; Handzettel</option>
+                                <option value="Sonstiges">Anderes System</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Ihre Hallenabläufe &amp; Wünsche</label>
+                        <textarea name="anforderungen" rows="3" placeholder="Schildern Sie kurz die Anzahl der Arbeitsplätze, vorhandene Scanner oder gewünschte Pufferbereiche..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-500"></textarea>
+                    </div>
+
+                    <div class="flex items-start gap-2.5 pt-1 text-xs text-slate-400">
+                        <input type="checkbox" required id="dsgvoCheck" class="mt-0.5 rounded border-slate-700 text-brand-600 focus:ring-brand-500">
+                        <label for="dsgvoCheck">
+                            Ich willige in die Verarbeitung meiner Angaben zwecks Angebotserstellung und Kontaktaufnahme gemäß <button type="button" onclick="openModal('datenschutzModal')" class="text-brand-400 underline">Datenschutzerklärung</button> ein.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-brand-600/30 text-xs sm:text-sm transition">
+                        Unverbindliche Anfrage absenden
+                    </button>
+                </form>
+
+                <!-- DIREKTKONTAKT MIT ANSPRECHPARTNER -->
+                <div class="mt-8 pt-6 border-t border-slate-800 text-center text-xs text-slate-400 flex flex-wrap items-center justify-center gap-4">
+                    <span>Inhaber &amp; Entwickler: <strong class="text-white" data-company="ownerName">Göksal Neziroglu</strong></span>
+                    <span>•</span>
+                    <a href="tel:01741707376" class="hover:text-white transition" data-company-href="tel">📞 <span data-company="phone">0174 1707376</span></a>
+                    <span>•</span>
+                    <a href="mailto:omerneziroglu25@gmail.com" class="hover:text-white transition" data-company-href="mailto">✉️ <span data-company="email">omerneziroglu25@gmail.com</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark-950 border-t border-slate-800 py-10 text-xs text-slate-500 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                © 2026 <span data-company="companyName">LogiFlow Systems</span> · Inh. <span data-company="ownerName">Göksal Neziroglu</span>. Shopfloor MES &amp; LVS.
+            </div>
+            <div class="flex gap-6">
+                <button onclick="openModal('impressumModal')" class="hover:text-slate-300 transition">Impressum (§ 5 DDG)</button>
+                <button onclick="openModal('datenschutzModal')" class="hover:text-slate-300 transition">Datenschutz (DSGVO)</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======================================================== -->
+    <!-- 8. RECHTSSICHERES IMPRESSUM (§ 5 DDG)                   -->
+    <!-- ======================================================== -->
+    <div id="impressumModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-dark-900 border border-slate-700 rounded-2xl max-w-lg w-full p-6 text-xs sm:text-sm text-slate-300 space-y-4 max-h-[90vh] overflow-y-auto custom-scroll">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <h3 class="text-lg font-bold text-white">Impressum</h3>
+                <button onclick="closeModal('impressumModal')" class="text-slate-400 hover:text-white text-lg">✕</button>
+            </div>
+            
+            <div class="space-y-3 leading-relaxed">
+                <p class="font-semibold text-white">Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG):</p>
+                <div class="p-3 bg-dark-950 rounded-lg border border-slate-800 font-mono text-xs">
+                    <strong class="text-white" data-company="companyName">LogiFlow Systems</strong><br>
+                    Inhaber: <span data-company="ownerName">Göksal Neziroglu</span><br>
+                    <span data-company="street">Musterstraße 12</span><br>
+                    <span data-company="zipCity">78549 Spaichingen</span>, <span data-company="country">Deutschland</span>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white text-xs uppercase mb-1">Kontakt:</h4>
+                    <p>
+                        Telefon: <a href="tel:01741707376" class="text-white font-semibold hover:underline" data-company-href="tel"><span data-company="phone">0174 1707376</span></a><br>
+                        E-Mail: <a href="mailto:omerneziroglu25@gmail.com" class="text-brand-400 hover:underline" data-company-href="mailto"><span data-company="email">omerneziroglu25@gmail.com</span></a><br>
+                        Website: <a href="https://logiflowsystems.netlify.app" class="text-brand-400 hover:underline" data-company-href="website"><span data-company="website">https://logiflowsystems.netlify.app</span></a>
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white text-xs uppercase mb-1">Umsatzsteuer-Identifikationsnummer:</h4>
+                    <p class="text-slate-400 font-mono text-xs">
+                        Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: <span data-company="vatId">DE 123456789</span>
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white text-xs uppercase mb-1">Verantwortlich für redaktionelle Inhalte:</h4>
+                    <p>
+                        <span data-company="ownerName">Göksal Neziroglu</span> (Anschrift wie oben)
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white text-xs uppercase mb-1">Streitschlichtung:</h4>
+                    <p class="text-[11px] text-slate-400">
+                        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
+                        <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:underline">https://ec.europa.eu/consumers/odr/</a>.<br>
+                        Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-800 text-right">
+                <button onclick="closeModal('impressumModal')" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg text-xs font-semibold">Schließen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- 8. RECHTSSICHERE DATENSCHUTZERKLÄRUNG (DSGVO)            -->
+    <!-- ======================================================== -->
+    <div id="datenschutzModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-dark-900 border border-slate-700 rounded-2xl max-w-2xl w-full p-6 text-xs sm:text-sm text-slate-300 space-y-4 max-h-[85vh] overflow-y-auto custom-scroll">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <h3 class="text-lg font-bold text-white">Datenschutzerklärung (DSGVO)</h3>
+                <button onclick="closeModal('datenschutzModal')" class="text-slate-400 hover:text-white text-lg">✕</button>
+            </div>
+            
+            <div class="space-y-3 leading-relaxed text-xs">
+                <div>
+                    <h4 class="font-bold text-white uppercase mb-1">1. Verantwortliche Stelle</h4>
+                    <p>
+                        Verantwortlicher im Sinne der Datenschutz-Grundverordnung (Art. 4 Nr. 7 DSGVO) ist:<br>
+                        <strong data-company="companyName">LogiFlow Systems</strong> · Inh. <span data-company="ownerName">Göksal Neziroglu</span><br>
+                        <span data-company="street">Musterstraße 12</span>, <span data-company="zipCity">78549 Spaichingen</span><br>
+                        E-Mail: <span data-company="email">omerneziroglu25@gmail.com</span> · Telefon: <span data-company="phone">0174 1707376</span>
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white uppercase mb-1">2. Kontaktaufnahme über das Formular</h4>
+                    <p>
+                        Wenn Sie uns über das Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben inklusive der von Ihnen angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für Anschlussfragen gemäß Art. 6 Abs. 1 lit. b DSGVO verarbeitet. Eine Weitergabe an unbefugte Dritte findet nicht statt.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white uppercase mb-1">3. Lokale Speicherung in der Leitstand-Demo (LocalStorage)</h4>
+                    <p>
+                        Die interaktive Leitstand-Demo auf dieser Website nutzt ausschließlich den lokalen Speicher Ihres Browsers (<code>localStorage</code>). Eingetragene Test-Chargen, Artikelnamen und Statuswechsel werden rein auf Ihrem Endgerät gespeichert und zu keinem Zeitpunkt an unsere Server übertragen.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white uppercase mb-1">4. Hosting &amp; Server-Logfiles bei Netlify</h4>
+                    <p>
+                        Diese Website wird über Netlify (Netlify Inc., 44 Montgomery Street, Suite 300, San Francisco, CA 94104, USA) gehostet. Zur Gewährleistung eines sicheren und stabilen Betriebs erfasst Netlify technische Zugriffsdaten (Server-Logfiles wie IP-Adresse, Datum/Uhrzeit, Browsertyp). Die Datenverarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO sowie eines Vertrags zur Auftragsverarbeitung (AVV) gemäß Standardvertragsklauseln der EU-Kommission.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white uppercase mb-1">5. Ihre Betroffenenrechte</h4>
+                    <p>
+                        Sie haben nach Art. 15–21 DSGVO jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Berichtigung, Löschung oder Einschränkung der Verarbeitung. Zur Ausübung wenden Sie sich formlos per E-Mail an <span data-company="email">omerneziroglu25@gmail.com</span>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-800 text-right">
+                <button onclick="closeModal('datenschutzModal')" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg text-xs font-semibold">Schließen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- JAVASCRIPT: COMPANY_CONFIG, LEITSTAND-DEMO & MODALS      -->
+    <!-- ======================================================== -->
+    <script>
+        // --------------------------------------------------------
+        // 8. ZENTRALES KONFIGURATIONSOBJEKT FÜR ALLE FIRMENDATEN
+        // Hier tragen Sie nur an EINER Stelle alle realen Daten ein!
+        // --------------------------------------------------------
+        const COMPANY_CONFIG = {
+            companyName: 'LogiFlow Systems',
+            ownerName: 'Göksal Neziroglu',
+            street: 'Musterstraße 12',               // TODO: Echte Straße & Hausnummer eintragen
+            zipCity: '78549 Spaichingen',             // TODO: Echte PLZ & Ort eintragen
+            country: 'Deutschland',
+            phone: '0174 1707376',
+            email: 'omerneziroglu25@gmail.com',
+            website: 'https://logiflowsystems.netlify.app',
+            vatId: 'DE 123456789'                     // TODO: Echte USt-IdNr. eintragen (oder Hinweis § 19 UStG)
+        };
+
+        // Automatisches Füllen aller Datenfelder im DOM
+        function applyCompanyConfig() {
+            document.querySelectorAll('[data-company]').forEach(el => {
+                const key = el.getAttribute('data-company');
+                if (COMPANY_CONFIG[key]) el.textContent = COMPANY_CONFIG[key];
+            });
+
+            document.querySelectorAll('[data-company-href]').forEach(el => {
+                const type = el.getAttribute('data-company-href');
+                if (type === 'tel') el.href = `tel:${COMPANY_CONFIG.phone.replace(/\s+/g, '')}`;
+                if (type === 'mailto') el.href = `mailto:${COMPANY_CONFIG.email}`;
+                if (type === 'website') el.href = COMPANY_CONFIG.website;
+            });
+        }
+
+        // --------------------------------------------------------
+        // 6. INTERAKTIVE TOUCHSCREEN-MATRIX MIT LOCALSTORAGE & FILTER
+        // --------------------------------------------------------
+        const STORAGE_KEY = 'logiflow_demo_matrix_v2';
+
+        const defaultItems = [
+            { id: 1, charge: 'CH-2026-081', artikel: 'CNC-Flanschgehäuse Alu (120 Stk)', ort: 'Puffer B-04 / Station 2', status: 'FREI', zeit: '08:15 Uhr' },
+            { id: 2, charge: 'CH-2026-082', artikel: 'Sud #14 Kellerbier (20 hl)', ort: 'Reifetank T-04', status: 'PRUEF', zeit: '09:40 Uhr' },
+            { id: 3, charge: 'CH-2026-083', artikel: 'Dichtungsring EPDM (500 Stk)', ort: 'QS-Sperrlager S-01', status: 'SPERR', zeit: '10:05 Uhr' },
+            { id: 4, charge: 'CH-2026-084', artikel: 'Siebdruckplatte 21mm Zuschnitt', ort: 'Sägelinie Station 2', status: 'FREI', zeit: '10:22 Uhr' },
+            { id: 5, charge: 'CH-2026-085', artikel: 'KLT-Behälter Baugruppe V2', ort: 'Montageplatz 3', status: 'FREI', zeit: '11:10 Uhr' },
+            { id: 6, charge: 'CH-2026-086', artikel: 'Hydraulik-Flansch Ø 45mm', ort: 'QS-Prüftisch Labor', status: 'SPERR', zeit: '11:30 Uhr' }
+        ];
+
+        function loadItems() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (!saved) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultItems));
+                return defaultItems;
+            }
+            try {
+                return JSON.parse(saved);
+            } catch (e) {
+                return defaultItems;
+            }
+        }
+
+        function saveItems(items) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+            renderMatrix();
+        }
+
+        function renderMatrix() {
+            const items = loadItems();
+            const grid = document.getElementById('matrixGrid');
+            const searchVal = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
+            grid.innerHTML = '';
+
+            let frei = 0, pruef = 0, sperr = 0;
+
+            items.forEach(item => {
+                if (item.status === 'FREI') frei++;
+                if (item.status === 'PRUEF') pruef++;
+                if (item.status === 'SPERR') sperr++;
+            });
+
+            document.getElementById('countFrei').textContent = frei;
+            document.getElementById('countPruef').textContent = pruef;
+            document.getElementById('countSperr').textContent = sperr;
+            document.getElementById('countGesamt').textContent = items.length;
+
+            const filtered = items.filter(item => {
+                if (!searchVal) return true;
+                return item.charge.toLowerCase().includes(searchVal) ||
+                       item.artikel.toLowerCase().includes(searchVal) ||
+                       item.ort.toLowerCase().includes(searchVal);
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-slate-500 bg-slate-900/60 rounded-xl border border-slate-800">
+                        Keine passenden Behälter für "${searchVal}" gefunden.
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(item => {
+                let badgeClass = 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40';
+                let cardBorder = 'border-emerald-500/30 hover:border-emerald-500';
+                let statusText = '🟢 FREIGEGEBEN';
+                let nextHint = 'Klick: In Prüfung 🟡';
+
+                if (item.status === 'PRUEF') {
+                    badgeClass = 'bg-amber-500/20 text-amber-400 border-amber-500/40';
+                    cardBorder = 'border-amber-500/30 hover:border-amber-500';
+                    statusText = '🟡 IN PRÜFUNG';
+                    nextHint = 'Klick: QS-Sperre 🔴';
+                } else if (item.status === 'SPERR') {
+                    badgeClass = 'bg-rose-500/20 text-rose-400 border-rose-500/40';
+                    cardBorder = 'border-rose-500/50 hover:border-rose-500 bg-rose-950/15';
+                    statusText = '🔴 QS-SPERRLAGER';
+                    nextHint = 'Klick: Freigeben 🟢';
+                }
+
+                const card = document.createElement('div');
+                card.className = `p-4 sm:p-5 rounded-xl bg-slate-900 border ${cardBorder} cursor-pointer transition select-none flex flex-col justify-between shadow-md`;
+                card.onclick = () => toggleStatus(item.id);
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-2.5">
+                            <span class="font-mono text-xs font-bold text-cyan-300 bg-dark-950 px-2.5 py-1 rounded border border-slate-800 flex items-center gap-1.5">
+                                <span>🏷️</span> <span>${item.charge}</span>
+                            </span>
+                            <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${badgeClass}">${statusText}</span>
+                        </div>
+                        <h4 class="font-bold text-white text-sm sm:text-base mt-2">${item.artikel}</h4>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                        <span class="flex items-center gap-1">📍 ${item.ort}</span>
+                        <div class="flex items-center gap-3">
+                            <span class="text-[10px] text-slate-500">${nextHint}</span>
+                            <button onclick="event.stopPropagation(); deleteItem(${item.id})" class="text-slate-500 hover:text-rose-400 transition text-sm p-1" title="Behälter löschen">✕</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function toggleStatus(id) {
+            const items = loadItems();
+            const order = ['FREI', 'PRUEF', 'SPERR'];
+            const updated = items.map(item => {
+                if (item.id === id) {
+                    const nextIndex = (order.indexOf(item.status) + 1) % order.length;
+                    item.status = order[nextIndex];
+                }
+                return item;
+            });
+            saveItems(updated);
+        }
+
+        function addItem() {
+            const chargeEl = document.getElementById('newCharge');
+            const artikelEl = document.getElementById('newArtikel');
+            const ortEl = document.getElementById('newOrt');
+
+            const charge = chargeEl.value.trim() || 'CH-' + Math.floor(100 + Math.random() * 900);
+            const artikel = artikelEl.value.trim();
+            const ort = ortEl.value.trim() || 'Pufferlager A1';
+
+            if (!artikel) {
+                artikelEl.focus();
+                return;
+            }
+
+            const now = new Date();
+            const zeit = now.toTimeString().slice(0, 5) + ' Uhr';
+
+            const items = loadItems();
+            items.unshift({
+                id: Date.now(),
+                charge,
+                artikel,
+                ort,
+                status: 'FREI',
+                zeit
+            });
+
+            chargeEl.value = '';
+            artikelEl.value = '';
+            ortEl.value = '';
+            saveItems(items);
+            generateRandomCharge();
+        }
+
+        function deleteItem(id) {
+            const items = loadItems().filter(i => i.id !== id);
+            saveItems(items);
+        }
+
+        function resetDemoData() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultItems));
+            document.getElementById('searchInput').value = '';
+            renderMatrix();
+        }
+
+        function filterMatrix() {
+            renderMatrix();
+        }
+
+        function generateRandomCharge() {
+            const el = document.getElementById('newCharge');
+            if (el) el.value = `CH-${new Date().getFullYear()}-${Math.floor(100 + Math.random() * 900)}`;
+        }
+
+        function toggleAddForm() {
+            const form = document.getElementById('addFormContainer');
+            const btnText = document.getElementById('toggleFormBtnText');
+            if (form.classList.contains('hidden')) {
+                form.classList.remove('hidden');
+                btnText.textContent = 'Formular schließen';
+                generateRandomCharge();
+                document.getElementById('newArtikel').focus();
+            } else {
+                form.classList.add('hidden');
+                btnText.textContent = 'Neuen Behälter anlegen';
+            }
+        }
+
+        // --------------------------------------------------------
+        // MODALS (IMPRESSUM & DATENSCHUTZ)
+        // --------------------------------------------------------
+        function openModal(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('hidden');
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal('impressumModal');
+                closeModal('datenschutzModal');
+            }
+        });
+
+        // Initialisierung
+        document.addEventListener('DOMContentLoaded', () => {
+            applyCompanyConfig();
+            renderMatrix();
+            generateRandomCharge();
+        });
+    </script>
+</body>
+</html>

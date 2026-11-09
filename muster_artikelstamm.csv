@@ -1,0 +1,6 @@
+Artikelnummer;Bezeichnung;Warengruppe;Einheit;Soll_Taktzeit_Sekunden;Barcode;Mindestbestand
+ART-1001;Aluminium-Gehaeuse Typ A;Zerspanung;STK;120;4012345100101;50
+ART-1002;Edelstahl-Welle 25mm;Drehteile;STK;90;4012345100202;30
+ART-1003;Montage-Baugruppe Sensor X;Montage;STK;240;4012345100303;15
+ART-1004;Dichtungsring EPDM 40mm;Normteile;STK;10;4012345100404;200
+ART-1005;Hydraulikventil Block 2;Baugruppen;STK;310;4012345100505;10
